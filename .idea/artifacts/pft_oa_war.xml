@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="pft_oa:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="pft_oa.war">
+      <element id="artifact" artifact-name="pft_oa:war exploded" />
+    </root>
+  </artifact>
+</component>
