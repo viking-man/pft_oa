@@ -23,7 +23,7 @@ import javax.annotation.Resource;
  * @create : 2017/9/6-19:25
  */
 @RunWith(SpringJUnit4ClassRunner.class)        //表示继承了SpringJUnit4ClassRunner类
-@ContextConfiguration(locations = {"classpath:spring-mvc.xml"})
+@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class MybatisTest {
 
     private static Logger logger = Logger.getLogger(MybatisTest.class);
@@ -33,13 +33,13 @@ public class MybatisTest {
 
     @BeforeTransaction
     public void before() {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mvc.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mybatis.xml");
         userService = (IUserService) ac.getBean("userService");
     }
 
     @Test
     public void test1() {
-        UserEntity user = userService.fetchById(1L);
+        UserEntity user = userService.fetchById(1);
         System.out.println(user.getUsername());
         logger.info("值：" + user.getUsername());
     }

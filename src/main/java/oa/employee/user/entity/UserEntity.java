@@ -1,5 +1,6 @@
 package oa.employee.user.entity;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.constraints.Size;
 
 /**
@@ -10,7 +11,7 @@ import javax.validation.constraints.Size;
  */
 public class UserEntity {
 
-    private Long id;
+    private Integer id;
 
     @Size(max = 40)
     private String username;
@@ -20,11 +21,11 @@ public class UserEntity {
 
     private int age;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

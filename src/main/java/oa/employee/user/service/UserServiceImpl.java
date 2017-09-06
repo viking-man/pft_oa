@@ -1,6 +1,6 @@
 package oa.employee.user.service;
 
-import oa.employee.user.dao.IUserDao;
+import oa.employee.user.dao.UserDao;
 import oa.employee.user.entity.UserEntity;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +16,9 @@ import javax.annotation.Resource;
 public class UserServiceImpl implements IUserService {
 
     @Resource
-    private IUserDao iUserDao;
+    private UserDao userDao;
 
-    public UserEntity fetchById(Long id) {
-        return iUserDao.fetchById(id);
+    public UserEntity fetchById(Integer id) {
+        return userDao.fetchById(id);
     }
 }

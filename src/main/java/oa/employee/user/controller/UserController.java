@@ -26,7 +26,7 @@ public class UserController {
 
     @RequestMapping("/showUser")
     public String toIndex(HttpServletRequest request, Model model) {
-        Long userId = Long.parseLong(request.getParameter("id"));
+        Integer userId = Integer.parseInt(request.getParameter("id"));
         UserEntity user = iUserService.fetchById(userId);
         model.addAttribute("user", user);
         return "showUser";

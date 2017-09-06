@@ -9,5 +9,5 @@ import oa.employee.user.entity.UserEntity;
  * @create : 2017/9/6-14:28
  */
 public interface IUserService {
-    UserEntity fetchById(Long id);
+    UserEntity fetchById(Integer id);
 }
