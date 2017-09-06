@@ -12,7 +12,7 @@ import javax.annotation.Resource;
  * @author : jiangwei
  * @create : 2017/9/6-14:29
  */
-@Service
+@Service("userService")
 public class UserServiceImpl implements IUserService {
 
     @Resource

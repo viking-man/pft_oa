@@ -1,6 +1,8 @@
 package spring;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +23,6 @@ public abstract class IocUnitTest {
 
     protected Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource
-    protected ObjectMapper objectMapper;
-
-
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 }
