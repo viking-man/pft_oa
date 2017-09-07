@@ -26,4 +26,3 @@ CREATE TABLE `bs_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `userno` (`username`,`userno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='员工表 ';
-
