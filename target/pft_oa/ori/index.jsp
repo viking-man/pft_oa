@@ -20,21 +20,11 @@
     <link href="WEB-INF/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
-<jsp:forward page="index.html"/>
 <body>
-<h1 class="text-center text-primary">Office Automation System</h1>
-<div class="container" id="login_blank">
-    <p>oa登录提示</p>
-    <form action="jsp/content.jsp" method="post">
-        <div>用户名：<input type="text" class="col-lg-1" placeholder="张三"></div>
-        <div>密码：<input type="text" class="col-lg-1" placeholder="123456"></div>
-        <div>验证码：<input type="text" class="col-lg-1" placeholder="还没写"></div>
-        <div><input type="submit" class="col-lg-1">提交</div>
-    </form>
-</div>
+<h1>你好，世界！</h1>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="WEB-INF/js/jquery.min.js"></script>
+<script src="WEB-INF/js/jquery-3.2.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="WEB-INF/js/bootstrap.min.js"></script>
 </body>
