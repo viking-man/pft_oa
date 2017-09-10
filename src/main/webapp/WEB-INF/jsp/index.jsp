@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.jsp">蒲云内部管理系统</a>
+            <a class="navbar-brand" href="/index.do">Puyun Office Automation System</a>
         </div>
         <!-- /.navbar-header -->
         <ul class="nav navbar-nav navbar-right">
@@ -154,13 +154,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-laptop nav_icon"></i>员工管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="grids.jsp">个人信息</a>
+                                <a href="/forwardToUser.do">个人信息</a>
                             </li>
                             <li>
-                                <a href="grids.jsp">部门管理</a>
+                                <a href="/forwardToUser.do">部门管理</a>
                             </li>
                             <li>
-                                <a href="grids.jsp">权限管理</a>
+                                <a href="/forwardToUser.do">权限管理</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
