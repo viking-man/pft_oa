@@ -235,14 +235,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <form style="margin:10px;display:inline;padding: 10px 20px;"
                           action="/queryUserInfo.do" method="post">
-                        <input type="button" value="查询" style="height: 30px;width: 60px;">
+                        <input type="submit" value="查询" style="height: 30px;width: 60px;">
                     </form>
                     <hr style="margin: 5px 0px 10px 0px;width: 2px;color: #2d2d2d">
 
                 </div>
                 <table class="table table-bordered">
                     <thead>
-                    <tr class="activity-row">
+                    <tr>
                         <td>姓名</td>
                         <td>工号</td>
                         <td>性别</td>
@@ -254,7 +254,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </tr>
                     </thead>
                     <c:forEach items="${users}" var="user" varStatus="i">
-                        <tr class="activity-row" contenteditable="true">
+                        <tr contenteditable="true">
                             <td>${user.username}</td>
                             <td>${user.userno}</td>
                             <td>${user.sex}</td>
@@ -263,18 +263,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${user.email}</td>
                             <td>${user.department}</td>
                             <td>
-                                <form style="margin:0px;display:inline;padding: 0px 10px" action="/userUpdate.do"
-                                      method="post">
-                                    <button type="submit" style="height: 25px;width: 60px">保存</button>
-                                </form>
+                                <ul>
+                                    <li>
+                                        <a href="/userUpdate.do">保存</a>
+                                    </li>
+                                    <li>
+                                        <a href="/userDelete.do?${user.id}">删除</a>
+                                    </li>
 
-                                <form style="margin:0px;display:inline;padding: 0px 10px" action="/userDelete.do"
-                                      method="post">
-                                    <button type="submit" style="height: 25px;width: 60px">删除</button>
-                                </form>
+                                </ul>
+
+                                    <%--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userUpdate.do"--%>
+                                    <%--method="post">--%>
+                                    <%--<button type="submit" style="height: 25px;width: 60px">保存</button>--%>
+                                    <%--</form>--%>
+
+                                    <%--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userDelete.do"--%>
+                                    <%--method="post">--%>
+                                    <%--<button type="submit" style="height: 25px;width: 60px">删除</button>--%>
+                                    <%--</form>--%>
                             </td>
                         </tr>
                     </c:forEach>
+                    <a href="#">test</a>
                 </table>
             </div>
         </div>

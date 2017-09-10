@@ -58,22 +58,18 @@ public class UserController {
     }
 
     @RequestMapping("/userUpdate.do")
-    public String userUpdate(HttpServletRequest request, Model model) {
-        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
-
-            List<UserEntity> users = iUserService.queryAllUser();
-            model.addAttribute("users", users);
+    public String userUpdate(UserEntity user, Model model) {
+        if (user != null) {
+            iUserService.update(user);
             return "userinfo";
         } else
             return "login";
     }
 
     @RequestMapping("/userDelete.do")
-    public String userDelete(HttpServletRequest request, Model model) {
-        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
-
-            List<UserEntity> users = iUserService.queryAllUser();
-            model.addAttribute("users", users);
+    public String userDelete(UserEntity user, Model model) {
+        if (user != null) {
+            iUserService.delete(user.getId());
             return "userinfo";
         } else
             return "login";
