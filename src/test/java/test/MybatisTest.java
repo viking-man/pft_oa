@@ -23,19 +23,19 @@ public class MybatisTest extends TransIocUnitTest {
     private IUserService userService = null;
 
 
-    @Test
-    public void test1() {
-        UserTestEntity user = userService.fetchById(1);
-        System.out.println(user.getUserName());
-        logger.info("值：" + user.getUserName());
-    }
-
-    @Test
-    public void testInsert() {
-        UserTestEntity userTestEntity = new UserTestEntity();
-        userTestEntity.setAge(1);
-        userTestEntity.setPassword("test");
-        userTestEntity.setUserName("test");
-        userService.insert(userTestEntity);
-    }
+//    @Test
+//    public void test1() {
+//        UserTestEntity user = userService.(1);
+//        System.out.println(user.getUserName());
+//        logger.info("值：" + user.getUserName());
+//    }
+//
+//    @Test
+//    public void testInsert() {
+//        UserTestEntity userTestEntity = new UserTestEntity();
+//        userTestEntity.setAge(1);
+//        userTestEntity.setPassword("test");
+//        userTestEntity.setUserName("test");
+//        userService.insert(userTestEntity);
+//    }
 }

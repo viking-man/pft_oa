@@ -1,5 +1,6 @@
 package oa.user.controller;
 
+import oa.user.entity.UserEntity;
 import oa.user.entity.UserTestEntity;
 import oa.user.service.IUserService;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import param.GlobleConstant;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Project : pft_oa
@@ -19,11 +21,61 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class UserController {
 
-    @RequestMapping("/forwardToUser.do")
-    public String toIndex(HttpServletRequest request, Model model) {
-        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null)
-            return "grids";
-        else
+    @Resource
+    private IUserService iUserService;
+
+    @RequestMapping("/queryUserInfo.do")
+    public String queryUserInfo(HttpServletRequest request, Model model) {
+        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
+
+            List<UserEntity> users = iUserService.queryAllUser();
+            model.addAttribute("users", users);
+            return "userinfo";
+        } else
+            return "login";
+    }
+
+    @RequestMapping("/userCreate.do")
+    public String userCreate(HttpServletRequest request, Model model) {
+        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
+
+            List<UserEntity> users = iUserService.queryAllUser();
+            model.addAttribute("users", users);
+            return "userinfo";
+        } else
+            return "login";
+    }
+
+    @RequestMapping("/userInsert.do")
+    public String userInsert(HttpServletRequest request, Model model) {
+        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
+
+            List<UserEntity> users = iUserService.queryAllUser();
+            model.addAttribute("users", users);
+            return "userinfo";
+        } else
+            return "login";
+    }
+
+    @RequestMapping("/userUpdate.do")
+    public String userUpdate(HttpServletRequest request, Model model) {
+        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
+
+            List<UserEntity> users = iUserService.queryAllUser();
+            model.addAttribute("users", users);
+            return "userinfo";
+        } else
+            return "login";
+    }
+
+    @RequestMapping("/userDelete.do")
+    public String userDelete(HttpServletRequest request, Model model) {
+        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
+
+            List<UserEntity> users = iUserService.queryAllUser();
+            model.addAttribute("users", users);
+            return "userinfo";
+        } else
             return "login";
     }
 }

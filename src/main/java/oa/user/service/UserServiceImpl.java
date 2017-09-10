@@ -1,10 +1,11 @@
 package oa.user.service;
 
-import oa.user.dao.UserTestEntityMapper;
-import oa.user.entity.UserTestEntity;
+import oa.user.dao.UserEntityMapper;
+import oa.user.entity.UserEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Project : pft_oa
@@ -16,13 +17,22 @@ import javax.annotation.Resource;
 public class UserServiceImpl implements IUserService {
 
     @Resource
-    private UserTestEntityMapper userDao;
+    private UserEntityMapper userDao;
 
-    public UserTestEntity fetchById(Integer id) {
-        return userDao.selectByPrimaryKey(id);
+
+    public boolean insert(UserEntity record) {
+        return false;
     }
 
-    public int insert(UserTestEntity userTestEntity) {
-        return userDao.insert(userTestEntity);
+    public boolean update(UserEntity record) {
+        return false;
+    }
+
+    public int delete(Long id) {
+        return 0;
+    }
+
+    public List<UserEntity> queryAllUser() {
+        return userDao.queryAllUser();
     }
 }
