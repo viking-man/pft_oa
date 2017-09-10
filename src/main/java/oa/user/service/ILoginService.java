@@ -1,5 +1,10 @@
 package oa.user.service;
 
+import oa.user.entity.UserEntity;
+import org.springframework.ui.Model;
+
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Project : pft_oa
  *
@@ -7,5 +12,5 @@ package oa.user.service;
  * @create : 2017/9/8-18:20
  */
 public interface ILoginService {
-    boolean checkLoginSucc();
+    boolean checkLoginState(HttpServletRequest request, Model model);
 }

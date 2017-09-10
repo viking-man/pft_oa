@@ -1,7 +1,11 @@
 package oa.user.dao;
 
 import oa.user.entity.UserEntity;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Repository
+@Transactional
 public interface UserEntityMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -10,6 +14,8 @@ public interface UserEntityMapper {
     int insertSelective(UserEntity record);
 
     UserEntity selectByPrimaryKey(Long id);
+
+    UserEntity selectByUsername(String username);
 
     int updateByPrimaryKeySelective(UserEntity record);
 

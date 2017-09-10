@@ -1,10 +1,10 @@
 package oa.user.controller;
 
-import oa.user.entity.UserTestEntity;
-import oa.user.service.IUserService;
+import oa.user.service.ILoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -16,17 +16,19 @@ import javax.servlet.http.HttpServletRequest;
  * @create : 2017/9/6-20:16
  */
 @Controller
-@RequestMapping("/user")
 public class LoginController {
 
     @Resource
-    private IUserService iUserService;
+    private ILoginService iLoginService;
 
-    @RequestMapping("/login")
-    public String toIndex(HttpServletRequest request, Model model) {
-        Integer userId = Integer.parseInt(request.getParameter("id"));
-        UserTestEntity user = iUserService.fetchById(userId);
-        model.addAttribute("user", user);
-        return "showUser";
+    @RequestMapping(value = "/login.do", method = RequestMethod.POST)
+    public String checkLogin(HttpServletRequest request, Model model) {
+
+        if (iLoginService.checkLoginState(request, model)) {
+            return "index";
+        }
+
+        model.addAttribute("error", "用户名或密码验证错误，请联系管理员");
+        return "login";
     }
 }
