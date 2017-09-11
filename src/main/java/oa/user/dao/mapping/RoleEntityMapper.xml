@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="oa.user.dao.RoleEntityMapper">
+  <resultMap id="BaseResultMap" type="oa.user.entity.RoleEntity">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="rowstamp" jdbcType="BIGINT" property="rowstamp" />
+    <result column="createuser" jdbcType="BIGINT" property="createuser" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="modifyuser" jdbcType="BIGINT" property="modifyuser" />
+    <result column="modifytime" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="rolecode" jdbcType="VARCHAR" property="rolecode" />
+    <result column="rolename" jdbcType="VARCHAR" property="rolename" />
+    <result column="rolealias" jdbcType="VARCHAR" property="rolealias" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="fixed" jdbcType="TINYINT" property="fixed" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, rowstamp, createuser, createtime, modifyuser, modifytime, rolecode, rolename, 
+    rolealias, remark, fixed
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bs_role
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bs_role
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="oa.user.entity.RoleEntity">
+    insert into bs_role (id, rowstamp, createuser, 
+      createtime, modifyuser, modifytime, 
+      rolecode, rolename, rolealias, 
+      remark, fixed)
+    values (#{id,jdbcType=BIGINT}, #{rowstamp,jdbcType=BIGINT}, #{createuser,jdbcType=BIGINT}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{modifyuser,jdbcType=BIGINT}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{rolecode,jdbcType=VARCHAR}, #{rolename,jdbcType=VARCHAR}, #{rolealias,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{fixed,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="oa.user.entity.RoleEntity">
+    insert into bs_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="rowstamp != null">
+        rowstamp,
+      </if>
+      <if test="createuser != null">
+        createuser,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="modifyuser != null">
+        modifyuser,
+      </if>
+      <if test="modifytime != null">
+        modifytime,
+      </if>
+      <if test="rolecode != null">
+        rolecode,
+      </if>
+      <if test="rolename != null">
+        rolename,
+      </if>
+      <if test="rolealias != null">
+        rolealias,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="fixed != null">
+        fixed,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="rowstamp != null">
+        #{rowstamp,jdbcType=BIGINT},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyuser != null">
+        #{modifyuser,jdbcType=BIGINT},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rolecode != null">
+        #{rolecode,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null">
+        #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="rolealias != null">
+        #{rolealias,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="fixed != null">
+        #{fixed,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="oa.user.entity.RoleEntity">
+    update bs_role
+    <set>
+      <if test="rowstamp != null">
+        rowstamp = #{rowstamp,jdbcType=BIGINT},
+      </if>
+      <if test="createuser != null">
+        createuser = #{createuser,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyuser != null">
+        modifyuser = #{modifyuser,jdbcType=BIGINT},
+      </if>
+      <if test="modifytime != null">
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rolecode != null">
+        rolecode = #{rolecode,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null">
+        rolename = #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="rolealias != null">
+        rolealias = #{rolealias,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="fixed != null">
+        fixed = #{fixed,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="oa.user.entity.RoleEntity">
+    update bs_role
+    set rowstamp = #{rowstamp,jdbcType=BIGINT},
+      createuser = #{createuser,jdbcType=BIGINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      modifyuser = #{modifyuser,jdbcType=BIGINT},
+      modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      rolecode = #{rolecode,jdbcType=VARCHAR},
+      rolename = #{rolename,jdbcType=VARCHAR},
+      rolealias = #{rolealias,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      fixed = #{fixed,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
