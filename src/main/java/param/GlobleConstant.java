@@ -5,4 +5,5 @@ package param;
  */
 public class GlobleConstant {
     public static final String SESSION_USER_KEY = "session_user_key";
+    public static final String SESSION_LOGIN_CONTEXT = "session_login_context";
 }

@@ -38,10 +38,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <h2 class="form-heading">login</h2>
 <div class="app-cam">
     <form action="/login.do" method="post">
-        <input name="username" type="text" class="text" value="Username" onFocus="this.value = '';"
-               onBlur="if (this.value == '') {this.value = 'Username';}">
-        <input name="password" type="password" onFocus="this.value = '';"
-               onBlur="if (this.value == '') {this.value = 'Password';}" placeholder="Password">
+        <input name="userno" type="text" class="text" placeholder="Userno">
+        <input name="password" type="password" placeholder="Password">
         <div class="submit"><input type="submit" onClick="myFunction()" value="Login"></div>
         <div class="login-social-link">
             <a href="index.jsp" class="facebook">
@@ -56,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <ul class="new">
             <li class="new_left"><p><a href="#">Forgot Password ?</a></p></li>
-            <li class="new_right"><p class="sign">New here ?<a href="register.jsp"> Sign Up</a></p></li>
+            <li class="new_right"><p class="sign">New here ?<a href="usercreate.jsp"> Sign Up</a></p></li>
             <div class="clearfix"></div>
         </ul>
     </form>

@@ -49,7 +49,7 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/*.do"/>
+            <mvc:mapping path="*/*.do"/>
             <bean class="oa.user.filter.LoginFilter"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

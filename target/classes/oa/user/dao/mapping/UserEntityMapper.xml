@@ -16,7 +16,7 @@
         <result column="phoneno" jdbcType="VARCHAR" property="phoneno"/>
         <result column="mobileno" jdbcType="VARCHAR" property="mobileno"/>
         <result column="email" jdbcType="VARCHAR" property="email"/>
-        <result column="noallowed" jdbcType="TINYINT" property="noallowed"/>
+        <result column="disabled" jdbcType="TINYINT" property="disabled"/>
         <result column="suspended" jdbcType="TINYINT" property="suspended"/>
         <result column="department" jdbcType="VARCHAR" property="department"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
@@ -29,7 +29,7 @@
     </resultMap>
     <sql id="Base_Column_List">
     id, rowstamp, createuser, createtime, modifyuser, modifytime, username, userno, sex, 
-    pwd, addr, phoneno, mobileno, email, noallowed, suspended, department, remark, wxuserid, 
+    pwd, addr, phoneno, mobileno, email, disabled, suspended, department, remark, wxuserid,
     otuserid, reserve1, reserve2, reserve3, externid
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -45,11 +45,11 @@
         from bs_user;
     </select>
 
-    <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectByUserno" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from bs_user
-        where username = #{username,jdbcType=VARCHAR}
+        where userno = #{userno,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from bs_user
@@ -60,8 +60,8 @@
       createtime, modifyuser, modifytime, 
       username, userno, sex, 
       pwd, addr, phoneno, 
-      mobileno, email, noallowed, 
-      suspended, department, remark, 
+      mobileno, email, disabled,
+      suspended, department, remark,
       wxuserid, otuserid, reserve1, 
       reserve2, reserve3, externid
       )
@@ -69,7 +69,7 @@
       #{createtime,jdbcType=TIMESTAMP}, #{modifyuser,jdbcType=BIGINT}, #{modifytime,jdbcType=TIMESTAMP}, 
       #{username,jdbcType=VARCHAR}, #{userno,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
       #{pwd,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{phoneno,jdbcType=VARCHAR}, 
-      #{mobileno,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{noallowed,jdbcType=TINYINT}, 
+      #{mobileno,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{disabled,jdbcType=TINYINT},
       #{suspended,jdbcType=TINYINT}, #{department,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
       #{wxuserid,jdbcType=VARCHAR}, #{otuserid,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, 
       #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{externid,jdbcType=VARCHAR}
@@ -120,8 +120,8 @@
             <if test="email != null">
                 email,
             </if>
-            <if test="noallowed != null">
-                noallowed,
+            <if test="disabled != null">
+                disabled,
             </if>
             <if test="suspended != null">
                 suspended,
@@ -194,8 +194,8 @@
             <if test="email != null">
                 #{email,jdbcType=VARCHAR},
             </if>
-            <if test="noallowed != null">
-                #{noallowed,jdbcType=TINYINT},
+            <if test="disabled != null">
+                #{disabled,jdbcType=TINYINT},
             </if>
             <if test="suspended != null">
                 #{suspended,jdbcType=TINYINT},
@@ -268,8 +268,8 @@
             <if test="email != null">
                 email = #{email,jdbcType=VARCHAR},
             </if>
-            <if test="noallowed != null">
-                noallowed = #{noallowed,jdbcType=TINYINT},
+            <if test="disabled != null">
+                disabled = #{disabled,jdbcType=TINYINT},
             </if>
             <if test="suspended != null">
                 suspended = #{suspended,jdbcType=TINYINT},
@@ -316,7 +316,7 @@
       phoneno = #{phoneno,jdbcType=VARCHAR},
       mobileno = #{mobileno,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
-      noallowed = #{noallowed,jdbcType=TINYINT},
+      disabled = #{disabled,jdbcType=TINYINT},
       suspended = #{suspended,jdbcType=TINYINT},
       department = #{department,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},

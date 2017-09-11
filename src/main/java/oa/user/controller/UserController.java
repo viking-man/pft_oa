@@ -1,12 +1,10 @@
 package oa.user.controller;
 
 import oa.user.entity.UserEntity;
-import oa.user.entity.UserTestEntity;
 import oa.user.service.IUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import param.GlobleConstant;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,54 +22,65 @@ public class UserController {
     @Resource
     private IUserService iUserService;
 
-    @RequestMapping("/queryUserInfo.do")
+    @RequestMapping("/userQuery.do")
     public String queryUserInfo(HttpServletRequest request, Model model) {
-        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
 
-            List<UserEntity> users = iUserService.queryAllUser();
-            model.addAttribute("users", users);
-            return "userinfo";
-        } else
-            return "login";
+        List<UserEntity> users = iUserService.queryAllUser();
+        model.addAttribute("users", users);
+        return "userinfo";
     }
 
     @RequestMapping("/userCreate.do")
-    public String userCreate(HttpServletRequest request, Model model) {
-        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
+    public String userCreate() {
 
-            List<UserEntity> users = iUserService.queryAllUser();
-            model.addAttribute("users", users);
-            return "userinfo";
-        } else
-            return "login";
+        return "usercreate";
+    }
+
+    @RequestMapping("/userEdit.do")
+    public String userEdit(Long id, Model model) {
+        UserEntity userEntity = iUserService.selectByid(id);
+        model.addAttribute("user", userEntity);
+        return "useredit";
     }
 
     @RequestMapping("/userInsert.do")
-    public String userInsert(HttpServletRequest request, Model model) {
-        if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
-
-            List<UserEntity> users = iUserService.queryAllUser();
-            model.addAttribute("users", users);
-            return "userinfo";
-        } else
-            return "login";
+    public String userInsert(HttpServletRequest request, UserEntity user, Model model) {
+        try {
+            if (iUserService.insert(request, user))
+                model.addAttribute("error", "插入成功！");
+            else
+                model.addAttribute("error", "插入失败!");
+        } catch (Exception e) {
+            model.addAttribute("error", "插入失败:" + e.getMessage());
+        }
+        return "userinfo";
     }
 
     @RequestMapping("/userUpdate.do")
-    public String userUpdate(UserEntity user, Model model) {
-        if (user != null) {
-            iUserService.update(user);
-            return "userinfo";
-        } else
-            return "login";
+    public String userUpdate(HttpServletRequest request, UserEntity user, Model model) {
+        try {
+            if (iUserService.update(request, user))
+                model.addAttribute("error", "更新成功！");
+            else
+                model.addAttribute("error", "更新失败!");
+        } catch (Exception e) {
+            model.addAttribute("error", "更新失败:" + e.getMessage());
+        }
+        return "userinfo";
     }
 
     @RequestMapping("/userDelete.do")
-    public String userDelete(UserEntity user, Model model) {
-        if (user != null) {
-            iUserService.delete(user.getId());
-            return "userinfo";
-        } else
-            return "login";
+    public String userDelete(Long id, Model model) {
+        try {
+            if (iUserService.delete(id)) {
+                model.addAttribute("error", "删除成功！");
+            } else {
+                model.addAttribute("error", "删除失败！");
+            }
+        } catch (Exception e) {
+            model.addAttribute("error", "删除失败:" + e.getMessage());
+        }
+
+        return "userinfo";
     }
 }

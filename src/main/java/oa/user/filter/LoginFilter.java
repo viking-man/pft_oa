@@ -13,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LoginFilter implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        if (httpServletRequest.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null) {
-            httpServletResponse.sendRedirect("login");
+        if (httpServletRequest.getSession().getAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT) != null) {
             return true;
         }
 

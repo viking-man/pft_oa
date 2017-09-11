@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/queryUserInfo.do">Puyun Office Automation System</a>
+            <a class="navbar-brand" href="/index.do">Puyun Office Automation System</a>
         </div>
         <!-- /.navbar-header -->
         <ul class="nav navbar-nav navbar-right">
@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="../../images/1.png" alt=""/><span
+                <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="../../images/1.png"><span
                         class="badge">9</span></a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-menu-header text-center">
@@ -146,13 +146,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="index.jsp"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
+                        <a href="index.jsp"><i class="fa fa-dashboard fa-fw nav_icon"></i>系统管理</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-laptop nav_icon"></i>Layouts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-laptop nav_icon"></i>员工管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="grids.jsp">Grid System</a>
+                                <a href="/userQuery.do">员工列表</a>
+                            </li>
+                            <li>
+                                <a href="/userQuery.do">部门管理</a>
+                            </li>
+                            <li>
+                                <a href="/userQuery.do">权限管理</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -234,7 +240,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </form>
 
                     <form style="margin:10px;display:inline;padding: 10px 20px;"
-                          action="/queryUserInfo.do" method="post">
+                          action="/userQuery.do" method="post">
                         <input type="submit" value="查询" style="height: 30px;width: 60px;">
                     </form>
                     <hr style="margin: 5px 0px 10px 0px;width: 2px;color: #2d2d2d">
@@ -254,7 +260,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </tr>
                     </thead>
                     <c:forEach items="${users}" var="user" varStatus="i">
-                        <tr contenteditable="true">
+                        <tr>
                             <td>${user.username}</td>
                             <td>${user.userno}</td>
                             <td>${user.sex}</td>
@@ -262,16 +268,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${user.mobileno}</td>
                             <td>${user.email}</td>
                             <td>${user.department}</td>
-                            <td>
-                                <ul>
-                                    <li>
-                                        <a href="/userUpdate.do">保存</a>
-                                    </li>
-                                    <li>
-                                        <a href="/userDelete.do?${user.id}">删除</a>
-                                    </li>
-
-                                </ul>
+                            <td contenteditable="false">
+                                <a href="/userEdit.do?id=${user.id}">修改</a>
+                                <a href="/userDelete.do?id=${user.id}">删除</a>
 
                                     <%--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userUpdate.do"--%>
                                     <%--method="post">--%>
@@ -285,11 +284,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                         </tr>
                     </c:forEach>
-                    <a href="#">test</a>
                 </table>
             </div>
         </div>
+        <div>
+            <p class="text-center">${error}</p>
+        </div>
     </div>
+
     <!-- /#page-wrapper -->
     <%--<div class="copy_layout">--%>
     <%--<p>Copyright © 2015 Modern. All Rights Reserved | Design by </p>--%>

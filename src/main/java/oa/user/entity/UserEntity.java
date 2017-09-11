@@ -1,19 +1,11 @@
 package oa.user.entity;
 
+import common.entity.EntityHasRcm;
+
 import java.util.Date;
 
-public class UserEntity {
+public class UserEntity extends EntityHasRcm {
     private Long id;
-
-    private Long rowstamp;
-
-    private Long createuser;
-
-    private Date createtime;
-
-    private Long modifyuser;
-
-    private Date modifytime;
 
     private String username;
 
@@ -31,9 +23,9 @@ public class UserEntity {
 
     private String email;
 
-    private Byte noallowed;
+    private int disabled;
 
-    private Byte suspended;
+    private int suspended;
 
     private String department;
 
@@ -57,46 +49,6 @@ public class UserEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getRowstamp() {
-        return rowstamp;
-    }
-
-    public void setRowstamp(Long rowstamp) {
-        this.rowstamp = rowstamp;
-    }
-
-    public Long getCreateuser() {
-        return createuser;
-    }
-
-    public void setCreateuser(Long createuser) {
-        this.createuser = createuser;
-    }
-
-    public Date getCreatetime() {
-        return createtime;
-    }
-
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
-
-    public Long getModifyuser() {
-        return modifyuser;
-    }
-
-    public void setModifyuser(Long modifyuser) {
-        this.modifyuser = modifyuser;
-    }
-
-    public Date getModifytime() {
-        return modifytime;
-    }
-
-    public void setModifytime(Date modifytime) {
-        this.modifytime = modifytime;
     }
 
     public String getUsername() {
@@ -163,19 +115,19 @@ public class UserEntity {
         this.email = email == null ? null : email.trim();
     }
 
-    public Byte getNoallowed() {
-        return noallowed;
+    public int getDisabled() {
+        return disabled;
     }
 
-    public void setNoallowed(Byte noallowed) {
-        this.noallowed = noallowed;
+    public void setDisabled(int disabled) {
+        this.disabled = disabled;
     }
 
-    public Byte getSuspended() {
+    public int getSuspended() {
         return suspended;
     }
 
-    public void setSuspended(Byte suspended) {
+    public void setSuspended(int suspended) {
         this.suspended = suspended;
     }
 

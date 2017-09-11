@@ -3,6 +3,7 @@ package oa.user.service;
 import oa.user.entity.UserEntity;
 import oa.user.entity.UserTestEntity;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -13,11 +14,13 @@ import java.util.List;
  */
 public interface IUserService {
 
-    boolean insert(UserEntity record);
+    boolean insert(HttpServletRequest request, UserEntity user);
 
-    boolean update(UserEntity record);
+    boolean update(HttpServletRequest request, UserEntity user);
 
-    int delete(Long id);
+    boolean delete(Long id);
+
+    UserEntity selectByid(Long id);
 
     List<UserEntity> queryAllUser();
 }
