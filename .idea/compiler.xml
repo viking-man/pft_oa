@@ -9,8 +9,8 @@
         <module name="pft_oa" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="pft_oa" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="pft_oa" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
