@@ -39,6 +39,13 @@
         where id = #{id,jdbcType=BIGINT}
     </select>
 
+    <select id="selectByWxuserid" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from bs_user
+        where wxuserid = #{wxuserid,jdbcType=VARCHAR}
+    </select>
+
     <select id="queryAllUser" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

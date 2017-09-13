@@ -1,6 +1,7 @@
 package oa.user.controller;
 
 import oa.user.service.ILoginService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,13 @@ import javax.servlet.http.HttpServletRequest;
 public class IndexController {
 
     @RequestMapping(value = "/index.do")
-    public String checkLogin(HttpServletRequest request, Model model) {
+    public String checkLogin(HttpServletRequest request) {
+        String code = request.getParameter("code");
+        String state = request.getParameter("state");
+        if (StringUtils.isNotBlank(code) && StringUtils.isNotBlank(state) && StringUtils.equals(state, GlobleConstant.WEIXIN_State)) {
+            return "forward:/wx/login.do";
+        }
+
         if (request.getSession().getAttribute(GlobleConstant.SESSION_USER_KEY) != null)
             return "index";
         else

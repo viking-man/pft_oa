@@ -13,4 +13,5 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface ILoginService {
     boolean checkLoginState(HttpServletRequest request, Model model);
+
 }

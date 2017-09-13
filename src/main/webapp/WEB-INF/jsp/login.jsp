@@ -42,12 +42,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <input name="password" type="password" placeholder="Password">
         <div class="submit"><input type="submit" onClick="myFunction()" value="Login"></div>
         <div class="login-social-link">
-            <a href="index.jsp" class="facebook">
-                Facebook
+            <a href="https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wx5ba8760d25c0e797&agentid=1000002&redirect_uri=http%3A%2F%2F120.55.173.61:8082&state=usWmsYx" class="facebook">
+                微信登录
             </a>
-            <a href="index.jsp" class="twitter">
-                Twitter
-            </a>
+
         </div>
         <div class="text-center">
             ${error}

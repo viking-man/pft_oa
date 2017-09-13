@@ -17,6 +17,7 @@ public class LoginFilter implements HandlerInterceptor {
             return true;
         }
 
+        httpServletRequest.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(httpServletRequest, httpServletResponse);
         return false;
     }
 

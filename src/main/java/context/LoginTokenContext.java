@@ -20,6 +20,7 @@ public class LoginTokenContext {
         setUsername(user.getUsername());
         setUserno(user.getUserno());
         setDepartment(user.getDepartment());
+        setWxuserid(user.getWxuserid());
     }
 
     private String tokenid;
@@ -31,6 +32,8 @@ public class LoginTokenContext {
     private String username;
 
     private String department;
+
+    private String wxuserid;
 
     public String getTokenid() {
         return tokenid;
@@ -70,5 +73,13 @@ public class LoginTokenContext {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public String getWxuserid() {
+        return wxuserid;
+    }
+
+    public void setWxuserid(String wxuserid) {
+        this.wxuserid = wxuserid;
     }
 }

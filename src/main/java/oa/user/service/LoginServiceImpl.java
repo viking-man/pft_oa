@@ -11,6 +11,7 @@ import param.GlobleConstant;
 
 import javax.annotation.Resource;
 import javax.security.auth.login.LoginContext;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
