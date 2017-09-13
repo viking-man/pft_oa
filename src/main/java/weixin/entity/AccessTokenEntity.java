@@ -8,7 +8,7 @@ package weixin.entity;
  */
 public class AccessTokenEntity {
 
-    private int errcode;
+    private Integer errcode;
 
     private String errmsg;
 
@@ -16,11 +16,11 @@ public class AccessTokenEntity {
 
     private long expires_in;
 
-    public int getErrcode() {
+    public Integer getErrcode() {
         return errcode;
     }
 
-    public void setErrcode(int errcode) {
+    public void setErrcode(Integer errcode) {
         this.errcode = errcode;
     }
 

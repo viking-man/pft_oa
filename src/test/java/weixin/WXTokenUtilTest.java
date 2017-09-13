@@ -16,5 +16,8 @@ public class WXTokenUtilTest {
         AccessTokenEntity accesstoken = WXTokenUtil.getAccesstoken(GlobleConstant.WEIXIN_CorpID, GlobleConstant.WEIXIN_Secret);
         System.out.println(accesstoken.getAccess_token());
         Assert.notNull(accesstoken);
+
+
     }
+
 }

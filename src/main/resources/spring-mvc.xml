@@ -50,7 +50,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/weixin.do"/>
+            <mvc:exclude-mapping path="/wx/checkUrl.do"/>
             <bean class="oa.user.filter.LoginFilter"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

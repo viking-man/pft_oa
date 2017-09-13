@@ -1,3 +1,4 @@
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -45,7 +46,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <a href="https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wx5ba8760d25c0e797&agentid=1000002&redirect_uri=http%3A%2F%2F120.55.173.61:8082&state=usWmsYx" class="facebook">
                 微信登录
             </a>
-
         </div>
         <div class="text-center">
             ${error}

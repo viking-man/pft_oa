@@ -10,7 +10,7 @@ public class UseridEntity {
 
     private String UserId;
 
-    private int errcode;
+    private Integer errcode;
 
     private String errmsg;
 
@@ -22,11 +22,11 @@ public class UseridEntity {
         UserId = userId;
     }
 
-    public int getErrcode() {
+    public Integer getErrcode() {
         return errcode;
     }
 
-    public void setErrcode(int errcode) {
+    public void setErrcode(Integer errcode) {
         this.errcode = errcode;
     }
 

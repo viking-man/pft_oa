@@ -14,6 +14,7 @@ import weixin.WXTokenUtil;
 import weixin.entity.UseridEntity;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
@@ -32,13 +33,17 @@ public class WXLoginServiceImpl implements WXLoginService {
     public boolean checkLoginState(HttpServletRequest request, Model model) {
         String code = request.getParameter("code");
         AccessTokenEntity accesstoken = WXTokenUtil.getAccesstoken(GlobleConstant.WEIXIN_CorpID, GlobleConstant.WEIXIN_Secret);
-        if (accesstoken == null || accesstoken.getErrcode() == 40029) {
+
+        Cookie accesstokenCookie = new Cookie(GlobleConstant.SESSION_ACCESS_TOKEN_KEY, accesstoken.getAccess_token());
+        accesstokenCookie.setMaxAge(7200);
+
+        if (accesstoken == null || accesstoken.getErrcode() != null) {
             model.addAttribute("error", "获取Access_Token时出错");
             return false;
         }
 
         UseridEntity useridEntity = WXTokenUtil.getUserid(accesstoken.getAccess_token(), code);
-        if (useridEntity == null || useridEntity.getErrcode() == 40029) {
+        if (useridEntity == null || useridEntity.getErrcode() != null) {
             model.addAttribute("error", "获取UserId时出错");
             return false;
         }

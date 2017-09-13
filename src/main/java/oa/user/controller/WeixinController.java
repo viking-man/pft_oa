@@ -36,8 +36,11 @@ public class WeixinController {
 
     @RequestMapping("/login")
     public String wxLogin(HttpServletRequest request, Model model) {
-        wxLoginService.checkLoginState(request, model);
-        return null;
+        if (wxLoginService.checkLoginState(request, model)) {
+            return "index";
+        }
+
+        return "login";
     }
 
     @RequestMapping("/checkUrl.do")
@@ -47,16 +50,12 @@ public class WeixinController {
         String nonce = request.getParameter("nonce");
         String echostr = request.getParameter("echostr");
 
-        System.out.println("msg_signature:" + msg_signature + "timestamp:" + timestamp + "nonce:" + nonce + "echostr:" + echostr);
-//        String msg_encrypt = msg.getMsg_encrypt();
         String sEchoStr;
         try {
             WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(GlobleConstant.WEIXIN_Token, GlobleConstant.WEIXIN_EncodingAESKey, GlobleConstant.WEIXIN_CorpID);
-            sEchoStr = wxcpt.VerifyURL(msg_signature, timestamp,
-                    nonce, echostr);
-            PrintWriter writer = response.getWriter();
-            writer.println(sEchoStr);
-            System.out.println("verifyurl echostr: " + sEchoStr);
+            sEchoStr = wxcpt.VerifyURL(msg_signature, timestamp, nonce, echostr);
+
+            response.getWriter().println(sEchoStr);
         } catch (AesException e) {
             e.printStackTrace();
         } catch (IOException e) {
