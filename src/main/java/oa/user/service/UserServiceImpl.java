@@ -1,7 +1,6 @@
 package oa.user.service;
 
 import context.LoginTokenContext;
-import context.LoginTokenContextHolder;
 import oa.user.dao.UserEntityMapper;
 import oa.user.entity.UserEntity;
 import org.springframework.stereotype.Service;

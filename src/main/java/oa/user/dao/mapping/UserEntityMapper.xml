@@ -52,6 +52,13 @@
         from bs_user;
     </select>
 
+    <select id="queryByWxuserid" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from bs_user
+        where wxuserid = #{wxuserid,jdbcType=VARCHAR}
+    </select>
+
     <select id="selectByUserno" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

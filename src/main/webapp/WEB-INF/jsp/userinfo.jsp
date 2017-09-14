@@ -312,10 +312,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script>
     $(document).ready(function () {
-        if ($("#sex").val() == 1) {
-            $("#sex").val( '男');
+        if ($("#sex").text() == "1") {
+            $("#sex").text('男');
         } else {
-            $("#sex").html('女');
+            $("#sex").text('女');
         }
     });
 </script>

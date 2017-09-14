@@ -1,5 +1,7 @@
 package oa.user.controller;
 
+import common.error.BasicException;
+import common.error.ErrorConst;
 import oa.user.service.WXService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,26 @@ import java.io.IOException;
 @Controller
 @RequestMapping
 public class WeixinController {
+
+    @Resource
+    private WXService wxService;
+
+    @RequestMapping("/wxBind.do")
+    public String wxBind(Long id, Model model, HttpServletResponse response) {
+        try {
+            wxService.requestToWeixin(id, response);
+        } catch (BasicException e) {
+            e.printStackTrace();
+            model.addAttribute(ErrorConst.ERROR, e.getMessage());
+            return "userinfo";
+        } catch (IOException e) {
+            e.printStackTrace();
+            model.addAttribute(ErrorConst.ERROR, e.getMessage());
+            return "userinfo";
+        }
+
+        return "userinfo";
+    }
 
     @RequestMapping("/wx/checkUrl.do")
     public void queryUserInfo(HttpServletRequest request, HttpServletResponse response) {

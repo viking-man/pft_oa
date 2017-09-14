@@ -23,11 +23,9 @@ public class UserController {
     private IUserService iUserService;
 
     @RequestMapping("/userQuery.do")
-    public String queryUserInfo(HttpServletRequest request, Model model) {
+    public String queryUserInfo(Model model) {
 
-        List<UserEntity> users = iUserService.queryAllUser();
-        model.addAttribute("users", users);
-        return "userinfo";
+        return getAllUsers(model);
     }
 
     @RequestMapping("/userCreate.do")
@@ -46,9 +44,9 @@ public class UserController {
     @RequestMapping("/userInsert.do")
     public String userInsert(HttpServletRequest request, UserEntity user, Model model) {
         try {
-            if (iUserService.insert(request, user))
-                model.addAttribute("error", "插入成功！");
-            else
+            if (iUserService.insert(request, user)) {
+                return getAllUsers(model);
+            } else
                 model.addAttribute("error", "插入失败!");
         } catch (Exception e) {
             model.addAttribute("error", "插入失败:" + e.getMessage());
@@ -56,11 +54,17 @@ public class UserController {
         return "userinfo";
     }
 
+    private String getAllUsers(Model model) {
+        List<UserEntity> users = iUserService.queryAllUser();
+        model.addAttribute("users", users);
+        return "userinfo";
+    }
+
     @RequestMapping("/userUpdate.do")
     public String userUpdate(HttpServletRequest request, UserEntity user, Model model) {
         try {
             if (iUserService.update(request, user))
-                model.addAttribute("error", "更新成功！");
+                return getAllUsers(model);
             else
                 model.addAttribute("error", "更新失败!");
         } catch (Exception e) {
@@ -73,7 +77,7 @@ public class UserController {
     public String userDelete(Long id, Model model) {
         try {
             if (iUserService.delete(id)) {
-                model.addAttribute("error", "删除成功！");
+                return getAllUsers(model);
             } else {
                 model.addAttribute("error", "删除失败！");
             }

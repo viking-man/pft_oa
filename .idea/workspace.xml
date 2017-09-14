@@ -1,46 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ede60d4b-338c-4d65-a629-6ac93c56a728" name="Default" comment="&quot;回家继续&quot;">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_1_41.xml" afterPath="" />
+    <list default="true" id="ede60d4b-338c-4d65-a629-6ac93c56a728" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/oa/user/servlet/WeixinServlet.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/dao/UserEntityMapper.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/dao/UserEntityMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/entity/UserEntity.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/entity/UserEntity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/entity/UserTestEntity.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/entity/UserTestEntity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/service/IUserService.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/service/IUserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/service/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/service/UserServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/controller/UserController.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/dao/UserEntityMapper.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/dao/UserEntityMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/entity/UserEntity.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/entity/UserEntity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/entity/UserTestEntity.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/entity/UserTestEntity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/service/IUserService.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/service/IUserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/service/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/service/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/spring/IocUnitTest.class" afterPath="$PROJECT_DIR$/target/test-classes/spring/IocUnitTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/spring/TransIocUnitTest.class" afterPath="$PROJECT_DIR$/target/test-classes/spring/TransIocUnitTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/pft_oa_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/pft_oa_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/common/entity/EntityHasRcm.java" afterPath="$PROJECT_DIR$/src/main/java/common/entity/EntityHasRcm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/context/LoginTokenContextHolder.java" afterPath="$PROJECT_DIR$/src/main/java/context/LoginTokenContextHolder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/controller/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/controller/IndexController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/controller/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/controller/WeixinController.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/controller/WeixinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/UserEntityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/UserEntityMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserEntityMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserEntityMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/LoginServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/LoginServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/UserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/WXService.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/WXService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/param/GlobleConstant.java" afterPath="$PROJECT_DIR$/src/main/java/param/GlobleConstant.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/weixin/WXTokenUtil.java" afterPath="$PROJECT_DIR$/src/main/java/weixin/WXTokenUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/weixin/entity/UseridEntity.java" afterPath="$PROJECT_DIR$/src/main/java/weixin/entity/UseridEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userinfo.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userinfo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/weixin/WXTokenUtilTest.java" afterPath="$PROJECT_DIR$/src/test/java/weixin/WXTokenUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/dao/mapping/UserEntityMapper.xml" afterPath="$PROJECT_DIR$/target/classes/oa/user/dao/mapping/UserEntityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/dao/mapping/UserEntityMapper.xml" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/dao/mapping/UserEntityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/WXLoginService.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/WXService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/WXLoginServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/context/LoginTokenContextHolder.java" afterPath="$PROJECT_DIR$/src/main/java/context/WeixinBindContextHolder.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -65,19 +42,21 @@
       <file leaf-file-name="WeixinController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/controller/WeixinController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+            <state relative-caret-position="156">
+              <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/controller/LoginController.java">
+      <file leaf-file-name="WXService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/WXService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="329">
+              <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,20 +64,20 @@
       <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/controller/IndexController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="49" column="29" lean-forward="false" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+            <state relative-caret-position="330">
+              <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WXServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java">
+      <file leaf-file-name="WeixinBindContextHolder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/context/WeixinBindContextHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="95" column="47" lean-forward="false" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
+            <state relative-caret-position="320">
+              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#377#404#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,27 +86,50 @@
       <file leaf-file-name="UserEntityMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserEntityMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5051">
-              <caret line="64" column="11" lean-forward="true" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
+            <state relative-caret-position="312">
+              <caret line="54" column="31" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="31" />
               <folding>
-                <marker date="1505307908131" expanded="true" signature="2419:2531" ph="select from bs_user" />
-                <marker date="1505307908131" expanded="true" signature="2649:2774" ph="select from bs_user" />
-                <marker date="1505307908131" expanded="true" signature="2855:2926" ph="select from bs_user" />
-                <marker date="1505307908131" expanded="true" signature="3043:3164" ph="select from bs_user" />
-                <marker date="1505307908131" expanded="true" signature="3251:3307" ph="delete from " />
-                <marker date="1505307908131" expanded="true" signature="3391:4455" ph="insert into bs_user... " />
-                <marker date="1505307908131" expanded="true" signature="9324:12041" ph="update bs_us... " />
-                <marker date="1505307908131" expanded="true" signature="12139:13248" ph="update bs_us... " />
+                <marker date="1505395227648" expanded="true" signature="2419:2531" ph="select from bs_user" />
+                <marker date="1505395227648" expanded="true" signature="2649:2774" ph="select from bs_user" />
+                <marker date="1505395227648" expanded="true" signature="2855:2926" ph="select from bs_user" />
+                <marker date="1505395227648" expanded="true" signature="3011:3136" ph="select from bs_user" />
+                <marker date="1505395227648" expanded="true" signature="3252:3373" ph="select from bs_user" />
+                <marker date="1505395227648" expanded="true" signature="3460:3516" ph="delete from " />
+                <marker date="1505395227648" expanded="true" signature="3600:4664" ph="insert into bs_user... " />
+                <marker date="1505395227648" expanded="true" signature="9533:12250" ph="update bs_us... " />
+                <marker date="1505395227648" expanded="true" signature="12348:13457" ph="update bs_us... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spring-mybatis.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
+      <file leaf-file-name="WXServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="43" column="32" lean-forward="false" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+            <state relative-caret-position="136">
+              <caret line="99" column="146" lean-forward="false" selection-start-line="99" selection-start-column="146" selection-end-line="99" selection-end-column="146" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserEntityMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/dao/UserEntityMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="454">
+              <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GlobleConstant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/param/GlobleConstant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -136,28 +138,18 @@
       <file leaf-file-name="WXTokenUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/weixin/WXTokenUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="390">
+              <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userinfo.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="userinfo.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userinfo.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="321" column="7" lean-forward="true" selection-start-line="321" selection-start-column="7" selection-end-line="321" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/LoginServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="277" column="64" lean-forward="false" selection-start-line="277" selection-start-column="41" selection-end-line="277" selection-end-column="195" />
               <folding />
             </state>
           </provider>
@@ -226,9 +218,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/useredit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/oa/user/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserroleEntityMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
         <option value="$PROJECT_DIR$/src/main/java/weixin/AesException.java" />
         <option value="$PROJECT_DIR$/src/main/java/weixin/controller/WeixinController.java" />
@@ -248,8 +237,6 @@
         <option value="$PROJECT_DIR$/src/main/java/util/HttpsUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/param/HttpConst.java" />
         <option value="$PROJECT_DIR$/src/main/java/weixin/entity/AccessTokenEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/oa/user/dao/UserEntityMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserEntityMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/common/entity/common/serviceimpl/BaseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/oa/user/controller/WeixinControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
@@ -260,7 +247,6 @@
         <option value="$PROJECT_DIR$/src/main/java/oa/user/service/WXLoginService.java" />
         <option value="$PROJECT_DIR$/src/main/java/oa/user/service/WXLoginServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/common/error/ErrorConst.java" />
-        <option value="$PROJECT_DIR$/src/main/java/param/GlobleConstant.java" />
         <option value="$PROJECT_DIR$/src/main/java/weixin/WXTokenUtil.java" />
         <option value="$PROJECT_DIR$/src/test/java/weixin/WXTokenUtilTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/common/error/BasicException.java" />
@@ -269,14 +255,20 @@
         <option value="$PROJECT_DIR$/src/main/java/oa/user/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/weixin/entity/UseridEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/oa/user/dao/WxBindEntityMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/oa/user/controller/WeixinController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userinfo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/oa/user/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/context/LoginTokenContextHolder.java" />
         <option value="$PROJECT_DIR$/src/main/java/oa/user/service/LoginServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/oa/user/service/WXService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/WeixinBindContext.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/WeixinBindContextHolder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/param/GlobleConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oa/user/controller/WeixinController.java" />
         <option value="$PROJECT_DIR$/src/main/java/oa/user/controller/IndexController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oa/user/service/WXService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oa/user/dao/UserEntityMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserEntityMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userinfo.jsp" />
       </list>
     </option>
   </component>
@@ -374,8 +366,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -669,6 +659,10 @@
               <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -693,10 +687,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -882,19 +872,22 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/back" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -907,12 +900,8 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\pft_oa\src\main\webapp" />
-      <recent name="D:\pft_oa\src\main\webapp\WEB-INF" />
-      <recent name="D:\pft_oa\src\main\resources" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="context" />
       <recent name="common.entity" />
       <recent name="oa.user.controller" />
     </key>
@@ -922,6 +911,11 @@
       <recent name="D:\pft_oa\src\lib" />
       <recent name="D:\pft_oa\src\main\webapp" />
       <recent name="D:\pft_oa\src\main\webapp\WEB-INF\html" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\pft_oa\src\main\webapp" />
+      <recent name="D:\pft_oa\src\main\webapp\WEB-INF" />
+      <recent name="D:\pft_oa\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1579,7 +1573,9 @@
       <workItem from="1505283918878" duration="688000" />
       <workItem from="1505284659479" duration="18931000" />
       <workItem from="1505352765773" duration="19981000" />
-      <workItem from="1505378286630" duration="5673000" />
+      <workItem from="1505378286630" duration="6836000" />
+      <workItem from="1505390729065" duration="46000" />
+      <workItem from="1505390819007" duration="4497000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;回家继续&quot;">
       <created>1504872874733</created>
@@ -1637,7 +1633,21 @@
       <option name="project" value="LOCAL" />
       <updated>1505308605868</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="&quot;回家继续&quot;">
+      <created>1505384064798</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1505384064798</updated>
+    </task>
+    <task id="LOCAL-00010" summary="&quot;回家继续&quot;">
+      <created>1505384804969</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1505384804969</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1673,7 +1683,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156432000" />
+    <option name="totallyTimeSpent" value="162138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1704,10 +1714,9 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5626072" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25567323" sideWeight="0.48734176" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2632375" sideWeight="0.48734176" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19440243" sideWeight="0.51265824" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.68267584" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1715,6 +1724,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.68267584" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1724,51 +1734,21 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;回家继续&quot;" />
     <MESSAGE value="&quot;回家继续0913&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;回家继续0913&quot;" />
+    <MESSAGE value="&quot;回家继续&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;回家继续&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/oa/user/controller/UserController.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/oa/user/controller/UserController.java</url>
-          <line>74</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/oa/user/service/UserServiceImpl.java</url>
-          <line>42</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/oa/user/controller/WeixinControllerTest.java</url>
           <line>20</line>
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/weixin/WXTokenUtil.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java</url>
-          <line>75</line>
-          <properties />
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="54" />
+      <option name="time" value="56" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1777,26 +1757,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/net/URLConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="159" column="22" lean-forward="false" selection-start-line="159" selection-start-column="22" selection-end-line="159" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/param/HttpConst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weixin/XMLParse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1842,7 +1806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="196" column="25" lean-forward="false" selection-start-line="196" selection-start-column="25" selection-end-line="196" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1850,7 +1813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
           <caret line="219" column="28" lean-forward="false" selection-start-line="219" selection-start-column="28" selection-end-line="219" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1874,7 +1836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="972" column="0" lean-forward="false" selection-start-line="972" selection-start-column="0" selection-end-line="972" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1897,7 +1858,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1905,7 +1865,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1913,7 +1872,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1921,14 +1879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/param/GlobleConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="67" lean-forward="true" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1951,10 +1901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#235#236#0" expanded="false" />
-            <element signature="e#265#266#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1962,7 +1908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1970,17 +1915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1988,15 +1922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="70" column="16" lean-forward="false" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2004,12 +1929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#712#713#0" expanded="false" />
-            <element signature="e#743#744#0" expanded="false" />
-            <element signature="e#791#792#0" expanded="false" />
-            <element signature="e#826#827#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2017,9 +1936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2027,7 +1943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="47" column="38" lean-forward="false" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="175" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2035,7 +1950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="22" column="55" lean-forward="true" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2043,7 +1957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
           <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2051,7 +1964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
           <caret line="439" column="0" lean-forward="false" selection-start-line="439" selection-start-column="0" selection-end-line="439" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2067,70 +1979,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/context/LoginTokenContextHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#267#294#0" expanded="true" />
-            <element signature="e#370#371#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/WXService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/dao/UserEntityMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserEntityMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5051">
-          <caret line="64" column="11" lean-forward="true" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-          <folding>
-            <marker date="1505307908131" expanded="true" signature="2419:2531" ph="select from bs_user" />
-            <marker date="1505307908131" expanded="true" signature="2649:2774" ph="select from bs_user" />
-            <marker date="1505307908131" expanded="true" signature="2855:2926" ph="select from bs_user" />
-            <marker date="1505307908131" expanded="true" signature="3043:3164" ph="select from bs_user" />
-            <marker date="1505307908131" expanded="true" signature="3251:3307" ph="delete from " />
-            <marker date="1505307908131" expanded="true" signature="3391:4455" ph="insert into bs_user... " />
-            <marker date="1505307908131" expanded="true" signature="9324:12041" ph="update bs_us... " />
-            <marker date="1505307908131" expanded="true" signature="12139:13248" ph="update bs_us... " />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
+        <state relative-caret-position="860">
           <caret line="43" column="32" lean-forward="false" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weixin/WXTokenUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2139,7 +1994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
           <caret line="285" column="0" lean-forward="false" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2147,57 +2001,150 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/IUserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="95" column="47" lean-forward="false" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/controller/WeixinController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="49" column="29" lean-forward="false" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+        <state relative-caret-position="234">
+          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
+        <state relative-caret-position="380">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="48" column="32" lean-forward="false" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/LoginServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="340">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/WeixinBindContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/param/GlobleConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weixin/WXTokenUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userinfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="321" column="7" lean-forward="true" selection-start-line="321" selection-start-column="7" selection-end-line="321" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="277" column="64" lean-forward="false" selection-start-line="277" selection-start-column="41" selection-end-line="277" selection-end-column="195" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/controller/WeixinController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/dao/UserEntityMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserEntityMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="54" column="31" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="31" />
+          <folding>
+            <marker date="1505395227648" expanded="true" signature="2419:2531" ph="select from bs_user" />
+            <marker date="1505395227648" expanded="true" signature="2649:2774" ph="select from bs_user" />
+            <marker date="1505395227648" expanded="true" signature="2855:2926" ph="select from bs_user" />
+            <marker date="1505395227648" expanded="true" signature="3011:3136" ph="select from bs_user" />
+            <marker date="1505395227648" expanded="true" signature="3252:3373" ph="select from bs_user" />
+            <marker date="1505395227648" expanded="true" signature="3460:3516" ph="delete from " />
+            <marker date="1505395227648" expanded="true" signature="3600:4664" ph="insert into bs_user... " />
+            <marker date="1505395227648" expanded="true" signature="9533:12250" ph="update bs_us... " />
+            <marker date="1505395227648" expanded="true" signature="12348:13457" ph="update bs_us... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/WeixinBindContextHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="e#377#404#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/WXService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="99" column="146" lean-forward="false" selection-start-line="99" selection-start-column="146" selection-end-line="99" selection-end-column="146" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

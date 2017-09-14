@@ -14,4 +14,5 @@ public class GlobleConstant {
     public static final String WEIXIN_Secret = "EMaJHn777HPc3BwFsOWcjrKaCDZ9fXezopfsJL42PYU";
     public static final String WEIXIN_State = "usWmsYx";
     public static final String WEIXIN_Url = "122.224.220.182:8082";
+    public static final String WEIXIN_BINDUSER_KEY = "weixin_bind_user";
 }

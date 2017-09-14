@@ -1,7 +1,6 @@
 package oa.user.service;
 
 import context.LoginTokenContext;
-import context.LoginTokenContextHolder;
 import oa.user.dao.UserEntityMapper;
 import oa.user.entity.UserEntity;
 import org.apache.commons.lang3.StringUtils;
@@ -10,8 +9,6 @@ import org.springframework.ui.Model;
 import param.GlobleConstant;
 
 import javax.annotation.Resource;
-import javax.security.auth.login.LoginContext;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -33,8 +30,6 @@ public class LoginServiceImpl implements ILoginService {
             if (StringUtils.equals(user.getPwd(), password)) {
 
                 request.getSession().setAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT, new LoginTokenContext(user));
-
-                LoginTokenContextHolder.addToken(GlobleConstant.SESSION_LOGIN_CONTEXT, new LoginTokenContext(user));
 
                 model.addAttribute("user", user);
                 return true;

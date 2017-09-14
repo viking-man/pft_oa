@@ -26,4 +26,6 @@ public interface UserEntityMapper {
     int updateByPrimaryKey(UserEntity record);
 
     List<UserEntity> queryAllUser();
+
+    List<UserEntity> queryByWxuserid(String wxuserid);
 }

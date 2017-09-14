@@ -1,17 +1,14 @@
 package oa.user.controller;
 
-import common.error.ErrorConst;
 import context.LoginTokenContext;
-import context.LoginTokenContextHolder;
-import oa.user.service.ILoginService;
+import context.WeixinBindContext;
+import context.WeixinBindContextHolder;
 import oa.user.service.WXService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import param.GlobleConstant;
-import weixin.entity.UseridEntity;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -34,19 +31,16 @@ public class IndexController {
         String state = request.getParameter("state");
         if (StringUtils.isNotBlank(code) && StringUtils.isNotBlank(state) && StringUtils.equals(state, GlobleConstant.WEIXIN_State)) {
 
-            if (request.getSession().getAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT) == null
-                    && LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT) == null) {
+            if (WeixinBindContextHolder.getToken(GlobleConstant.WEIXIN_BINDUSER_KEY) == null) {
                 if (wxService.wxLogin(request, model))
                     return "index";
                 else
                     return "login";
             } else {
-                LoginTokenContext loginTokenContext =
-                        request.getSession().getAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT) == null ?
-                                LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT) :
-                                (LoginTokenContext) request.getSession().getAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT);
 
-                wxService.wxBind(loginTokenContext, request.getParameter("code"), model);
+                WeixinBindContext bindContext = WeixinBindContextHolder.getToken(GlobleConstant.WEIXIN_BINDUSER_KEY);
+                if (wxService.wxBind(bindContext, request.getParameter("code"), model))
+                    return "forward:/userQuery.do";
                 return "userinfo";
             }
         }
