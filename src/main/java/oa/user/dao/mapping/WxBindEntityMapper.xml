@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="oa.user.dao.WxBindEntityMapper">
+  <resultMap id="BaseResultMap" type="oa.user.entity.WxBindEntity">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="rowstamp" jdbcType="BIGINT" property="rowstamp" />
+    <result column="createuser" jdbcType="BIGINT" property="createuser" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="modifyuser" jdbcType="BIGINT" property="modifyuser" />
+    <result column="modifytime" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="userid" jdbcType="BIGINT" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="userno" jdbcType="VARCHAR" property="userno" />
+    <result column="wxuserid" jdbcType="VARCHAR" property="wxuserid" />
+    <result column="deviceid" jdbcType="VARCHAR" property="deviceid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, rowstamp, createuser, createtime, modifyuser, modifytime, userid, username, userno, 
+    wxuserid, deviceid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wx_binduser
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from wx_binduser
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="oa.user.entity.WxBindEntity">
+    insert into wx_binduser (id, rowstamp, createuser, 
+      createtime, modifyuser, modifytime, 
+      userid, username, userno, 
+      wxuserid, deviceid)
+    values (#{id,jdbcType=BIGINT}, #{rowstamp,jdbcType=BIGINT}, #{createuser,jdbcType=BIGINT}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{modifyuser,jdbcType=BIGINT}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{userid,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{userno,jdbcType=VARCHAR}, 
+      #{wxuserid,jdbcType=VARCHAR}, #{deviceid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="oa.user.entity.WxBindEntity">
+    insert into wx_binduser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="rowstamp != null">
+        rowstamp,
+      </if>
+      <if test="createuser != null">
+        createuser,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="modifyuser != null">
+        modifyuser,
+      </if>
+      <if test="modifytime != null">
+        modifytime,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="userno != null">
+        userno,
+      </if>
+      <if test="wxuserid != null">
+        wxuserid,
+      </if>
+      <if test="deviceid != null">
+        deviceid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="rowstamp != null">
+        #{rowstamp,jdbcType=BIGINT},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyuser != null">
+        #{modifyuser,jdbcType=BIGINT},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userno != null">
+        #{userno,jdbcType=VARCHAR},
+      </if>
+      <if test="wxuserid != null">
+        #{wxuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="oa.user.entity.WxBindEntity">
+    update wx_binduser
+    <set>
+      <if test="rowstamp != null">
+        rowstamp = #{rowstamp,jdbcType=BIGINT},
+      </if>
+      <if test="createuser != null">
+        createuser = #{createuser,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyuser != null">
+        modifyuser = #{modifyuser,jdbcType=BIGINT},
+      </if>
+      <if test="modifytime != null">
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userno != null">
+        userno = #{userno,jdbcType=VARCHAR},
+      </if>
+      <if test="wxuserid != null">
+        wxuserid = #{wxuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceid != null">
+        deviceid = #{deviceid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="oa.user.entity.WxBindEntity">
+    update wx_binduser
+    set rowstamp = #{rowstamp,jdbcType=BIGINT},
+      createuser = #{createuser,jdbcType=BIGINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      modifyuser = #{modifyuser,jdbcType=BIGINT},
+      modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      userid = #{userid,jdbcType=BIGINT},
+      username = #{username,jdbcType=VARCHAR},
+      userno = #{userno,jdbcType=VARCHAR},
+      wxuserid = #{wxuserid,jdbcType=VARCHAR},
+      deviceid = #{deviceid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
