@@ -30,11 +30,8 @@ public class UserServiceImpl implements IUserService {
     public boolean insert(HttpServletRequest request, UserEntity user) {
 
         LoginTokenContext context = (LoginTokenContext) request.getSession().getAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT);
-        user.setRowstamp(System.currentTimeMillis());
-        user.setCreateuser(context.getUserid());
-        user.setCreatetime(new Date());
-        user.setModifyuser(context.getUserid());
-        user.setModifytime(new Date());
+
+        user.actionBeforeInsert(context.getUserid());
 
         int insert = userDao.insert(user);
         if (insert != 0)

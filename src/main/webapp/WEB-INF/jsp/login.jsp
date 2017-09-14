@@ -1,4 +1,5 @@
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ page import="param.GlobleConstant" %>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -32,6 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Bootstrap Core JavaScript -->
     <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 </head>
+
 <body id="login">
 <div class="login-logo">
     <a href="index.jsp"><img src="../../images/logo.png" alt=""/></a>
@@ -43,7 +45,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <input name="password" type="password" placeholder="Password">
         <div class="submit"><input type="submit" onClick="myFunction()" value="Login"></div>
         <div class="login-social-link">
-            <a href="https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wx5ba8760d25c0e797&agentid=1000002&redirect_uri=http%3A%2F%2F120.55.173.61:8082&state=usWmsYx" class="facebook">
+            <a href="https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wx5ba8760d25c0e797&agentid=1000002&redirect_uri=http%3A%2F%2F122.224.220.182:8082&state=usWmsYx"
+               class="facebook">
                 微信登录
             </a>
         </div>

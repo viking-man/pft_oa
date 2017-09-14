@@ -1,5 +1,7 @@
 package common.entity;
 
+import context.LoginTokenContext;
+
 import javax.persistence.Column;
 import java.util.Date;
 
@@ -64,5 +66,18 @@ public abstract class EntityHasRcm {
 
     public void setModifytime(Date modifytime) {
         this.modifytime = modifytime;
+    }
+
+    public void actionBeforeInsert(Long tokenId) {
+        setRowstamp(System.currentTimeMillis());
+        setModifyuser(tokenId);
+        setModifytime(new Date());
+        setCreateuser(tokenId);
+        setCreatetime(new Date());
+    }
+
+    public void actionBeforUpdate(Long tokenId){
+        setModifyuser(tokenId);
+        setModifytime(new Date());
     }
 }

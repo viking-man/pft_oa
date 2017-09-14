@@ -51,6 +51,9 @@
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/wx/checkUrl.do"/>
+            <mvc:exclude-mapping path="/index.do"/>
+            <mvc:exclude-mapping path="/login.do"/>
+            <mvc:exclude-mapping path="/wxLogin.do"/>
             <bean class="oa.user.filter.LoginFilter"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

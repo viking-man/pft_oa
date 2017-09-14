@@ -31,7 +31,11 @@ public class LoginServiceImpl implements ILoginService {
         UserEntity user = userEntityMapper.selectByUserno(userno);
         if (user != null) {
             if (StringUtils.equals(user.getPwd(), password)) {
+
                 request.getSession().setAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT, new LoginTokenContext(user));
+
+                LoginTokenContextHolder.addToken(GlobleConstant.SESSION_LOGIN_CONTEXT, new LoginTokenContext(user));
+
                 model.addAttribute("user", user);
                 return true;
             }

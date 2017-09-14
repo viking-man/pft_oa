@@ -6,7 +6,6 @@
     <packaging>war</packaging>
     <version>1.0</version>
     <name>pft_oa Maven Webapp</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <!-- version of jar for deploy -->

@@ -1,6 +1,7 @@
 package weixin;
 
 import com.alibaba.fastjson.JSON;
+import param.GlobleConstant;
 import param.HttpConst;
 import util.HttpsUtil;
 import weixin.entity.AccessTokenEntity;

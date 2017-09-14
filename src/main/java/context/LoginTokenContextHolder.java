@@ -1,5 +1,8 @@
 package context;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Project : pft_oa
  *
@@ -8,18 +11,13 @@ package context;
  */
 public class LoginTokenContextHolder {
 
-    private static final InheritableThreadLocal<LoginTokenContext> holder = new InheritableThreadLocal<LoginTokenContext>();
+    private static final Map<String, LoginTokenContext> tokenMap = new HashMap<String, LoginTokenContext>();
 
-    public static LoginTokenContext getLoginContext() {
-        return holder.get();
+    public static void addToken(String key, LoginTokenContext context) {
+        tokenMap.put(key, context);
     }
 
-    public static void setLoginContext(LoginTokenContext loginContext) {
-        holder.set(loginContext);
-
-    }
-
-    public static void clearLoginContext() {
-        holder.set(null);
+    public static LoginTokenContext getToken(String key) {
+        return tokenMap.get(key);
     }
 }

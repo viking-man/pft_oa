@@ -17,7 +17,6 @@ public class WXTokenUtilTest {
         System.out.println(accesstoken.getAccess_token());
         Assert.notNull(accesstoken);
 
-
     }
 
 }

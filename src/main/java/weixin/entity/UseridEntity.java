@@ -12,6 +12,8 @@ public class UseridEntity {
 
     private Integer errcode;
 
+    private String DeviceId;
+
     private String errmsg;
 
     public String getUserId() {
@@ -36,5 +38,13 @@ public class UseridEntity {
 
     public void setErrmsg(String errmsg) {
         this.errmsg = errmsg;
+    }
+
+    public String getDeviceId() {
+        return DeviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        DeviceId = deviceId;
     }
 }

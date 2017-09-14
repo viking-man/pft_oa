@@ -26,8 +26,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Custom CSS -->
     <link href="../../css/style.css" rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
-    <!-- jQuery -->
-    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+
+    <!-- Nav CSS -->
+    <link href="../../css/custom.css" rel="stylesheet">
+
 
     <!---//webfonts--->
 </head>
@@ -42,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/index.do">Puyun Office Automation System</a>
+            <a class="navbar-brand" href="/index.do">内部管理系统</a>
         </div>
         <!-- /.navbar-header -->
         <ul class="nav navbar-nav navbar-right">
@@ -256,6 +258,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <td>手机号</td>
                         <td>邮箱</td>
                         <td>所在部门</td>
+                        <td>微信ID</td>
                         <td>信息管理</td>
                     </tr>
                     </thead>
@@ -263,14 +266,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <tr>
                             <td>${user.username}</td>
                             <td>${user.userno}</td>
-                            <td>${user.sex}</td>
+                            <td id="sex">${user.sex}</td>
                             <td>${user.addr}</td>
                             <td>${user.mobileno}</td>
                             <td>${user.email}</td>
                             <td>${user.department}</td>
+                            <td>${user.wxuserid}</td>
                             <td contenteditable="false">
                                 <a href="/userEdit.do?id=${user.id}">修改</a>
                                 <a href="/userDelete.do?id=${user.id}">删除</a>
+                                <a href="https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wx5ba8760d25c0e797&agentid=1000002&redirect_uri=http%3A%2F%2F122.224.220.182:8082&state=usWmsYx">微信绑定</a>
 
                                     <%--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userUpdate.do"--%>
                                     <%--method="post">--%>
@@ -298,12 +303,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <%--</div>--%>
 </div>
 <!-- /#wrapper -->
-<!-- Nav CSS -->
-<link href="../../css/custom.css" rel="stylesheet">
 <!-- Metis Menu Plugin JavaScript -->
 <script src="../../js/metisMenu.min.js"></script>
 <script src="../../js/custom.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<!-- jQuery -->
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+        if ($("#sex").val() == 1) {
+            $("#sex").val( '男');
+        } else {
+            $("#sex").html('女');
+        }
+    });
+</script>
 </body>
 </html>
