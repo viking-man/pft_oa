@@ -1,62 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ede60d4b-338c-4d65-a629-6ac93c56a728" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/oa/user/entity/MsgFromWeixin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/oa/user/entity/UserTestEntity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/oa/user/entity/UserTestEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/entity/UserTestEntity.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/dao/UserEntityMapper.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/dao/UserEntityMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/entity/UserEntity.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/entity/UserEntity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/service/IUserService.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/service/IUserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/service/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/oa/user/service/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/controller/UserController.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/dao/UserEntityMapper.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/dao/UserEntityMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/entity/UserEntity.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/entity/UserEntity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/service/IUserService.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/service/IUserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/service/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/service/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/spring/IocUnitTest.class" afterPath="$PROJECT_DIR$/target/test-classes/spring/IocUnitTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/spring/TransIocUnitTest.class" afterPath="$PROJECT_DIR$/target/test-classes/spring/TransIocUnitTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+    <list default="true" id="ede60d4b-338c-4d65-a629-6ac93c56a728" name="Default" comment="&quot;回家继续0915&quot;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pft_oa.iml" afterPath="$PROJECT_DIR$/pft_oa.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/common/entity/EntityHasRcm.java" afterPath="$PROJECT_DIR$/src/main/java/common/entity/EntityHasRcm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/context/LoginTokenContext.java" afterPath="$PROJECT_DIR$/src/main/java/context/LoginTokenContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/controller/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/controller/IndexController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/controller/WeixinController.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/controller/WeixinController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/PermissionEntityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/PermissionEntityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/RoleEntityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/RoleEntityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/RolePermissionEntityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/RolePermissionEntityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/UserEntityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/UserEntityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/UserroleEntityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/UserroleEntityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/WxBindEntityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/WxBindEntityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/RoleEntityMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/RoleEntityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserEntityMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserEntityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserroleEntityMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/UserroleEntityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/WxBindEntityMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/oa/user/dao/mapping/WxBindEntityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/entity/PermissionEntity.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/entity/PermissionEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/entity/RoleEntity.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/entity/RoleEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/entity/UserEntity.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/entity/UserEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/entity/UserroleEntity.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/entity/UserroleEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/filter/LoginFilter.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/filter/LoginFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/ILoginService.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/ILoginService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/IUserService.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/IUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/LoginServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/LoginServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/WXService.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/WXService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/oa/user/service/WXServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/param/GlobleConstant.java" afterPath="$PROJECT_DIR$/src/main/java/param/GlobleConstant.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/usercreate.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/usercreate.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userinfo.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userinfo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/oa/user/dao/mapping/UserEntityMapper.xml" afterPath="$PROJECT_DIR$/target/classes/oa/user/dao/mapping/UserEntityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/dao/mapping/UserEntityMapper.xml" afterPath="$PROJECT_DIR$/target/pft_oa/WEB-INF/classes/oa/user/dao/mapping/UserEntityMapper.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/context/WeixinBindContextHolder.java" afterPath="$PROJECT_DIR$/src/main/java/context/WeixinContextHolder.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -167,8 +113,8 @@
       <file leaf-file-name="userinfo.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userinfo.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="268" column="37" lean-forward="false" selection-start-line="268" selection-start-column="37" selection-end-line="268" selection-end-column="37" />
+            <state relative-caret-position="-785">
+              <caret line="271" column="28" lean-forward="true" selection-start-line="271" selection-start-column="28" selection-end-line="271" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -1863,7 +1809,7 @@
       <workItem from="1505378286630" duration="6836000" />
       <workItem from="1505390729065" duration="46000" />
       <workItem from="1505390819007" duration="4545000" />
-      <workItem from="1505438412016" duration="30533000" />
+      <workItem from="1505438412016" duration="30801000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;回家继续&quot;">
       <created>1504872874733</created>
@@ -1942,7 +1888,21 @@
       <option name="project" value="LOCAL" />
       <updated>1505395342069</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="&quot;回家继续0915&quot;">
+      <created>1505475068151</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1505475068151</updated>
+    </task>
+    <task id="LOCAL-00013" summary="&quot;回家继续0915&quot;">
+      <created>1505475125262</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1505475125262</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1978,11 +1938,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192719000" />
+    <option name="totallyTimeSpent" value="192987000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2032,7 +1992,8 @@
     <MESSAGE value="&quot;回家继续0913&quot;" />
     <MESSAGE value="&quot;回家继续&quot;" />
     <MESSAGE value="&quot;回家继续0914&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;回家继续0914&quot;" />
+    <MESSAGE value="&quot;回家继续0915&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;回家继续0915&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2277,7 +2238,7 @@
         <state relative-caret-position="189">
           <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2287,7 +2248,7 @@
         <state relative-caret-position="180">
           <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2305,8 +2266,8 @@
         <state relative-caret-position="320">
           <caret line="129" column="5" lean-forward="false" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
           <folding>
-            <element signature="e#2364#2365#0" expanded="true" />
-            <element signature="e#2406#2407#0" expanded="true" />
+            <element signature="e#2364#2365#0" expanded="false" />
+            <element signature="e#2406#2407#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2389,7 +2350,7 @@
         <state relative-caret-position="389">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2539,8 +2500,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userinfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="268" column="37" lean-forward="false" selection-start-line="268" selection-start-column="37" selection-end-line="268" selection-end-column="37" />
+        <state relative-caret-position="-785">
+          <caret line="271" column="28" lean-forward="true" selection-start-line="271" selection-start-column="28" selection-end-line="271" selection-end-column="28" />
           <folding />
         </state>
       </provider>
