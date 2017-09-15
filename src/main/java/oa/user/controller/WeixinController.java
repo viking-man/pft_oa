@@ -2,6 +2,8 @@ package oa.user.controller;
 
 import common.error.BasicException;
 import common.error.ErrorConst;
+import oa.user.entity.UserEntity;
+import oa.user.service.IUserService;
 import oa.user.service.WXService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Project : pft_oa
@@ -22,27 +25,53 @@ import java.io.IOException;
  * @create : 2017/9/11-21:15
  */
 @Controller
-@RequestMapping
 public class WeixinController {
 
     @Resource
     private WXService wxService;
 
+    @Resource
+    private IUserService iUserService;
+
     @RequestMapping("/wxBind.do")
     public String wxBind(Long id, Model model, HttpServletResponse response) {
         try {
-            wxService.requestToWeixin(id, response);
+            wxService.requestToWeixinForBind(id, response);
         } catch (BasicException e) {
             e.printStackTrace();
+            getAllUsers(model);
             model.addAttribute(ErrorConst.ERROR, e.getMessage());
             return "userinfo";
         } catch (IOException e) {
             e.printStackTrace();
+            getAllUsers(model);
             model.addAttribute(ErrorConst.ERROR, e.getMessage());
             return "userinfo";
         }
 
         return "userinfo";
+    }
+
+    @RequestMapping("/removeWxBind.do")
+    public String removeWxBind(Long id, Model model) {
+
+        try {
+            if (wxService.removeWxBind(id)) {
+                getAllUsers(model);
+                model.addAttribute("error", "解除绑定成功");
+            }
+        } catch (BasicException e) {
+            e.printStackTrace();
+            getAllUsers(model);
+            model.addAttribute("error", "解除绑定失败");
+        }
+
+        return "userinfo";
+    }
+
+    private void getAllUsers(Model model) {
+        List<UserEntity> users = iUserService.queryAllUser();
+        model.addAttribute("users", users);
     }
 
     @RequestMapping("/wx/checkUrl.do")

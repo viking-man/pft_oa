@@ -43,6 +43,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <input type="text" class="form-control1" placeholder="手机号" name="mobileno">
     <input type="text" class="form-control1" placeholder="邮箱" name="email">
     <input type="text" class="form-control1" placeholder="部门" name="department">
+    <select id="departmentno" name="departmentno">
+        <option value="manage">管理层</option>
+        <option value="technology" selected="selected">技术部</option>
+        <option value="operation">运维部</option>
+        <option value="market">市场部</option>
+    </select>
+    <select id="rolecode" name="rolecode">
+        <option value="normal" selected="selected">普通员工</option>
+        <option value="groupleader" selected="selected">组长</option>
+        <option value="charge">主管</option>
+    </select>
     <input type="text" class="form-control1" placeholder="备注" name="remark">
     <div class="radios">
         <label for="radio-01" class="label_radio">
@@ -67,51 +78,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="copy_layout login register">
     <p>Copyright © 2015 Modern. All Rights Reserved | Design by </p>
 </div>
-
-<%--<script>--%>
-<%--function validatePass() {--%>
-<%--var pass1 = $.getElementById("pass1").value;--%>
-<%--var pass2 = $.getElementById("pass2").value;--%>
-<%--if (pass1 != pass2) {--%>
-<%--$.getElementById("check_info").value = "两次密码不一致，请重新输入";--%>
-<%--$.getElementById("submit").style.disabled = true;--%>
-<%--} else {--%>
-<%--$.getElementById("check_info").value = "";--%>
-<%--$.getElementById("submit").style.disabled = false;--%>
-<%--}--%>
-<%--}--%>
-
-<%--function validateAll() {--%>
-<%--if (!$.getElementById("username").value) {--%>
-<%--$.getElementById("check_info").value = "姓名不能为空";--%>
-<%--$.getElementById("submit").style.disabled = true;--%>
-<%--}--%>
-<%--if (!$.getElementById("addr").value) {--%>
-<%--$.getElementById("check_info").value = "地址不能为空";--%>
-<%--$.getElementById("submit").style.disabled = true;--%>
-<%--}--%>
-<%--if (!$.getElementById("mobileno").value) {--%>
-<%--$.getElementById("check_info").value = "手机号不能为空";--%>
-<%--$.getElementById("submit").style.disabled = true;--%>
-<%--}--%>
-<%--if (!$.getElementById("email").value) {--%>
-<%--$.getElementById("check_info").value = "邮箱不能为空";--%>
-<%--$.getElementById("submit").style.disabled = true;--%>
-<%--}--%>
-<%--if (!$.getElementById("department").value) {--%>
-<%--$.getElementById("check_info").value = "部门不能为空";--%>
-<%--$.getElementById("submit").style.disabled = true;--%>
-<%--}--%>
-<%--if (!$.getElementById("userno").value) {--%>
-<%--$.getElementById("check_info").value = "用户编码不能为空";--%>
-<%--$.getElementById("submit").style.disabled = true;--%>
-<%--}--%>
-<%--if (!$.getElementById("password").value) {--%>
-<%--$.getElementById("check_info").value = "密码不能为空";--%>
-<%--$.getElementById("submit").style.disabled = true;--%>
-<%--}--%>
-<%--}--%>
-<%--</script>--%>
 
 </body>
 </html>

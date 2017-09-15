@@ -1,6 +1,7 @@
 package oa.user.service;
 
 import context.LoginTokenContext;
+import context.LoginTokenContextHolder;
 import oa.user.dao.UserEntityMapper;
 import oa.user.entity.UserEntity;
 import org.apache.commons.lang3.StringUtils;
@@ -20,23 +21,19 @@ public class LoginServiceImpl implements ILoginService {
     @Resource
     private UserEntityMapper userEntityMapper;
 
-    public boolean checkLoginState(HttpServletRequest request, Model model) {
-
-        String userno = request.getParameter("userno");
-        String password = request.getParameter("password");
+    public boolean login(String userno, String password, Model model) {
 
         UserEntity user = userEntityMapper.selectByUserno(userno);
         if (user != null) {
             if (StringUtils.equals(user.getPwd(), password)) {
 
-                request.getSession().setAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT, new LoginTokenContext(user));
-
-                model.addAttribute("user", user);
+                LoginTokenContextHolder.addToken(GlobleConstant.SESSION_LOGIN_CONTEXT, new LoginTokenContext(user));
                 return true;
             }
         } else {
-            request.getSession().invalidate();
+            LoginTokenContextHolder.clear();
         }
         return false;
     }
+
 }

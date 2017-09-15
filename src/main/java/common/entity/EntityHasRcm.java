@@ -1,6 +1,8 @@
 package common.entity;
 
 import context.LoginTokenContext;
+import context.LoginTokenContextHolder;
+import param.GlobleConstant;
 
 import javax.persistence.Column;
 import java.util.Date;
@@ -68,16 +70,16 @@ public abstract class EntityHasRcm {
         this.modifytime = modifytime;
     }
 
-    public void actionBeforeInsert(Long tokenId) {
+    public void actionBeforeInsert() {
         setRowstamp(System.currentTimeMillis());
-        setModifyuser(tokenId);
+        setModifyuser(LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT).getUserid());
         setModifytime(new Date());
-        setCreateuser(tokenId);
+        setCreateuser(LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT).getUserid());
         setCreatetime(new Date());
     }
 
-    public void actionBeforUpdate(Long tokenId){
-        setModifyuser(tokenId);
+    public void actionBeforUpdate() {
+        setModifyuser(LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT).getUserid());
         setModifytime(new Date());
     }
 }

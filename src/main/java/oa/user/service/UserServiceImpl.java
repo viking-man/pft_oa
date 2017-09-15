@@ -1,8 +1,9 @@
 package oa.user.service;
 
 import context.LoginTokenContext;
-import oa.user.dao.UserEntityMapper;
-import oa.user.entity.UserEntity;
+import context.LoginTokenContextHolder;
+import oa.user.dao.*;
+import oa.user.entity.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -25,31 +26,49 @@ public class UserServiceImpl implements IUserService {
     @Resource
     private UserEntityMapper userDao;
 
+    @Resource
+    private RoleEntityMapper roleEntityMapper;
+
+    @Resource
+    private UserroleEntityMapper userroleEntityMapper;
+
+    @Resource
+    private DepartmentEntityMapper departmentEntityMapper;
+
+    @Resource
+    private UserDepartmentEntityMapper userDepartmentEntityMapper;
+
     @Transactional
-    public boolean insert(HttpServletRequest request, UserEntity user) {
+    public void insert(String rolecode, String departmentno, UserEntity user) {
+        user.actionBeforeInsert();
 
-        LoginTokenContext context = (LoginTokenContext) request.getSession().getAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT);
+        Long userid = userDao.insertAndReturnId(user);
 
-        user.actionBeforeInsert(context.getUserid());
+        RoleEntity roleEntity = roleEntityMapper.selectByUserno(rolecode);
+        UserroleEntity userroleEntity = new UserroleEntity();
+        userroleEntity.actionBeforeInsert();
+        userroleEntity.setUserid(userid);
+        userroleEntity.setRoleid(roleEntity.getId());
+        userroleEntityMapper.insert(userroleEntity);
 
-        int insert = userDao.insert(user);
-        if (insert != 0)
-            return true;
-        return false;
+        DepartmentEntity departmentEntity = departmentEntityMapper.selectByDepartmentno(departmentno);
+        UserDepartmentEntity userDepartmentEntity = new UserDepartmentEntity();
+        userDepartmentEntity.actionBeforeInsert();
+        userDepartmentEntity.setUserid(userid);
+        userDepartmentEntity.setDepartmentid(departmentEntity.getId());
+        userDepartmentEntityMapper.insert(userDepartmentEntity);
     }
 
-    public boolean update(HttpServletRequest request, UserEntity user) {
+    public boolean update(UserEntity user) {
         Assert.notNull(user);
-        Assert.notNull(request.getSession().getAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT));
+        Assert.notNull(LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT));
 
         UserEntity userEntity = userDao.selectByPrimaryKey(user.getId());
         if (userEntity == null)
             return false;
 
-        LoginTokenContext context = (LoginTokenContext) request.getSession().getAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT);
-
         user.setModifytime(new Date());
-        user.setModifyuser(context.getUserid());
+        user.setModifyuser(LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT).getUserid());
         int flag = userDao.updateByPrimaryKeySelective(user);
         if (flag != 0)
             return true;

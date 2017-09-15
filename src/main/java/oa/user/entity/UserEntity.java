@@ -27,8 +27,6 @@ public class UserEntity extends EntityHasRcm {
 
     private int suspended;
 
-    private String department;
-
     private String remark;
 
     private String wxuserid;
@@ -129,14 +127,6 @@ public class UserEntity extends EntityHasRcm {
 
     public void setSuspended(int suspended) {
         this.suspended = suspended;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department == null ? null : department.trim();
     }
 
     public String getRemark() {

@@ -3,8 +3,9 @@ package oa.user.service;
 import common.error.BasicException;
 import common.error.ErrorConst;
 import context.LoginTokenContext;
-import context.WeixinBindContext;
-import context.WeixinBindContextHolder;
+import context.LoginTokenContextHolder;
+import context.WeixinContext;
+import context.WeixinContextHolder;
 import oa.user.dao.UserEntityMapper;
 import oa.user.dao.WxBindEntityMapper;
 import oa.user.entity.UserEntity;
@@ -59,8 +60,7 @@ public class WXServiceImpl implements WXService {
                 return false;
             }
 
-            request.getSession().setAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT, new LoginTokenContext(user));
-            model.addAttribute("user", user);
+            LoginTokenContextHolder.addToken(GlobleConstant.SESSION_LOGIN_CONTEXT, new LoginTokenContext(user));
         } catch (BasicException e) {
             model.addAttribute(ErrorConst.ERROR, e.getMessage());
             return false;
@@ -78,7 +78,7 @@ public class WXServiceImpl implements WXService {
      * @return
      */
     @Transactional
-    public boolean wxBind(WeixinBindContext tokenContext, String code, Model model) {
+    public boolean wxBind( WeixinContext tokenContext, String code, Model model) {
         UserEntity user = userEntityMapper.selectByPrimaryKey(tokenContext.getUserid());
 //        if (user == null) {
 //            model.addAttribute(ErrorConst.ERROR, String.format("未查找到ID为%s的用户", tokenContext.getUserid()));
@@ -102,20 +102,19 @@ public class WXServiceImpl implements WXService {
 
 
             user.setWxuserid(wxuser.getUserId());
-            user.actionBeforUpdate(tokenContext.getUserid());
+            user.actionBeforUpdate();
             int updateUser = userEntityMapper.updateByPrimaryKeySelective(user);
             if (updateUser == 0) {
                 throw new BasicException("更新用户信息时出错");
             }
 
             WxBindEntity wxBindEntity = new WxBindEntity();
-            wxBindEntity.actionBeforeInsert(tokenContext.getUserid());
+            wxBindEntity.actionBeforeInsert();
             wxBindEntity.setWxuserid(wxuser.getUserId());
             wxBindEntity.setUserid(user.getId());
             wxBindEntity.setUserno(user.getUserno());
             wxBindEntity.setUsername(user.getUsername());
             wxBindEntity.setDeviceid(wxuser.getDeviceId());
-            wxBindEntity.actionBeforeInsert(tokenContext.getUserid());
             int insertWxbind = wxBindEntityMapper.insert(wxBindEntity);
             if (insertWxbind == 0) {
                 throw new BasicException("插入用户绑定信息时出错");
@@ -129,16 +128,36 @@ public class WXServiceImpl implements WXService {
         return true;
     }
 
-    public void requestToWeixin(Long id, HttpServletResponse response) throws BasicException, IOException {
+    @Transactional
+    public boolean removeWxBind(Long id) throws BasicException {
         UserEntity user = userEntityMapper.selectByPrimaryKey(id);
         if (user == null)
-            throw new BasicException(String.format("为查询到ID为[%s]的用户", id));
+            throw new BasicException(String.format("未查询到ID为[%s]的用户", id));
+        if (StringUtils.isBlank(user.getWxuserid()))
+            throw new BasicException(String.format("ID为[%s]的用户当前没有绑定微信号", id, user.getWxuserid()));
+
+        if (wxBindEntityMapper.deleteByUseridAndWxuserid(user.getId(), user.getWxuserid()) == 0)
+            return false;
+
+        user.setWxuserid(null);
+        user.actionBeforUpdate();
+        if (userEntityMapper.updateByPrimaryKey(user) == 0)
+            return false;
+
+        return true;
+    }
+
+    public void requestToWeixinForBind(Long id, HttpServletResponse response) throws BasicException, IOException {
+        UserEntity user = userEntityMapper.selectByPrimaryKey(id);
+        if (user == null)
+            throw new BasicException(String.format("未查询到ID为[%s]的用户", id));
         if (StringUtils.isNotBlank(user.getWxuserid()))
             throw new BasicException(String.format("ID为[%s]的用户已经绑定号码为[%s]的微信", id, user.getWxuserid()));
 
-        WeixinBindContextHolder.addToken(GlobleConstant.WEIXIN_BINDUSER_KEY, new WeixinBindContext(user));
+        WeixinContextHolder.addToken(GlobleConstant.WEIXIN_BINDUSER_KEY, new WeixinContext(user, GlobleConstant.WEIXIN_BIND));
 
-        response.sendRedirect("https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wx5ba8760d25c0e797&agentid=1000002&redirect_uri=http%3A%2F%2F122.224.220.182:8082&state=usWmsYxhttps://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wx5ba8760d25c0e797&agentid=1000002&redirect_uri=http%3A%2F%2F122.224.220.182:8082&state=usWmsYx");
+
+        response.sendRedirect("https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wx5ba8760d25c0e797&agentid=1000002&redirect_uri=http%3A%2F%2F122.224.220.182:8082&state=usWmsYx");
     }
 
     private UseridEntity getWxuser(String code) throws BasicException {

@@ -19,7 +19,6 @@ public class LoginTokenContext {
         setUserid(user.getId());
         setUsername(user.getUsername());
         setUserno(user.getUserno());
-        setDepartment(user.getDepartment());
         setWxuserid(user.getWxuserid());
     }
 

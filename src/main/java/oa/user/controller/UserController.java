@@ -1,10 +1,12 @@
 package oa.user.controller;
 
+import context.LoginTokenContextHolder;
 import oa.user.entity.UserEntity;
 import oa.user.service.IUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import param.GlobleConstant;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -42,12 +44,10 @@ public class UserController {
     }
 
     @RequestMapping("/userInsert.do")
-    public String userInsert(HttpServletRequest request, UserEntity user, Model model) {
+    public String userInsert(String rolecode, String departmentno, UserEntity user, Model model) {
         try {
-            if (iUserService.insert(request, user)) {
-                return getAllUsers(model);
-            } else
-                model.addAttribute("error", "插入失败!");
+            iUserService.insert(rolecode, departmentno, user);
+            return getAllUsers(model);
         } catch (Exception e) {
             model.addAttribute("error", "插入失败:" + e.getMessage());
         }
@@ -61,9 +61,9 @@ public class UserController {
     }
 
     @RequestMapping("/userUpdate.do")
-    public String userUpdate(HttpServletRequest request, UserEntity user, Model model) {
+    public String userUpdate(UserEntity user, Model model) {
         try {
-            if (iUserService.update(request, user))
+            if (iUserService.update(user))
                 return getAllUsers(model);
             else
                 model.addAttribute("error", "更新失败!");

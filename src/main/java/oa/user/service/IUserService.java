@@ -1,9 +1,7 @@
 package oa.user.service;
 
 import oa.user.entity.UserEntity;
-import oa.user.entity.UserTestEntity;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -14,9 +12,9 @@ import java.util.List;
  */
 public interface IUserService {
 
-    boolean insert(HttpServletRequest request, UserEntity user);
+    void insert(String rolecode, String departmentno, UserEntity user);
 
-    boolean update(HttpServletRequest request, UserEntity user);
+    boolean update(UserEntity user);
 
     boolean delete(Long id);
 

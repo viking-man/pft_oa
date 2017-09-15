@@ -118,13 +118,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <strong>个人信息</strong>
                     </li>
                     <li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> 姓名 <span
-                            class="label label-info">${user.username}</span></a></li>
+                            class="label label-info">${loginuser.username}</span></a></li>
                     <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> 登录编码 <span
-                            class="label label-success">${user.userno}</span></a></li>
+                            class="label label-success">${loginuser.userno}</span></a></li>
                     <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> 部门 <span
-                            class="label label-danger">${user.department}</span></a></li>
+                            class="label label-danger">${loginuser.department}</span></a></li>
                     <li><a href="#"><i class="fa fa-comments"></i> 微信ID <span
-                            class="label label-warning">${user.wxuserid}</span></a>
+                            class="label label-warning">${loginuser.wxuserid}</span></a>
                     </li>
                     <li class="dropdown-menu-header text-center">
                         <strong>Settings</strong>
@@ -137,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             class="label label-primary">42</span></a></li>
                     <li class="divider"></li>
                     <li class="m_2"><a href="#"><i class="fa fa-shield"></i> Lock Profile</a></li>
-                    <li class="m_2"><a href="#"><i class="fa fa-lock"></i> Logout</a></li>
+                    <li class="m_2"><a href="/logout.do"><i class="fa fa-lock"></i> 注销</a></li>
                 </ul>
             </li>
         </ul>

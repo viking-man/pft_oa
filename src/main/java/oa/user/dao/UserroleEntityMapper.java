@@ -1,7 +1,9 @@
 package oa.user.dao;
 
 import oa.user.entity.UserroleEntity;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserroleEntityMapper {
     int deleteByPrimaryKey(Long id);
 

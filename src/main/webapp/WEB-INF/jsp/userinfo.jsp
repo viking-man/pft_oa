@@ -25,13 +25,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
     <!-- Custom CSS -->
     <link href="../../css/style.css" rel='stylesheet' type='text/css'/>
+    <!-- Graph CSS -->
+    <link href="../../css/lines.css" rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
-
-    <!-- Nav CSS -->
-    <link href="../../css/custom.css" rel="stylesheet">
-
+    <!-- jQuery -->
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
     <!---//webfonts--->
+    <!-- Nav CSS -->
+    <link href="../../css/custom.css" rel="stylesheet">
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../js/metisMenu.min.js"></script>
+    <script src="../../js/custom.js"></script>
+    <!-- Graph JavaScript -->
+    <script src="../../js/d3.v3.js"></script>
+    <script src="../../js/rickshaw.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -115,15 +123,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         class="badge">9</span></a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-menu-header text-center">
-                        <strong>Account</strong>
+                        <strong>个人信息</strong>
                     </li>
-                    <li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> Updates <span
-                            class="label label-info">42</span></a></li>
-                    <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> Messages <span
-                            class="label label-success">42</span></a></li>
-                    <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> Tasks <span
-                            class="label label-danger">42</span></a></li>
-                    <li><a href="#"><i class="fa fa-comments"></i> Comments <span class="label label-warning">42</span></a>
+                    <li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> 姓名 <span
+                            class="label label-info">${loginuser.username}</span></a></li>
+                    <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> 登录编码 <span
+                            class="label label-success">${loginuser.userno}</span></a></li>
+                    <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> 部门 <span
+                            class="label label-danger">${loginuser.department}</span></a></li>
+                    <li><a href="#"><i class="fa fa-comments"></i> 微信ID <span
+                            class="label label-warning">${loginuser.wxuserid}</span></a>
                     </li>
                     <li class="dropdown-menu-header text-center">
                         <strong>Settings</strong>
@@ -136,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             class="label label-primary">42</span></a></li>
                     <li class="divider"></li>
                     <li class="m_2"><a href="#"><i class="fa fa-shield"></i> Lock Profile</a></li>
-                    <li class="m_2"><a href="#"><i class="fa fa-lock"></i> Logout</a></li>
+                    <li class="m_2"><a href="/logout.do"><i class="fa fa-lock"></i> 注销</a></li>
                 </ul>
             </li>
         </ul>
@@ -257,7 +266,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <td>地址</td>
                         <td>手机号</td>
                         <td>邮箱</td>
-                        <td>所在部门</td>
                         <td>微信ID</td>
                         <td>信息管理</td>
                     </tr>
@@ -266,16 +274,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <tr>
                             <td>${user.username}</td>
                             <td>${user.userno}</td>
-                            <td id="sex">${user.sex}</td>
+                            <td class="td">${user.sex}</td>
                             <td>${user.addr}</td>
                             <td>${user.mobileno}</td>
                             <td>${user.email}</td>
-                            <td>${user.department}</td>
                             <td>${user.wxuserid}</td>
                             <td contenteditable="false">
                                 <a href="/userEdit.do?id=${user.id}">修改</a>
                                 <a href="/userDelete.do?id=${user.id}">删除</a>
-                                <a href="https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wx5ba8760d25c0e797&agentid=1000002&redirect_uri=http%3A%2F%2F122.224.220.182:8082&state=usWmsYx">微信绑定</a>
+                                <a href="/wxBind.do?id=${user.id}">微信绑定</a>
+                                <a href="/removeWxBind.do?id=${user.id}">解除绑定</a>
 
                                     <%--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userUpdate.do"--%>
                                     <%--method="post">--%>
@@ -304,19 +312,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- /#wrapper -->
 <!-- Metis Menu Plugin JavaScript -->
-<script src="../../js/metisMenu.min.js"></script>
-<script src="../../js/custom.js"></script>
-<!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-<!-- jQuery -->
-<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script>
     $(document).ready(function () {
-        if ($("#sex").text() == "1") {
-            $("#sex").text('男');
-        } else {
-            $("#sex").text('女');
-        }
+        $(".td").each(function () {
+            if ($(this).text() == "1") {
+                $(this).text('男');
+            } else if ($(this).text() == "0") {
+                $(this).text('女');
+            } else {
+                $(this).text("未知");
+            }
+        });
     });
 </script>
 </body>

@@ -1,8 +1,11 @@
 package oa.user.controller;
 
 import context.LoginTokenContext;
-import context.WeixinBindContext;
-import context.WeixinBindContextHolder;
+import context.LoginTokenContextHolder;
+import context.WeixinContext;
+import context.WeixinContextHolder;
+import oa.user.entity.UserEntity;
+import oa.user.service.IUserService;
 import oa.user.service.WXService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,7 @@ import param.GlobleConstant;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Project : pft_oa
@@ -25,29 +29,42 @@ public class IndexController {
     @Resource
     private WXService wxService;
 
+    @Resource
+    private IUserService iUserService;
+
     @RequestMapping(value = "/index.do")
     public String checkLogin(HttpServletRequest request, Model model) {
         String code = request.getParameter("code");
         String state = request.getParameter("state");
+        WeixinContext bindContext = WeixinContextHolder.getToken(GlobleConstant.WEIXIN_BINDUSER_KEY);
+        LoginTokenContext tokenContext = LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT);
+
         if (StringUtils.isNotBlank(code) && StringUtils.isNotBlank(state) && StringUtils.equals(state, GlobleConstant.WEIXIN_State)) {
 
-            if (WeixinBindContextHolder.getToken(GlobleConstant.WEIXIN_BINDUSER_KEY) == null) {
+            if (bindContext == null) {
                 if (wxService.wxLogin(request, model))
                     return "index";
                 else
                     return "login";
-            } else {
+            } else if (tokenContext != null && bindContext.getUserfor() == GlobleConstant.WEIXIN_BIND) {
 
-                WeixinBindContext bindContext = WeixinBindContextHolder.getToken(GlobleConstant.WEIXIN_BINDUSER_KEY);
-                if (wxService.wxBind(bindContext, request.getParameter("code"), model))
-                    return "forward:/userQuery.do";
+                if (wxService.wxBind(bindContext, request.getParameter("code"), model)) {
+                    model.addAttribute("error", "绑定成功");
+                }
+
+                getAllUsers(model);
                 return "userinfo";
             }
         }
 
-        if (request.getSession().getAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT) != null)
+        if (tokenContext != null)
             return "index";
         else
             return "login";
+    }
+
+    private void getAllUsers(Model model) {
+        List<UserEntity> users = iUserService.queryAllUser();
+        model.addAttribute("users", users);
     }
 }

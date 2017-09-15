@@ -18,7 +18,6 @@
         <result column="email" jdbcType="VARCHAR" property="email"/>
         <result column="disabled" jdbcType="TINYINT" property="disabled"/>
         <result column="suspended" jdbcType="TINYINT" property="suspended"/>
-        <result column="department" jdbcType="VARCHAR" property="department"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
         <result column="wxuserid" jdbcType="VARCHAR" property="wxuserid"/>
         <result column="otuserid" jdbcType="VARCHAR" property="otuserid"/>
@@ -29,7 +28,7 @@
     </resultMap>
     <sql id="Base_Column_List">
     id, rowstamp, createuser, createtime, modifyuser, modifytime, username, userno, sex, 
-    pwd, addr, phoneno, mobileno, email, disabled, suspended, department, remark, wxuserid,
+    pwd, addr, phoneno, mobileno, email, disabled, suspended, remark, wxuserid,
     otuserid, reserve1, reserve2, reserve3, externid
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -52,6 +51,13 @@
         from bs_user;
     </select>
 
+    <select id="queryByWxuserid" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from bs_user
+        where wxuserid = #{wxuserid,jdbcType=VARCHAR}
+    </select>
+
     <select id="selectByUserno" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -68,7 +74,7 @@
       username, userno, sex, 
       pwd, addr, phoneno, 
       mobileno, email, disabled,
-      suspended, department, remark,
+      suspended, remark,
       wxuserid, otuserid, reserve1, 
       reserve2, reserve3, externid
       )
@@ -77,11 +83,33 @@
       #{username,jdbcType=VARCHAR}, #{userno,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
       #{pwd,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{phoneno,jdbcType=VARCHAR}, 
       #{mobileno,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{disabled,jdbcType=TINYINT},
-      #{suspended,jdbcType=TINYINT}, #{department,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{suspended,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR},
       #{wxuserid,jdbcType=VARCHAR}, #{otuserid,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, 
       #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{externid,jdbcType=VARCHAR}
       )
   </insert>
+
+    <insert id="insertAndReturnId" useGeneratedKeys="true" keyProperty="id" parameterType="oa.user.entity.UserEntity">
+        insert into bs_user (id, rowstamp, createuser,
+        createtime, modifyuser, modifytime,
+        username, userno, sex,
+        pwd, addr, phoneno,
+        mobileno, email, disabled,
+        suspended, remark,
+        wxuserid, otuserid, reserve1,
+        reserve2, reserve3, externid
+        )
+        values (#{id,jdbcType=BIGINT}, #{rowstamp,jdbcType=BIGINT}, #{createuser,jdbcType=BIGINT},
+        #{createtime,jdbcType=TIMESTAMP}, #{modifyuser,jdbcType=BIGINT}, #{modifytime,jdbcType=TIMESTAMP},
+        #{username,jdbcType=VARCHAR}, #{userno,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR},
+        #{pwd,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{phoneno,jdbcType=VARCHAR},
+        #{mobileno,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{disabled,jdbcType=TINYINT},
+        #{suspended,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR},
+        #{wxuserid,jdbcType=VARCHAR}, #{otuserid,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR},
+        #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{externid,jdbcType=VARCHAR}
+        )
+    </insert>
+
     <insert id="insertSelective" parameterType="oa.user.entity.UserEntity">
         insert into bs_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -133,9 +161,7 @@
             <if test="suspended != null">
                 suspended,
             </if>
-            <if test="department != null">
-                department,
-            </if>
+
             <if test="remark != null">
                 remark,
             </if>
@@ -207,9 +233,7 @@
             <if test="suspended != null">
                 #{suspended,jdbcType=TINYINT},
             </if>
-            <if test="department != null">
-                #{department,jdbcType=VARCHAR},
-            </if>
+
             <if test="remark != null">
                 #{remark,jdbcType=VARCHAR},
             </if>
@@ -281,9 +305,6 @@
             <if test="suspended != null">
                 suspended = #{suspended,jdbcType=TINYINT},
             </if>
-            <if test="department != null">
-                department = #{department,jdbcType=VARCHAR},
-            </if>
             <if test="remark != null">
                 remark = #{remark,jdbcType=VARCHAR},
             </if>
@@ -325,7 +346,6 @@
       email = #{email,jdbcType=VARCHAR},
       disabled = #{disabled,jdbcType=TINYINT},
       suspended = #{suspended,jdbcType=TINYINT},
-      department = #{department,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
       wxuserid = #{wxuserid,jdbcType=VARCHAR},
       otuserid = #{otuserid,jdbcType=VARCHAR},

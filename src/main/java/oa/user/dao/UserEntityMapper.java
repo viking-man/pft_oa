@@ -7,11 +7,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-@Transactional
 public interface UserEntityMapper {
     int deleteByPrimaryKey(Long id);
 
     int insert(UserEntity record);
+
+    Long insertAndReturnId(UserEntity record);
 
     int insertSelective(UserEntity record);
 

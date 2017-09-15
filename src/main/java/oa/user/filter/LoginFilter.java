@@ -1,5 +1,6 @@
 package oa.user.filter;
 
+import context.LoginTokenContextHolder;
 import org.springframework.web.filter.ServletContextRequestLoggingFilter;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LoginFilter implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        if (httpServletRequest.getSession().getAttribute(GlobleConstant.SESSION_LOGIN_CONTEXT) != null) {
+        if (LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT) != null) {
             return true;
         }
 
@@ -22,7 +23,9 @@ public class LoginFilter implements HandlerInterceptor {
     }
 
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
-
+        if (LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT) != null) {
+            modelAndView.addObject("loginuser", LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT));
+        }
     }
 
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {

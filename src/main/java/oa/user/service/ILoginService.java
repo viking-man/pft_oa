@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * @create : 2017/9/8-18:20
  */
 public interface ILoginService {
-    boolean checkLoginState(HttpServletRequest request, Model model);
+
+    boolean login(String userno, String password, Model model);
 
 }
