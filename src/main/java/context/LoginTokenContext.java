@@ -1,6 +1,6 @@
 package context;
 
-import oa.user.employee.entity.UserEntity;
+import oa.user.user.entity.UserEntity;
 import util.UuidUtil;
 
 /**

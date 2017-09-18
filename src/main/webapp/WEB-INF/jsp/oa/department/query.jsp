@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="oa.user.employee.entity.UserEntity" %>
+<%@ page import="oa.user.user.entity.UserEntity" %>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com

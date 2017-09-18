@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="oa.user.user.dao.UserDepartmentDao">
+  <resultMap id="BaseResultMap" type="oa.user.user.entity.UserDepartmentEntity">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="rowstamp" jdbcType="BIGINT" property="rowstamp" />
+    <result column="createuser" jdbcType="BIGINT" property="createuser" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="modifyuser" jdbcType="BIGINT" property="modifyuser" />
+    <result column="modifytime" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="userid" jdbcType="BIGINT" property="userid" />
+    <result column="departmentid" jdbcType="BIGINT" property="departmentid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, rowstamp, createuser, createtime, modifyuser, modifytime, userid, departmentid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bs_userdepartment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bs_userdepartment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="oa.user.user.entity.UserDepartmentEntity">
+    insert into bs_userdepartment (id, rowstamp, createuser, 
+      createtime, modifyuser, modifytime, 
+      userid, departmentid)
+    values (#{id,jdbcType=BIGINT}, #{rowstamp,jdbcType=BIGINT}, #{createuser,jdbcType=BIGINT}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{modifyuser,jdbcType=BIGINT}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{userid,jdbcType=BIGINT}, #{departmentid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="oa.user.user.entity.UserDepartmentEntity">
+    insert into bs_userdepartment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="rowstamp != null">
+        rowstamp,
+      </if>
+      <if test="createuser != null">
+        createuser,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="modifyuser != null">
+        modifyuser,
+      </if>
+      <if test="modifytime != null">
+        modifytime,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="departmentid != null">
+        departmentid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="rowstamp != null">
+        #{rowstamp,jdbcType=BIGINT},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyuser != null">
+        #{modifyuser,jdbcType=BIGINT},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="departmentid != null">
+        #{departmentid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="oa.user.user.entity.UserDepartmentEntity">
+    update bs_userdepartment
+    <set>
+      <if test="rowstamp != null">
+        rowstamp = #{rowstamp,jdbcType=BIGINT},
+      </if>
+      <if test="createuser != null">
+        createuser = #{createuser,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyuser != null">
+        modifyuser = #{modifyuser,jdbcType=BIGINT},
+      </if>
+      <if test="modifytime != null">
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="departmentid != null">
+        departmentid = #{departmentid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="oa.user.user.entity.UserDepartmentEntity">
+    update bs_userdepartment
+    set rowstamp = #{rowstamp,jdbcType=BIGINT},
+      createuser = #{createuser,jdbcType=BIGINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      modifyuser = #{modifyuser,jdbcType=BIGINT},
+      modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      userid = #{userid,jdbcType=BIGINT},
+      departmentid = #{departmentid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -158,19 +158,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <a href="/oa/user/query.do">员工列表</a>
                             </li>
                             <li>
-                                <a href="/oa/department/query.do">部门管理</a>
+                                <a href="/oa/user/role/query.do">角色管理</a>
                             </li>
                             <li>
-                                <a href="/oa/permission/query.do">权限管理</a>
-                            </li>
+                                <a href="#">权限管理</a>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-indent nav_icon"></i>Menu Levels<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-indent nav_icon"></i>部门管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="graphs.jsp">Graphs</a>
+                                <a href="/oa/department/query.do">部门列表</a>
                             </li>
                             <li>
                                 <a href="typography.jsp">Typography</a>

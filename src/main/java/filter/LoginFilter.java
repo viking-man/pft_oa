@@ -22,9 +22,9 @@ public class LoginFilter implements HandlerInterceptor {
     }
 
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
-        if (LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT) != null) {
-            modelAndView.addObject("loginuser", LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT));
-        }
+//        if (LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT) != null) {
+//            modelAndView.addObject("loginuser", LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT));
+//        }
     }
 
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {

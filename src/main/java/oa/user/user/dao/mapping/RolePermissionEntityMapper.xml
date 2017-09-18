@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="oa.user.user.dao.RolePermissionDao">
+  <resultMap id="BaseResultMap" type="oa.user.user.entity.RolePermissionEntity">
+    <result column="roleid" jdbcType="BIGINT" property="roleid" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
+  </resultMap>
+  <insert id="insert" parameterType="oa.user.user.entity.RolePermissionEntity">
+    insert into bs_rolepermission (roleid, permission)
+    values (#{roleid,jdbcType=BIGINT}, #{permission,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="oa.user.user.entity.RolePermissionEntity">
+    insert into bs_rolepermission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleid != null">
+        roleid,
+      </if>
+      <if test="permission != null">
+        permission,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleid != null">
+        #{roleid,jdbcType=BIGINT},
+      </if>
+      <if test="permission != null">
+        #{permission,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

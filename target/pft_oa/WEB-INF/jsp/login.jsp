@@ -55,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <ul class="new">
             <li class="new_left"><p><a href="#">Forgot Password ?</a></p></li>
-            <li class="new_right"><p class="sign">New here ?<a href="oa/user/create.jsp"> Sign Up</a></p></li>
+            <li class="new_right"><p class="sign">New here ?<a href="oa/user/user/create.jsp"> Sign Up</a></p></li>
             <div class="clearfix"></div>
         </ul>
     </form>
