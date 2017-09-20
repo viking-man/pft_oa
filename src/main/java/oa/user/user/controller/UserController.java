@@ -16,32 +16,32 @@ import java.util.List;
  * @create : 2017/9/6-20:16
  */
 @Controller
-@RequestMapping("/oa/user/")
+@RequestMapping("/oa/user/user")
 public class UserController {
 
     @Resource
     private IUserService iUserService;
 
-    @RequestMapping("query.do")
+    @RequestMapping("/query.do")
     public String queryUserInfo(Model model) {
 
         return getAllUsers(model);
     }
 
-    @RequestMapping("create.do")
+    @RequestMapping("/create.do")
     public String userCreate() {
 
         return "oa/user/user/create";
     }
 
-    @RequestMapping("edit.do")
+    @RequestMapping("/edit.do")
     public String userEdit(Long id, Model model) {
         UserEntity userEntity = iUserService.selectByid(id);
         model.addAttribute("user", userEntity);
         return "oa/user/user/edit";
     }
 
-    @RequestMapping("insert.do")
+    @RequestMapping("/insert.do")
     public String userInsert(String rolecode, String departmentno, UserEntity user, Model model) {
         try {
             iUserService.insert(rolecode, departmentno, user);
@@ -55,10 +55,10 @@ public class UserController {
     private String getAllUsers(Model model) {
         List<UserEntity> users = iUserService.queryAllUser();
         model.addAttribute("users", users);
-        return "oa/user/query";
+        return "oa/user/user/query";
     }
 
-    @RequestMapping("update.do")
+    @RequestMapping("/update.do")
     public String userUpdate(UserEntity user, Model model) {
         try {
             if (iUserService.update(user))
@@ -71,7 +71,7 @@ public class UserController {
         return "/query";
     }
 
-    @RequestMapping("delete.do")
+    @RequestMapping("/delete.do")
     public String userDelete(Long id, Model model) {
         try {
             if (iUserService.delete(id)) {

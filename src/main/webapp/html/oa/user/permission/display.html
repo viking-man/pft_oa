@@ -1,12 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="oa.user.user.entity.UserEntity" %>
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -158,19 +149,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="../../index.jsp"><i class="fa fa-dashboard fa-fw nav_icon"></i>系统管理</a>
+                        <a href="../../../../WEB-INF/jsp/index.jsp"><i class="fa fa-dashboard fa-fw nav_icon"></i>系统管理</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-laptop nav_icon"></i>员工管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/userQuery.do">员工列表</a>
+                                <a href="/oa/user/user/query.do">员工管理</a>
                             </li>
                             <li>
-                                <a href="/userQuery.do">部门管理</a>
+                                <a href="/oa/user/role/query.do">角色管理</a>
                             </li>
                             <li>
-                                <a href="/userQuery.do">权限管理</a>
+                                <a href="/oa/user/permission/query.do">权限管理</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -179,10 +170,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-indent nav_icon"></i>Menu Levels<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../graphs.jsp">Graphs</a>
+                                <a href="../../../../WEB-INF/jsp/graphs.jsp">Graphs</a>
                             </li>
                             <li>
-                                <a href="../../typography.jsp">Typography</a>
+                                <a href="../../../../WEB-INF/jsp/typography.jsp">Typography</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -191,25 +182,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-envelope nav_icon"></i>Mailbox<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../inbox.jsp">Inbox</a>
+                                <a href="../../../../WEB-INF/jsp/inbox.jsp">Inbox</a>
                             </li>
                             <li>
-                                <a href="../../compose.jsp">Compose email</a>
+                                <a href="../../../../WEB-INF/jsp/compose.jsp">Compose email</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="../../widgets.jsp"><i class="fa fa-flask nav_icon"></i>Widgets</a>
+                        <a href="../../../../WEB-INF/jsp/widgets.jsp"><i class="fa fa-flask nav_icon"></i>Widgets</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../forms.jsp">Basic Forms</a>
+                                <a href="../../../../WEB-INF/jsp/forms.jsp">Basic Forms</a>
                             </li>
                             <li>
-                                <a href="../../validation.jsp">Validation</a>
+                                <a href="../../../../WEB-INF/jsp/validation.jsp">Validation</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -218,7 +209,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-table nav_icon"></i>Tables<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../basic_tables.jsp">Basic Tables</a>
+                                <a href="../../../../WEB-INF/jsp/basic_tables.jsp">Basic Tables</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -227,10 +218,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>Css<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../media.jsp">Media</a>
+                                <a href="../../../../WEB-INF/jsp/media.jsp">Media</a>
                             </li>
                             <li>
-                                <a href="../../login.jsp">Login</a>
+                                <a href="../../../../WEB-INF/jsp/login.jsp">Login</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -241,54 +232,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <!-- /.navbar-static-side -->
     </nav>
-    <div id="page-wrapper">
+    <div id="page-wrapper" style="position: relative">
         <div class="graphs">
             <div class="md">
-                <h3>部门管理</h3>
+                <h3>基本操作</h3>
                 <div>
-                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;">
-                        <input type="submit" value="新建" data-toggle="modal" data-target="#myModal"
-                               style="height: 30px;width: 60px;" id="createdepartment">
+                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
+                         data-toggle="modal" data-target="#createModal">
+                        <input type="submit" value="新建" style="height: 30px;width: 60px;" id="permission.create">
                     </div>
 
                     <form style="margin:10px;display:inline;padding: 10px 20px;"
-                          action="/oa/user/query.do" method="post">
-                        <input type="submit" value="查询" style="height: 30px;width: 60px;">
+                          action="/oa/user/permission/readRolePermission.do"
+                          method="post">
+                        <select id="roleDisplay" onclick="queryRoles()">
+                        </select>
+                        <input type="submit" value="查询" style="height: 30px;width: 60px;" id="permission.query">
                     </form>
 
-                    <hr style="margin: 5px 0px 10px 0px;width: 2px;color: #2d2d2d">
-
+                    <hr style="margin: 50px 0px;color: #888;">
                 </div>
-                <table class="table table-bordered">
+                <h3>角色名称：${bean.role.rolename}</h3>
+                <table class="table table-bordered" id="rolesdisplay">
                     <thead>
                     <tr>
-                        <td>部门编码</td>
-                        <td>部门名称</td>
-                        <td>备注</td>
-                        <td>基本操作</td>
+                        <td>权限项</td>
+                        <td>权限名称</td>
+                        <td>权限别名</td>
+                        <td>权限描述</td>
+                        <td>URL</td>
                     </tr>
                     </thead>
-                    <c:forEach items="${departments}" var="department" varStatus="i">
-                        <tr id="info">
-                            <td>${department.departmentno}</td>
-                            <td>${department.departmentname}</td>
-                            <td>${department.remark}</td>
-                            <td contenteditable="false">
-                                <a href="/oa/user/user/edit.do?id=${user.id}">修改</a>
-                                <a href="/oa/user/user/delete.do?id=${user.id}">删除</a>
-
-                                    <%--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userUpdate.do"--%>
-                                    <%--method="post">--%>
-                                    <%--<button type="submit" style="height: 25px;width: 60px">保存</button>--%>
-                                    <%--</form>--%>
-
-                                    <%--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userDelete.do"--%>
-                                    <%--method="post">--%>
-                                    <%--<button type="submit" style="height: 25px;width: 60px">删除</button>--%>
-                                    <%--</form>--%>
-                            </td>
-                        </tr>
-                    </c:forEach>
                 </table>
             </div>
         </div>
@@ -296,17 +270,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <p class="text-center">${error}</p>
         </div>
     </div>
-
-    <!-- /#page-wrapper -->
-    <%--<div class="copy_layout">--%>
-    <%--<p>Copyright © 2015 Modern. All Rights Reserved | Design by </p>--%>
-    <%--</div>--%>
 </div>
 
 <!-- 新建模态框 -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
@@ -314,82 +284,239 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="modal-body">
                 <div class="input-group col-md-4">
-                    <span class="input-group-addon">部门名称</span>
-                    <input type="text" class="form-control" placeholder="departmentname" name="departmentname">
+                    <span class="input-group-addon">角色编码</span>
+                    <input type="text" class="form-control" placeholder="rolecode" name="rolecode">
                 </div>
                 <div class="input-group col-md-4">
-                    <span class="input-group-addon">部门编码</span>
-                    <input type="text" class="form-control" placeholder="departmentno" name="departmentno">
+                    <span class="input-group-addon">角色名称</span>
+                    <input type="text" class="form-control" placeholder="rolename" name="rolename">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">角色别名</span>
+                    <input type="text" class="form-control" placeholder="rolealias" name="rolealias">
                 </div>
                 <div class="input-group col-md-4">
                     <span class="input-group-addon">备注</span>
                     <input type="text" class="form-control" placeholder="remark" name="remark">
                 </div>
                 <div class="form-group">
-                    <label>固有部门:</label>
-                    <input type="radio" id="esex_m" name="fixed" value="M" checked="checked">固有
-                    <input type="radio" id="esex_f" name="fixed" value="F">非固有
+                    <label>固有角色:</label>
+                    <input type="radio" id="esex_m" name="fixed" value="1" checked="checked">固有
+                    <input type="radio" id="esex_f" name="fixed" value="0">非固有
                 </div>
 
                 <br>
-                <div class="input-group">
-                    <span class="input-group-addon" id="Wechat">微信ID号</span>
-                    <input type="text" class="form-control" placeholder="Wechat" aria-describedby="basic-addon1">
-                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">新建</button>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="insert()">保存</button>
             </div>
+
         </div>
     </div>
 </div>
-<!-- 查询模态框 -->
-<div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2">
+
+<!-- 新建模态框 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <input type="hidden" name="id">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabe2">查询</h4>
+                <h4 class="modal-title">编辑页面</h4>
             </div>
             <div class="modal-body">
-                <textarea style="width:100%;height:100%;"></textarea>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">角色编码</span>
+                    <input type="text" class="form-control" placeholder="rolecode" name="rolecode">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">角色名称</span>
+                    <input type="text" class="form-control" placeholder="rolename" name="rolename">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">角色别名</span>
+                    <input type="text" class="form-control" placeholder="rolealias" name="rolealias">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">备注</span>
+                    <input type="text" class="form-control" placeholder="remark" name="remark">
+                </div>
+                <div class="form-group">
+                    <label>固有角色:</label>
+                    <input type="radio" name="fixed" value="1" checked="checked">固有
+                    <input type="radio" name="fixed" value="0">非固有
+                </div>
+
+                <br>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">查询</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update(this)">保存</button>
             </div>
         </div>
     </div>
 </div>
+
 <!-- /#wrapper -->
 <!-- Metis Menu Plugin JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 <script>
-    $(document).ready(function () {
-        $(".td").each(function () {
-            if ($(this).text() == "1") {
-                $(this).text('男');
-            } else if ($(this).text() == "0") {
-                $(this).text('女');
-            } else {
-                $(this).text("未知");
+
+
+    function edit(a) {
+        var href = $(a).attr("href");
+        id = href.substring(href.indexOf("=") + 1, href.length);
+
+        $.ajax({
+            async: false,
+            url: "/oa/user/role/edit.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                id: id
+            },
+            success: function (data) {
+                var role = data.edit;
+                var modal = $("#editModal input");
+                modal[0].value = (role.id);
+                modal[1].value = (role.rolecode);
+                modal[2].value = (role.rolename);
+                modal[3].value = (role.rolealias);
+                modal[4].value = (role.remark);
+                modal[5].value = (role.fixed);
+
+            },
+            error: function (data, err) {
+                alert("编辑时出错：" + err);
             }
         });
-    });
+    }
 
-    $("#info").onfocus(function () {
-        $(this).addClass("active");
-    })
+    function insert() {
+        var modal = $("#createModal input");
+        var rolecode = modal[0].value;
+        var rolename = modal[1].value;
+        var rolealias = modal[2].value;
+        var remark = modal[3].value;
+        var fixed = $('#createModal input:radio[name="fixed"]:checked').val();
 
-    $("#info").onblur(function () {
-        $(this).removeClass("active");
-    })
+        $.ajax({
+            async: false,
+            url: "/oa/user/role/insert.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                rolecode: rolecode,
+                rolename: rolename,
+                rolealias: rolealias,
+                remark: remark,
+                fixed: fixed
+            },
+            success: function (data) {
+                var role = data;
+                $("#rolesdisplay").append("" +
+                    "<tr>" +
+                    "<td>" + data.rolecode + "</td>" +
+                    "<td>" + data.rolename + "</td>" +
+                    "<td>" + data.rolealias + "</td>" +
+                    "<td>" + data.remark + "</td>" +
+                    "<td>" + data.fixed + "</td>" +
+                    "</tr>");
 
-    $("#createdepartment").onclick(function () {
-        $
-    })
+                window.location.reload();
+            },
+            error: function (data, err) {
+                alert("插入时出错：" + err);
+            }
+        })
+    }
+
+    function update(u) {
+        var modal = $("#editModal input");
+        var id = modal[0].value;
+        var rolecode = modal[1].value;
+        var rolename = modal[2].value;
+        var rolealias = modal[3].value;
+        var remark = modal[4].value;
+        var fixed = $('#editModal input:radio[name="fixed"]:checked').val();
+
+        $.ajax({
+            async: false,
+            url: "/oa/user/role/update.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                id: id,
+                rolecode: rolecode,
+                rolename: rolename,
+                rolealias: rolealias,
+                remark: remark,
+                fixed: fixed
+            },
+            success: function (data) {
+                var role = data;
+                var modal = $("#" + data.id + " td");
+                modal[0].value = (role.rolecode);
+                modal[1].value = (role.rolename);
+                modal[2].value = (role.rolealias);
+                modal[3].value = (role.remark);
+                modal[4].value = (role.fixed);
+                window.location.reload();
+            },
+            error: function (data, err) {
+                alert("保存时出错：" + err);
+            }
+        })
+    }
+
+    function deleteRole(a) {
+        var href = $(a).attr("href");
+        id = href.substring(href.indexOf("=") + 1, href.length);
+
+        $.ajax({
+            async: false,
+            url: "/oa/user/role/delete.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                id: id
+            },
+            success: function () {
+                $(a).parent().parent().remove();
+            },
+            error: function (data, err) {
+                alert("删除时出错：" + err);
+            }
+        });
+    }
+
+    function queryRoles() {
+        $.ajax({
+            async: true,
+            url: "/oa/user/role/query.do",
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                var roles = data.query;
+//                $(roles).each(function (index, value) {
+//                    $("#roleDisplay").append("<option value=></option>");
+//                })
+
+                $.each(roles, function (key, value) {
+                    $('#roleDisplay').append($("<option><option/>", {
+                        value: key,
+                        text: value
+                    }));
+                });
+            },
+            error: function (data, error) {
+                alert(error);
+            }
+        })
+
+    }
 </script>
 </body>
 </html>

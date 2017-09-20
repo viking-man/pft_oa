@@ -28,57 +28,55 @@ public abstract class BaseController<T extends EntityHasRcm, S extends BaseServi
 
     protected Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource
-    private S service;
+    protected abstract BaseService<T> getService();
 
     @RequestMapping("/query.do")
-    public Map<String, List<T>> query() {
-        Map<String, List<T>> map = new HashMap();
-        map.put("query", service.queryAll());
-        return map;
+    @ResponseBody
+    public List<T> query() {
+        return getService().queryAll();
     }
 
     @RequestMapping("/update.do")
-    public T update(T entity) {
-        return service.update(entity);
+    @ResponseBody
+    public T update(T entity) throws BasicException {
+        return getService().update(entity);
     }
 
     @RequestMapping("/insert.do")
-    public T insert(T entity) {
-        return service.insert(entity);
+    @ResponseBody
+    public T insert(T entity) throws BasicException {
+        return getService().insert(entity);
     }
 
     @RequestMapping("/delete.do")
-    public void query(Long id) {
-        service.delete(id);
+    @ResponseBody
+    public Long query(Long id) {
+        getService().delete(id);
+        return id;
     }
 
     @RequestMapping("/select.do")
     public T select(Long id) {
-        return service.select(id);
+        return getService().select(id);
     }
 
     @RequestMapping("/edit.do")
     @ResponseBody
-    public Map<String, T> edit(String id) {
-        Map<String, T> map = new HashMap();
-        map.put("edit", service.select(Long.valueOf(id)));
-        return map;
+    public T edit(String id) {
+        return getService().select(Long.valueOf(id));
     }
 
     @ExceptionHandler({BasicException.class})
-    public String baseException(BasicException bx) {
+    public String baseException(BasicException bx, Model model) {
         logger.error(bx.getMessage(), bx);
-        Map<String, String> map = new HashMap<>();
-        map.put("error", bx.getMessage());
+        model.addAttribute("error", bx.getMessage());
         return "exception";
     }
 
     @ExceptionHandler({Exception.class})
-    public String baseException(Exception ex) {
+    public String baseException(Exception ex, Model model) {
         logger.error(ex.getMessage(), ex);
-        Map<String, String> map = new HashMap<>();
-        map.put("error", ex.getMessage());
+        model.addAttribute("error", ex.getMessage());
         return "exception";
     }
 }

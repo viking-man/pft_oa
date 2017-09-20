@@ -906,7 +906,13 @@ i.icon_13 {
 }
 
 .td {
-color: #03a9f4;
+}
+
+.tr {
+}
+
+.trchose {
+    color: #03a9f4;
 }
 
 /*-- col_3 --*/

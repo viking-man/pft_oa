@@ -1,4 +1,4 @@
-package oa.user.user.entity;
+package oa.user.role.entity;
 
 import common.entity.EntityHasRcm;
 

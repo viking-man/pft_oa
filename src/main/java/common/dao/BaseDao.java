@@ -16,9 +16,9 @@ public interface BaseDao<T extends EntityHasRcm> {
 
     public T select(Long id);
 
-    public T insert(T entity);
+    public Long insert(T entity);
 
-    public T update(T entity);
+    public int update(T entity);
 
     public void delete(Long id);
 

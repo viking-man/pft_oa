@@ -1,7 +1,7 @@
 package oa.user.role.dao;
 
 import common.dao.BaseDao;
-import oa.user.user.entity.RoleEntity;
+import oa.user.role.entity.RoleEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,10 +18,10 @@ public interface RoleDao extends BaseDao<RoleEntity> {
     RoleEntity select(Long id);
 
     @Override
-    RoleEntity insert(RoleEntity entity);
+    Long insert(RoleEntity entity);
 
     @Override
-    RoleEntity update(RoleEntity entity);
+    int update(RoleEntity entity);
 
     @Override
     void delete(Long id);

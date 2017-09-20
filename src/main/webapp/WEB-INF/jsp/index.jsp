@@ -155,13 +155,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-laptop nav_icon"></i>员工管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/oa/user/query.do">员工列表</a>
+                                <a href="/oa/user/user/query.do">员工列表</a>
                             </li>
                             <li>
-                                <a href="/oa/user/role/query.do">角色管理</a>
+                                <a href="../../html/oa/user/role/display.html">角色管理</a>
                             </li>
                             <li>
-                                <a href="#">权限管理</a>
+                                <a href="/oa/user/permission/query.do">权限管理</a>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>

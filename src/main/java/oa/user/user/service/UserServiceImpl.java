@@ -3,6 +3,7 @@ package oa.user.user.service;
 import context.LoginTokenContextHolder;
 import oa.department.dao.DepartmentDao;
 import oa.department.entity.DepartmentEntity;
+import oa.user.role.entity.RoleEntity;
 import oa.user.user.dao.*;
 import oa.user.user.entity.*;
 import oa.user.role.dao.RoleDao;

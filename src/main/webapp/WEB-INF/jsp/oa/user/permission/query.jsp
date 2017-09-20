@@ -164,13 +164,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-laptop nav_icon"></i>员工管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/userQuery.do">员工列表</a>
+                                <a href="/oa/user/user/query.do">员工管理</a>
                             </li>
                             <li>
-                                <a href="/userQuery.do">部门管理</a>
+                                <a href="/oa/user/role/query.do">角色管理</a>
                             </li>
                             <li>
-                                <a href="/userQuery.do">权限管理</a>
+                                <a href="/oa/user/permission/query.do">权限管理</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -241,55 +241,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <!-- /.navbar-static-side -->
     </nav>
-    <div id="page-wrapper">
+    <div id="page-wrapper" style="position: relative">
         <div class="graphs">
             <div class="md">
                 <h3>基本操作</h3>
                 <div>
-                    <form style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
-                          action="/oa/user/create.do" method="post">
-                        <input type="submit" value="新建" style="height: 30px;width: 60px;">
-                    </form>
-
-                    <form style="margin:10px;display:inline;padding: 10px 20px;"
-                          action="/oa/user/query.do" method="post">
-                        <input type="submit" value="查询" style="height: 30px;width: 60px;">
-                    </form>
-
-                    <div style="margin:10px;display:inline;padding: 10px 20px;">
-                        <input type="button" id="delete" onclick="" value="删除"/>
+                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
+                         data-toggle="modal" data-target="#createModal">
+                        <input type="submit" value="新建" style="height: 30px;width: 60px;" id="permission.create">
                     </div>
 
-                    <hr style="margin: 5px 0px 10px 0px;width: 2px;color: #2d2d2d">
+                    <form style="margin:10px;display:inline;padding: 10px 20px;"
+                          action="/oa/user/permission/readRolePermission.do"
+                          method="post">
+                        <select id="roleDisplay" onclick="queryRoles()">
+                        </select>
+                        <input type="submit" value="查询" style="height: 30px;width: 60px;" id="permission.query">
+                    </form>
 
+                    <hr style="margin: 50px 0px;color: #888;">
                 </div>
-                <table class="table table-bordered">
+                <h3>角色名称：${bean.role.rolename}</h3>
+                <table class="table table-bordered" id="rolesdisplay">
                     <thead>
                     <tr>
-                        <td>姓名</td>
-                        <td>工号</td>
-                        <td>性别</td>
-                        <td>地址</td>
-                        <td>手机号</td>
-                        <td>邮箱</td>
-                        <td>微信ID</td>
-                        <td>信息管理</td>
+                        <td>权限项</td>
+                        <td>权限名称</td>
+                        <td>权限别名</td>
+                        <td>权限描述</td>
+                        <td>URL</td>
                     </tr>
                     </thead>
-                    <c:forEach items="${users}" var="user" varStatus="i">
-                        <tr id="userinfo">
-                            <td>${user.username}</td>
-                            <td>${user.userno}</td>
-                            <td class="td">${user.sex}</td>
-                            <td>${user.addr}</td>
-                            <td>${user.mobileno}</td>
-                            <td>${user.email}</td>
-                            <td>${user.wxuserid}</td>
+                    <c:forEach items="${bean.permissions}" var="permission" varStatus="i">
+                        <tr id="${permission.id}">
+                            <td>${permission.permission}</td>
+                            <td>${permission.name}</td>
+                            <td>${permission.alias}</td>
+                            <td>${permission.remark}</td>
+                            <td>${permission.url}</td>
                             <td contenteditable="false">
-                                <a href="/oa/user/user/edit.do?id=${user.id}">修改</a>
-                                <a href="/oa/user/user/delete.do?id=${user.id}">删除</a>
-                                <a href="/wxBind.do?id=${user.id}">微信绑定</a>
-                                <a href="/removeWxBind.do?id=${user.id}">解除绑定</a>
+                                <a href="#=${permission.id}" data-toggle="modal" data-target="#editModal"
+                                   onclick="edit(this);return false;" id="/oa/user/permission/edit.do">编辑</a>
+                                <a href="#=${permission.id}" onclick="deleteRole(this);return false;"
+                                   id="/oa/user/permission/delete.do">删除</a>
 
                                     <%--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userUpdate.do"--%>
                                     <%--method="post">--%>
@@ -310,35 +304,253 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <p class="text-center">${error}</p>
         </div>
     </div>
-
-    <!-- /#page-wrapper -->
-    <%--<div class="copy_layout">--%>
-    <%--<p>Copyright © 2015 Modern. All Rights Reserved | Design by </p>--%>
-    <%--</div>--%>
 </div>
+
+<!-- 新建模态框 -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">新建</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">角色编码</span>
+                    <input type="text" class="form-control" placeholder="rolecode" name="rolecode">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">角色名称</span>
+                    <input type="text" class="form-control" placeholder="rolename" name="rolename">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">角色别名</span>
+                    <input type="text" class="form-control" placeholder="rolealias" name="rolealias">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">备注</span>
+                    <input type="text" class="form-control" placeholder="remark" name="remark">
+                </div>
+                <div class="form-group">
+                    <label>固有角色:</label>
+                    <input type="radio" id="esex_m" name="fixed" value="1" checked="checked">固有
+                    <input type="radio" id="esex_f" name="fixed" value="0">非固有
+                </div>
+
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="insert()">保存</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 新建模态框 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <input type="hidden" name="id">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑页面</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">角色编码</span>
+                    <input type="text" class="form-control" placeholder="rolecode" name="rolecode">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">角色名称</span>
+                    <input type="text" class="form-control" placeholder="rolename" name="rolename">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">角色别名</span>
+                    <input type="text" class="form-control" placeholder="rolealias" name="rolealias">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">备注</span>
+                    <input type="text" class="form-control" placeholder="remark" name="remark">
+                </div>
+                <div class="form-group">
+                    <label>固有角色:</label>
+                    <input type="radio" name="fixed" value="1" checked="checked">固有
+                    <input type="radio" name="fixed" value="0">非固有
+                </div>
+
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update(this)">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- /#wrapper -->
 <!-- Metis Menu Plugin JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 <script>
-    $(document).ready(function () {
-        $(".td").each(function () {
-            if ($(this).text() == "1") {
-                $(this).text('男');
-            } else if ($(this).text() == "0") {
-                $(this).text('女');
-            } else {
-                $(this).text("未知");
+
+
+    function edit(a) {
+        var href = $(a).attr("href");
+        id = href.substring(href.indexOf("=") + 1, href.length);
+
+        $.ajax({
+            async: false,
+            url: "/oa/user/role/edit.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                id: id
+            },
+            success: function (data) {
+                var role = data.edit;
+                var modal = $("#editModal input");
+                modal[0].value = (role.id);
+                modal[1].value = (role.rolecode);
+                modal[2].value = (role.rolename);
+                modal[3].value = (role.rolealias);
+                modal[4].value = (role.remark);
+                modal[5].value = (role.fixed);
+
+            },
+            error: function (data, err) {
+                alert("编辑时出错：" + err);
             }
         });
-    });
+    }
 
-    $("#userinfo").onfocus(function () {
-        $(this).addClass("active");
-    })
+    function insert() {
+        var modal = $("#createModal input");
+        var rolecode = modal[0].value;
+        var rolename = modal[1].value;
+        var rolealias = modal[2].value;
+        var remark = modal[3].value;
+        var fixed = $('#createModal input:radio[name="fixed"]:checked').val();
 
-    $("#userinfo").onblur(function () {
-        $(this).removeClass("active");
-    })
+        $.ajax({
+            async: false,
+            url: "/oa/user/role/insert.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                rolecode: rolecode,
+                rolename: rolename,
+                rolealias: rolealias,
+                remark: remark,
+                fixed: fixed
+            },
+            success: function (data) {
+                var role = data;
+                $("#rolesdisplay").append("" +
+                    "<tr>" +
+                    "<td>" + data.rolecode + "</td>" +
+                    "<td>" + data.rolename + "</td>" +
+                    "<td>" + data.rolealias + "</td>" +
+                    "<td>" + data.remark + "</td>" +
+                    "<td>" + data.fixed + "</td>" +
+                    "</tr>");
+
+                window.location.reload();
+            },
+            error: function (data, err) {
+                alert("插入时出错：" + err);
+            }
+        })
+    }
+
+    function update(u) {
+        var modal = $("#editModal input");
+        var id = modal[0].value;
+        var rolecode = modal[1].value;
+        var rolename = modal[2].value;
+        var rolealias = modal[3].value;
+        var remark = modal[4].value;
+        var fixed = $('#editModal input:radio[name="fixed"]:checked').val();
+
+        $.ajax({
+            async: false,
+            url: "/oa/user/role/update.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                id: id,
+                rolecode: rolecode,
+                rolename: rolename,
+                rolealias: rolealias,
+                remark: remark,
+                fixed: fixed
+            },
+            success: function (data) {
+                var role = data;
+                var modal = $("#" + data.id + " td");
+                modal[0].value = (role.rolecode);
+                modal[1].value = (role.rolename);
+                modal[2].value = (role.rolealias);
+                modal[3].value = (role.remark);
+                modal[4].value = (role.fixed);
+                window.location.reload();
+            },
+            error: function (data, err) {
+                alert("保存时出错：" + err);
+            }
+        })
+    }
+
+    function deleteRole(a) {
+        var href = $(a).attr("href");
+        id = href.substring(href.indexOf("=") + 1, href.length);
+
+        $.ajax({
+            async: false,
+            url: "/oa/user/role/delete.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                id: id
+            },
+            success: function () {
+                $(a).parent().parent().remove();
+            },
+            error: function (data, err) {
+                alert("删除时出错：" + err);
+            }
+        });
+    }
+
+    function queryRoles() {
+        $.ajax({
+            async: true,
+            url: "/oa/user/role/query.do",
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                var roles = data.query;
+//                $(roles).each(function (index, value) {
+//                    $("#roleDisplay").append("<option value=></option>");
+//                })
+
+                $.each(roles, function (key, value) {
+                    $('#roleDisplay').append($("<option><option/>", {
+                        value: key,
+                        text: value
+                    }));
+                });
+            },
+            error: function (data, error) {
+                alert(error);
+            }
+        })
+
+    }
 </script>
 </body>
 </html>
