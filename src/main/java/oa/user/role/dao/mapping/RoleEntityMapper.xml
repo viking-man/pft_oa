@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="oa.user.role.dao.RoleDao">
-    <resultMap id="BaseResultMap" type="oa.user.user.entity.RoleEntity">
+    <resultMap id="BaseResultMap" type="oa.user.role.entity.RoleEntity">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="rowstamp" jdbcType="BIGINT" property="rowstamp"/>
         <result column="createuser" jdbcType="BIGINT" property="createuser"/>
@@ -43,7 +43,7 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
 
-    <insert id="insert" parameterType="oa.user.user.entity.RoleEntity">
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="id" parameterType="oa.user.role.entity.RoleEntity">
     insert into bs_role (id, rowstamp, createuser, 
       createtime, modifyuser, modifytime, 
       rolecode, rolename, rolealias, 
@@ -54,7 +54,7 @@
       #{remark,jdbcType=VARCHAR}, #{fixed,jdbcType=TINYINT})
   </insert>
 
-    <update id="update" parameterType="oa.user.user.entity.RoleEntity">
+    <update id="update" parameterType="oa.user.role.entity.RoleEntity">
         update bs_role
         <set>
             <if test="rowstamp != null">

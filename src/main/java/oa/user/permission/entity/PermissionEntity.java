@@ -1,4 +1,4 @@
-package oa.user.user.entity;
+package oa.user.permission.entity;
 
 import common.entity.EntityHasRcm;
 
@@ -12,6 +12,16 @@ public class PermissionEntity extends EntityHasRcm{
     private String alias;
 
     private String remark;
+
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public Long getId() {
         return id;

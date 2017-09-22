@@ -64,8 +64,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${user.email}</td>
                             <td>${user.wxuserid}</td>
                             <td contenteditable="false">
-                                <a href="/oa/user/edit.do?id=${user.id}">修改</a>
-                                <a href="/oa/user/delete.do?id=${user.id}">删除</a>
+                                <a href="/oa/user/user/edit.do?id=${user.id}">修改</a>
+                                <a href="/oa/user/user/delete.do?id=${user.id}">删除</a>
                                 <a href="/wxBind.do?id=${user.id}">微信绑定</a>
                                 <a href="/removeWxBind.do?id=${user.id}">解除绑定</a>
 

@@ -53,7 +53,7 @@ public class IndexController {
                 }
 
                 getAllUsers(model);
-                return "oa/user/user/query";
+                return "/html/oa/user/user/query.jsp";
             }
         }
 

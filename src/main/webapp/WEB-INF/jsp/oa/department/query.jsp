@@ -274,8 +274,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${department.departmentname}</td>
                             <td>${department.remark}</td>
                             <td contenteditable="false">
-                                <a href="/oa/user/edit.do?id=${user.id}">修改</a>
-                                <a href="/oa/user/delete.do?id=${user.id}">删除</a>
+                                <a href="/oa/user/user/edit.do?id=${user.id}">修改</a>
+                                <a href="/oa/user/user/delete.do?id=${user.id}">删除</a>
 
                                     <%--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userUpdate.do"--%>
                                     <%--method="post">--%>

@@ -1,0 +1,808 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Grids :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <!-- Custom CSS -->
+    <link href="../../../../css/style.css" rel='stylesheet' type='text/css'/>
+    <!-- Graph CSS -->
+    <link href="../../../../css/lines.css" rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <!-- jQuery -->
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+
+    <!---//webfonts--->
+    <!-- Nav CSS -->
+    <link href="../../../../css/custom.css" rel="stylesheet">
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../../../js/metisMenu.min.js"></script>
+    <script src="../../../../js/custom.js"></script>
+    <!-- Graph JavaScript -->
+    <script src="../../../../js/d3.v3.js"></script>
+    <script src="../../../../js/rickshaw.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index.do">内部管理系统</a>
+        </div>
+        <!-- /.navbar-header -->
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                        class="fa fa-comments-o"></i><span class="badge">4</span></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-menu-header">
+                        <strong>Messages</strong>
+                        <div class="progress thin">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                 aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                <span class="sr-only">40% Complete (success)</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="avatar">
+                        <a href="#">
+                            <img src="../../../../images/1.png" alt=""/>
+                            <div>New message</div>
+                            <small>1 minute ago</small>
+                            <span class="label label-info">NEW</span>
+                        </a>
+                    </li>
+                    <li class="avatar">
+                        <a href="#">
+                            <img src="../../../../images/2.png" alt=""/>
+                            <div>New message</div>
+                            <small>1 minute ago</small>
+                            <span class="label label-info">NEW</span>
+                        </a>
+                    </li>
+                    <li class="avatar">
+                        <a href="#">
+                            <img src="../../../../images/3.png" alt=""/>
+                            <div>New message</div>
+                            <small>1 minute ago</small>
+                        </a>
+                    </li>
+                    <li class="avatar">
+                        <a href="#">
+                            <img src="../../../../images/4.png" alt=""/>
+                            <div>New message</div>
+                            <small>1 minute ago</small>
+                        </a>
+                    </li>
+                    <li class="avatar">
+                        <a href="#">
+                            <img src="../../../../images/5.png" alt=""/>
+                            <div>New message</div>
+                            <small>1 minute ago</small>
+                        </a>
+                    </li>
+                    <li class="avatar">
+                        <a href="#">
+                            <img src="../../../../images/pic1.png" alt=""/>
+                            <div>New message</div>
+                            <small>1 minute ago</small>
+                        </a>
+                    </li>
+                    <li class="dropdown-menu-footer text-center">
+                        <a href="#">View all messages</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img
+                        src="../../../../images/1.png"><span
+                        class="badge">9</span></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-menu-header text-center">
+                        <strong>个人信息</strong>
+                    </li>
+                    <li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> 姓名 <span
+                            class="label label-info">${loginuser.username}</span></a></li>
+                    <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> 登录编码 <span
+                            class="label label-success">${loginuser.userno}</span></a></li>
+                    <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> 部门 <span
+                            class="label label-danger">${loginuser.department}</span></a></li>
+                    <li><a href="#"><i class="fa fa-comments"></i> 微信ID <span
+                            class="label label-warning">${loginuser.wxuserid}</span></a>
+                    </li>
+                    <li class="dropdown-menu-header text-center">
+                        <strong>Settings</strong>
+                    </li>
+                    <li class="m_2"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                    <li class="m_2"><a href="#"><i class="fa fa-wrench"></i> Settings</a></li>
+                    <li class="m_2"><a href="#"><i class="fa fa-usd"></i> Payments <span
+                            class="label label-default">42</span></a></li>
+                    <li class="m_2"><a href="#"><i class="fa fa-file"></i> Projects <span
+                            class="label label-primary">42</span></a></li>
+                    <li class="divider"></li>
+                    <li class="m_2"><a href="#"><i class="fa fa-shield"></i> Lock Profile</a></li>
+                    <li class="m_2"><a href="/logout.do"><i class="fa fa-lock"></i> 注销</a></li>
+                </ul>
+            </li>
+        </ul>
+        <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" value="Search..." onFocus="this.value = '';"
+                   onBlur="if (this.value == '') {this.value = 'Search...';}">
+        </form>
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="../../../../WEB-INF/jsp/index.jsp"><i
+                                class="fa fa-dashboard fa-fw nav_icon"></i>系统管理</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-laptop nav_icon"></i>员工管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/oa/user/user/query.do">员工管理</a>
+                            </li>
+                            <li>
+                                <a href="/oa/user/role/query.do">角色管理</a>
+                            </li>
+                            <li>
+                                <a href="#">权限管理</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-indent nav_icon"></i>Menu Levels<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="../../../../WEB-INF/jsp/graphs.jsp">Graphs</a>
+                            </li>
+                            <li>
+                                <a href="../../../../WEB-INF/jsp/typography.jsp">Typography</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-envelope nav_icon"></i>Mailbox<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="../../../../WEB-INF/jsp/inbox.jsp">Inbox</a>
+                            </li>
+                            <li>
+                                <a href="../../../../WEB-INF/jsp/compose.jsp">Compose email</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="../../../../WEB-INF/jsp/widgets.jsp"><i class="fa fa-flask nav_icon"></i>Widgets</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="../../../../WEB-INF/jsp/forms.jsp">Basic Forms</a>
+                            </li>
+                            <li>
+                                <a href="../../../../WEB-INF/jsp/validation.jsp">Validation</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-table nav_icon"></i>Tables<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="../../../../WEB-INF/jsp/basic_tables.jsp">Basic Tables</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>Css<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="../../../../WEB-INF/jsp/media.jsp">Media</a>
+                            </li>
+                            <li>
+                                <a href="../../../../WEB-INF/jsp/login.jsp">Login</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+    <div id="page-wrapper" style="position: relative">
+        <div class="graphs">
+            <div class="md">
+                <h3>权限管理</h3>
+                <div>
+                    <div style="margin:10px;display:inline;padding: 10px 20px;">
+                        <select id="role">
+                            <option value="">全部</option>
+                        </select>
+                        <input type="button" value="查询" onclick="query()" style="height: 30px;width: 60px;"
+                               id="user.query">
+                    </div>
+
+                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
+                         data-toggle="modal" data-target="#createModal">
+                        <input type="button" value="新建" style="height: 30px;width: 60px;" id="user.create">
+                    </div>
+
+                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;">
+                        <input type="button" value="编辑" onclick="edit()"
+                               style="height: 30px;width: 60px;"
+                               id="user.edit">
+                    </div>
+
+                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
+                         data-toggle="modal">
+                        <input type="button" value="删除" onclick="deletePermission()" style="height: 30px;width: 60px;"
+                               id="user.delete">
+                    </div>
+
+                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
+                         data-toggle="modal">
+                        <input type="button" value="分配权限" style="height: 30px;width: 120px;"
+                               onclick="distributePermissions()"
+                               id="user.readrolepermission">
+                    </div>
+
+                    <hr style="margin: 5px 0px 10px 0px;width: 2px;color: #2d2d2d">
+
+                </div>
+                <table class="table table-hover" id="permissionsdisplay">
+                    <thead>
+                    <tr>
+                        <td>权限项</td>
+                        <td>URL</td>
+                        <td>权限名称</td>
+                        <td>权限别名</td>
+                        <td>权限描述</td>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <div id="distributePermissions">
+            <table class="table table-hover"
+                   style="color: #03A5E2;display: block;position: fixed;left: 500px;top: 500px;">
+                <thead>
+                <tr>
+                    <td>权限项</td>
+                    <td>URL</td>
+                    <td>权限名称</td>
+                    <td>权限别名</td>
+                    <td>权限描述</td>
+                    <td>
+                        <button id="selectAll" style="display: inline">全选</button>
+                        <button id="cancelSelectAll" style="display: inline">取消全选</button>
+                        <button id="updateSelete" style="display: inline">保存</button>
+                    </td>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<!-- 新建模态框 -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">新建页面</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <div class="input-group col-md-4">
+                        <span class="input-group-addon">权限项</span>
+                        <input type="text" class="form-control" placeholder="permission" name="permission">
+                    </div>
+                    <div class="input-group col-md-4">
+                        <span class="input-group-addon">URL</span>
+                        <input type="text" class="form-control" placeholder="url" name="url">
+                    </div>
+                    <div class="input-group col-md-4">
+                        <span class="input-group-addon">权限名称</span>
+                        <input type="text" class="form-control" placeholder="name" name="name">
+                    </div>
+                    <div class="input-group col-md-4">
+                        <span class="input-group-addon">权限别名</span>
+                        <input type="text" class="form-control" placeholder="alias" name="alias">
+                    </div>
+                    <div class="input-group col-md-4">
+                        <span class="input-group-addon">备注</span>
+                        <input type="text" class="form-control" placeholder="remark" name="remark">
+                    </div>
+
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="insert()">保存</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 新建模态框 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑页面</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="id">
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">权限项</span>
+                    <input type="text" class="form-control" placeholder="permission" name="permission">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">URL</span>
+                    <input type="text" class="form-control" placeholder="url" name="url">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">权限名称</span>
+                    <input type="text" class="form-control" placeholder="name" name="name">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">权限别名</span>
+                    <input type="text" class="form-control" placeholder="alias" name="alias">
+                </div>
+                <div class="input-group col-md-4">
+                    <span class="input-group-addon">备注</span>
+                    <input type="text" class="form-control" placeholder="remark" name="remark">
+                </div>
+
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update(this)">保存
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#wrapper -->
+<!-- Metis Menu Plugin JavaScript -->
+<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<script>
+
+    function Permission() {
+    }
+    var singlePermission = new Permission();
+
+    $(document).ready(function () {
+        $.ajax({
+            async: true,
+            url: "/oa/user/permission/query.do",
+            type: "post",
+            dataType: "json",
+
+            success: function (data) {
+                if (data.code == "200") {
+                    var permissions = data.items;
+                    $.each(permissions, function (index, value) {
+                        $("#permissionsdisplay").append("" +
+                            "<tr id='" + value.id + "'class='tr'>" +
+                            "<td>" + value.permission + "</td>" +
+                            "<td>" + value.url + "</td>" +
+                            "<td>" + value.name + "</td>" +
+                            "<td>" + value.alias + "</td>" +
+                            "<td>" + value.remark + "</td>" +
+                            "</tr>");
+                    })
+                    $(".td").each(function () {
+                        if ($(this).text() == "1") {
+                            $(this).text('固有');
+                        } else if ($(this).text() == "0") {
+                            $(this).text('非固有');
+                        } else {
+                            $(this).text("未知");
+                        }
+                    })
+                } else {
+                    alert(data.errormsg);
+                }
+            },
+
+            error: function (errorThrown) {
+                alert("ajax出错" + errorThrown);
+            }
+        })
+    });
+
+    function checkChoose() {
+        if (singlePermission.id == undefined || singlePermission.id == "" || singlePermission.id == null) {
+            alert("未选取对象");
+            return false;
+        }
+        return true;
+    }
+
+    $("#permissionsdisplay").on("click", ".tr", function () {
+        $(this).siblings().css("background", "#f2f4f8");
+        $(this).css("background", "#00bcd4");
+
+        var children = $(this).children();
+        singlePermission.id = $(this).attr("id");
+        singlePermission.permission = $(children[0]).text();
+        singlePermission.url = $(children[1]).text();
+        singlePermission.name = $(children[2]).text();
+        singlePermission.alias = $(children[3]).text();
+        singlePermission.remark = $(children[4]).text();
+
+        return singlePermission;
+    });
+
+    function query() {
+        var rolecode = $("#role option:selected").val();
+        $.ajax({
+            async: true,
+            url: "/oa/user/permission/queryRolePermission.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                rolecode: rolecode
+            },
+
+            success: function (data) {
+                if (data.code == "200") {
+                    $("#permissionsdisplay .tr").remove();
+                    var permissions = data.items;
+                    $.each(permissions, function (index, value) {
+                        $("#permissionsdisplay").append("" +
+                            "<tr id='" + value.id + "'class='tr'>" +
+                            "<td>" + value.permission + "</td>" +
+                            "<td>" + value.url + "</td>" +
+                            "<td>" + value.name + "</td>" +
+                            "<td>" + value.alias + "</td>" +
+                            "<td>" + value.remark + "</td>" +
+                            "</tr>");
+                    })
+                } else {
+                    alert(data.errormsg);
+                }
+            },
+
+            error: function (errorThrown) {
+                alert("ajax出错" + errorThrown);
+            }
+        })
+    }
+
+    function readRolePermission() {
+        if (!checkChoose()) return;
+        $.ajax({
+            async: false,
+            url: "/oa/user/permission/readRolePermission.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                roleid: singleRole.id
+            },
+            success: function (data) {
+                var role = data.role;
+                var role = data.role;
+                var modal = $("#editModal input");
+                modal[0].value = (role.id);
+                modal[1].value = (role.rolecode);
+                modal[2].value = (role.rolename);
+                modal[3].value = (role.rolealias);
+                modal[4].value = (role.remark);
+                modal[5].value = (role.fixed);
+
+            },
+            error: function (data, err) {
+                alert("编辑时出错：" + err);
+            }
+        });
+    }
+
+    function edit() {
+        if (!checkChoose()) return;
+        $.ajax({
+            async: false,
+            url: "/oa/user/permission/edit.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                id: singlePermission.id
+            },
+
+            success: function (data) {
+                if (data.code == "200") {
+                    $("#editModal").modal("show");
+
+                    var permission = data.item;
+                    var modal = $("#editModal input");
+                    modal[0].value = (permission.id);
+                    modal[1].value = (permission.permission);
+                    modal[2].value = (permission.url);
+                    modal[3].value = (permission.name);
+                    modal[4].value = (permission.alias);
+                    modal[5].value = (permission.remark);
+                } else {
+                    alert(data.errormsg);
+                }
+            },
+
+            error: function (errorThrown) {
+                alert("ajax出错" + errorThrown);
+            }
+        });
+    }
+
+    function insert() {
+        var modal = $("#createModal input");
+        var permission = modal[0].value;
+        var url = modal[1].value;
+        var name = modal[2].value;
+        var alias = modal[3].value;
+        var remark = modal[4].value;
+
+        $.ajax({
+            async: false,
+            url: "/oa/user/permission/insert.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                permission: permission,
+                url: url,
+                name: name,
+                alias: alias,
+                remark: remark
+            },
+
+            success: function (data) {
+                if (data.code == "200") {
+                    var permission = data.item;
+                    $("#permissionsdisplay").append("" +
+                        "<tr class='tr' id='" + permission.id + "'>" +
+                        "<td>" + permission.permission + "</td>" +
+                        "<td>" + permission.url + "</td>" +
+                        "<td>" + permission.name + "</td>" +
+                        "<td>" + permission.alias + "</td>" +
+                        "<td>" + permission.remark + "</td>" +
+                        "</tr>");
+                } else {
+                    alert(data.errormsg);
+                }
+            },
+
+            error: function (errorThrown) {
+                alert("ajax出错" + errorThrown);
+            }
+        })
+    }
+
+    function update() {
+        if (!checkChoose()) return;
+        var modal = $("#editModal input");
+        var id = modal[0].value;
+        var permission = modal[1].value;
+        var url = modal[2].value;
+        var name = modal[3].value;
+        var alias = modal[4].value;
+        var remark = modal[5].value;
+
+        $.ajax({
+            async: false,
+            url: "/oa/user/permission/update.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                id: id,
+                permission: permission,
+                url: url,
+                name: name,
+                alias: alias,
+                remark: remark
+            },
+
+            success: function (data) {
+                if (data.code == "200") {
+                    var permission = data.item;
+                    var modal = $("#" + permission.id + " td");
+
+                    modal[0].innerText = (permission.permission);
+                    modal[1].innerText = (permission.url);
+                    modal[2].innerText = (permission.name);
+                    modal[3].innerText = (permission.alias);
+                    modal[4].innerText = (permission.remark);
+                } else {
+                    alert(data.errormsg);
+                }
+            },
+            error: function (errorThrown) {
+                alert("ajax出错" + errorThrown);
+            }
+        })
+    }
+
+    function deletePermission() {
+        if (!checkChoose()) return;
+        $.ajax({
+            async: false,
+            url: "/oa/user/permission/delete.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                id: singlePermission.id
+            },
+            success: function () {
+                $("#" + singlePermission.id).remove();
+            },
+            error: function (errorThrown) {
+                alert("ajax出错" + errorThrown);
+            }
+        });
+    }
+
+    var allPermissions = [];
+    var rolePermissions = [];
+    function distributePermissions() {
+
+        var rolecode = $("#role option:selected").val();
+        if (rolecode == "") {
+            alert("未选取角色");
+            return;
+        }
+
+        $("#distributePermissions .tr").remove();
+
+        //get all permissions
+        $.ajax({
+            async: false,
+            url: "/oa/user/permission/query.do",
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == "200") {
+                    allPermissions = data.items;
+                } else {
+                    alert(data.errormsg);
+                }
+            }
+        })
+
+        //get role permissions
+        $.ajax({
+            async: false,
+            url: "/oa/user/permission/queryRolePermission.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                rolecode: rolecode
+            },
+            success: function (data) {
+                if (data.code == "200") {
+                    rolePermissions = data.items;
+                } else {
+                    alert(data.errormsg);
+                }
+            }
+        })
+
+        //build rolePermissionNames array
+        var rolePermissionNames = [];
+        $.each(rolePermissions, function (index, value) {
+            rolePermissionNames.push(value.permission);
+        })
+
+        //append permissions
+        $.each(allPermissions, function (index, value) {
+            if ($.inArray(value.permission, rolePermissionNames) != -1) {
+                $("#distributePermissions").append("" +
+                    "<tr id='" + value.id + "'class='tr'>" +
+                    "<td>" + value.permission + "</td>" +
+                    "<td>" + value.url + "</td>" +
+                    "<td>" + value.name + "</td>" +
+                    "<td>" + value.alias + "</td>" +
+                    "<td>" + value.remark + "</td>" +
+                    "<td><input type='checkbox' checked></td>" +
+                    "</tr>");
+            } else {
+                $("#distributePermissions").append("" +
+                    "<tr id='" + value.id + "'class='tr'>" +
+                    "<td>" + value.permission + "</td>" +
+                    "<td>" + value.url + "</td>" +
+                    "<td>" + value.name + "</td>" +
+                    "<td>" + value.alias + "</td>" +
+                    "<td>" + value.remark + "</td>" +
+                    "<td><input type='checkbox'></td>" +
+                    "</tr>");
+            }
+
+
+        })
+    }
+
+    $("#selectAll").on("click", this, function () {
+        $("#distributePermissions input:checkbox").each(function () {
+            $(this).prop("checked", true);
+        })
+    })
+
+    $("#cancelSelectAll").on("click", this, function () {
+        $("#distributePermissions input:checkbox").each(function () {
+            $(this).prop("checked", false);
+        })
+    })
+
+    $("#updateSelete").on("click", this, function () {
+        var selectPermissions = [];
+        $("#distributePermissions input:checkbox:checked").each(function () {
+            selectPermissions.push($(this).parent().parent().attr());
+        })
+    })
+
+    //为角色定义多选框动态添加options
+    $("#role").on("focus", this, function () {
+        $.ajax({
+            async: true,
+            url: "/oa/user/role/query.do",
+            type: "post",
+            dataType: "json",
+
+            success: function (data) {
+                if (data.code == "200") {
+                    $("#role option:gt(0)").remove();
+                    var roles = data.items;
+                    if (roles.length < 1)
+                        alert("无有效角色定义");
+
+                    $.each(roles, function (key, value) {
+                        $('#role')
+                            .append($("<option></option>")
+                                .attr("value", value.rolecode)
+                                .text(value.rolename));
+                    });
+                } else {
+                    alert(data.errormsg);
+                }
+            },
+            error: function (errorThrown) {
+                alert("ajax出错" + errorThrown);
+            }
+        })
+    })
+</script>
+</body>
+</html>

@@ -5,17 +5,13 @@ import common.error.BasicException;
 import common.service.BaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import param.ApiResponseBody;
+import param.ResponseConst;
 
 /**
  * Project : pft_oa
@@ -26,59 +22,41 @@ import java.util.Map;
 @RestController
 public abstract class BaseController<T extends EntityHasRcm, S extends BaseService<T>> {
 
-    protected Logger logger = LoggerFactory.getLogger(getClass());
-
-    @Resource
-    private S service;
+    protected abstract S getService();
 
     @RequestMapping("/query.do")
-    public Map<String, List<T>> query() {
-        Map<String, List<T>> map = new HashMap();
-        map.put("query", service.queryAll());
-        return map;
+    @ResponseBody
+    public ApiResponseBody<T> query() {
+        return new ApiResponseBody<T>(ResponseConst.SUCCESS_CODE, getService().queryAll());
     }
 
     @RequestMapping("/update.do")
-    public T update(T entity) {
-        return service.update(entity);
+    @ResponseBody
+    public ApiResponseBody<T> update(T entity) throws BasicException {
+        return new ApiResponseBody<T>(ResponseConst.SUCCESS_CODE, getService().update(entity));
     }
 
     @RequestMapping("/insert.do")
-    public T insert(T entity) {
-        return service.insert(entity);
+    @ResponseBody
+    public ApiResponseBody<T> insert(T entity) throws BasicException {
+        return new ApiResponseBody<T>(ResponseConst.SUCCESS_CODE, getService().insert(entity));
     }
 
     @RequestMapping("/delete.do")
-    public void query(Long id) {
-        service.delete(id);
+    @ResponseBody
+    public ApiResponseBody<T> query(Long id) {
+        getService().delete(id);
+        return new ApiResponseBody<T>(ResponseConst.SUCCESS_CODE);
     }
 
     @RequestMapping("/select.do")
-    public T select(Long id) {
-        return service.select(id);
+    public ApiResponseBody<T> select(Long id) {
+        return new ApiResponseBody<T>(ResponseConst.SUCCESS_CODE, getService().select(id));
     }
 
     @RequestMapping("/edit.do")
     @ResponseBody
-    public Map<String, T> edit(String id) {
-        Map<String, T> map = new HashMap();
-        map.put("edit", service.select(Long.valueOf(id)));
-        return map;
-    }
-
-    @ExceptionHandler({BasicException.class})
-    public String baseException(BasicException bx) {
-        logger.error(bx.getMessage(), bx);
-        Map<String, String> map = new HashMap<>();
-        map.put("error", bx.getMessage());
-        return "exception";
-    }
-
-    @ExceptionHandler({Exception.class})
-    public String baseException(Exception ex) {
-        logger.error(ex.getMessage(), ex);
-        Map<String, String> map = new HashMap<>();
-        map.put("error", ex.getMessage());
-        return "exception";
+    public ApiResponseBody<T> edit(String id) {
+        return new ApiResponseBody<T>(ResponseConst.SUCCESS_CODE, getService().select(Long.valueOf(id)));
     }
 }

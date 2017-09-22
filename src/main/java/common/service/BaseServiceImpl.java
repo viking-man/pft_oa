@@ -2,7 +2,9 @@ package common.service;
 
 import common.dao.BaseDao;
 import common.entity.EntityHasRcm;
+import common.error.BasicException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,35 +16,41 @@ import java.util.List;
  * @author : jiangwei
  * @create : 2017/9/18-11:30
  */
+@Transactional
 public abstract class BaseServiceImpl<T extends EntityHasRcm, D extends BaseDao<T>> implements BaseService<T> {
 
-    @Resource
-    private D baseDao;
+    protected abstract D getBaseDao();
 
     @Override
     public List<T> queryAll() {
-        return baseDao.queryAll();
+        return getBaseDao().queryAll();
     }
 
     @Override
     public T select(Long id) {
-        return baseDao.select(id);
+        return getBaseDao().select(id);
     }
 
     @Override
-    public T insert(T entity) {
+    public T insert(T entity) throws BasicException {
         entity.actionBeforeInsert();
-        return baseDao.insert(entity);
+        Long insertId = getBaseDao().insert(entity);
+        if (insertId != null)
+            return entity;
+        throw new BasicException("插入数据库时出错");
     }
 
     @Override
-    public T update(T entity) {
+    public T update(T entity) throws BasicException {
         entity.actionBeforUpdate();
-        return baseDao.update(entity);
+        int update = getBaseDao().update(entity);
+        if (update != 0)
+            return entity;
+        throw new BasicException("更新实体时数据库出错");
     }
 
     @Override
     public void delete(Long id) {
-        baseDao.delete(id);
+        getBaseDao().delete(id);
     }
 }

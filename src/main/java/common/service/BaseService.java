@@ -1,6 +1,7 @@
 package common.service;
 
 import common.entity.EntityHasRcm;
+import common.error.BasicException;
 
 import java.util.List;
 
@@ -16,9 +17,9 @@ public interface BaseService<T extends EntityHasRcm> {
 
     public T select(Long id);
 
-    public T insert(T entity);
+    public T insert(T entity) throws BasicException;
 
-    public T update(T entity);
+    public T update(T entity) throws BasicException;
 
     public void delete(Long id);
 }
