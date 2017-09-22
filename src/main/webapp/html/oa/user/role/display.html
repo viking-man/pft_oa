@@ -249,8 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <input type="button" value="新建" style="height: 30px;width: 60px;" id="user.create">
                     </div>
 
-                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
-                         data-toggle="modal" data-target="#editModal">
+                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;">
                         <input type="button" value="编辑" onclick="edit()" style="height: 30px;width: 60px;"
                                id="user.edit">
                     </div>
@@ -258,12 +257,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
                          data-toggle="modal">
                         <input type="button" value="删除" onclick="deleteRole()" style="height: 30px;width: 60px;"
-                               id="user.update">
+                               id="user.delete">
                     </div>
 
                     <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
                          data-toggle="modal">
-                        <input type="button" value="查看权限" style="height: 30px;width: 120px;" id="user.delete">
+                        <input type="button" value="查看权限" style="height: 30px;width: 120px;" onclick="readPermissions()"
+                               id="user.readrolepermission">
                     </div>
 
                     <hr style="margin: 5px 0px 10px 0px;width: 2px;color: #2d2d2d">
@@ -279,42 +279,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <td>固有角色</td>
                     </tr>
                     </thead>
-                    <!--<c:forEach items="${data}" var="role" varStatus="i">-->
-                    <!--<tr id="${role.id}">-->
-                    <!--<td>${role.rolecode}</td>-->
-                    <!--<td>${role.rolename}</td>-->
-                    <!--<td>${role.rolealias}</td>-->
-                    <!--<td>${role.remark}</td>-->
-                    <!--<td>${role.fixed}</td>-->
-                    <!--<td contenteditable="false">-->
-                    <!--<a href="#=${role.id}" data-toggle="modal" data-target="#editModal"-->
-                    <!--onclick="edit(this);return false;" id="/oa/user/user/edit.do">编辑</a>-->
-                    <!--<a href="#=${role.id}" onclick="deleteRole(this);return false;"-->
-                    <!--id="/oa/user/user/delete.do">删除</a>-->
-                    <!--<a href="/oa/user/permission/readRolePermission.do?roleid=${role.id}">查看权限</a>-->
-
-                    <!--<%&#45;&#45;-->
-                    <!--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userUpdate.do" &#45;&#45;%>-->
-                    <!--<%&#45;&#45;method="post">&#45;&#45;%>-->
-                    <!--<%&#45;&#45;-->
-                    <!--<button type="submit" style="height: 25px;width: 60px">保存</button>-->
-                    <!--&#45;&#45;%>-->
-                    <!--<%&#45;&#45;-->
-                    <!--</form>-->
-                    <!--&#45;&#45;%>-->
-
-                    <!--<%&#45;&#45;-->
-                    <!--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userDelete.do" &#45;&#45;%>-->
-                    <!--<%&#45;&#45;method="post">&#45;&#45;%>-->
-                    <!--<%&#45;&#45;-->
-                    <!--<button type="submit" style="height: 25px;width: 60px">删除</button>-->
-                    <!--&#45;&#45;%>-->
-                    <!--<%&#45;&#45;-->
-                    <!--</form>-->
-                    <!--&#45;&#45;%>-->
-                    <!--</td>-->
-                    <!--</tr>-->
-                    <!--</c:forEach>-->
                 </table>
             </div>
         </div>
@@ -419,32 +383,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             url: "/oa/user/role/query.do",
             type: "post",
             dataType: "json",
+
             success: function (data) {
-                var roles = data;
-                $.each(roles, function (index, value) {
-                    $("#rolesdisplay").append("" +
-                        "<tr id='" + value.id + "'class='tr'>" +
-                        "<td>" + value.rolecode + "</td>" +
-                        "<td>" + value.rolename + "</td>" +
-                        "<td>" + value.rolealias + "</td>" +
-                        "<td>" + value.remark + "</td>" +
-                        "<td class='td'>" + value.fixed + "</td>" +
-                        "</tr>");
-                })
-                $(".td").each(function () {
-                    if ($(this).text() == "1") {
-                        $(this).text('固有');
-                    } else if ($(this).text() == "0") {
-                        $(this).text('非固有');
-                    } else {
-                        $(this).text("未知");
-                    }
-                })
+                if (data.code == "200") {
+                    var roles = data.items;
+                    $.each(roles, function (index, value) {
+                        $("#rolesdisplay").append("" +
+                            "<tr id='" + value.id + "'class='tr'>" +
+                            "<td>" + value.rolecode + "</td>" +
+                            "<td>" + value.rolename + "</td>" +
+                            "<td>" + value.rolealias + "</td>" +
+                            "<td>" + value.remark + "</td>" +
+                            "<td class='td'>" + value.fixed + "</td>" +
+                            "</tr>");
+                    })
+                    $(".td").each(function () {
+                        if ($(this).text() == "1") {
+                            $(this).text('固有');
+                        } else if ($(this).text() == "0") {
+                            $(this).text('非固有');
+                        } else {
+                            $(this).text("未知");
+                        }
+                    })
+                } else {
+                    alert(data.errormsg);
+                }
             },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.status);
-                alert(XMLHttpRequest.readyState);
-                alert(textStatus);
+
+            error: function (errorThrown) {
+                alert("ajax出错" + errorThrown);
             }
         })
     });
@@ -456,6 +424,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     function Role() {
     }
     var singleRole = new Role();
+
+    function checkChoose() {
+        if (singleRole.id == undefined || singleRole.id == "" || singleRole.id == null) {
+            alert("未选取对象");
+            return false;
+        }
+        return true;
+    }
+
+    function readRolePermission() {
+        if (!checkChoose()) return;
+        $.ajax({
+            async: false,
+            url: "/oa/user/permission/readRolePermission.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                roleid: singleRole.id
+            },
+            success: function (data) {
+                var role = data.role;
+                var role = data.role;
+                var modal = $("#editModal input");
+                modal[0].value = (role.id);
+                modal[1].value = (role.rolecode);
+                modal[2].value = (role.rolename);
+                modal[3].value = (role.rolealias);
+                modal[4].value = (role.remark);
+                modal[5].value = (role.fixed);
+
+            },
+            error: function (errorThrown) {
+                alert("编辑时出错：" + errorThrown);
+            }
+        });
+    }
 
 
     $("#rolesdisplay").on("click", ".tr", function () {
@@ -477,6 +481,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
 
     function edit() {
+        if (!checkChoose()) return;
         $.ajax({
             async: false,
             url: "/oa/user/role/edit.do",
@@ -486,23 +491,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 id: singleRole.id
             },
             success: function (data) {
-                var role = data;
-                var modal = $("#editModal input");
-                modal[0].value = (role.id);
-                modal[1].value = (role.rolecode);
-                modal[2].value = (role.rolename);
-                modal[3].value = (role.rolealias);
-                modal[4].value = (role.remark);
-                modal[5].value = (role.fixed);
+                if (data.code == "200") {
+                    $("#editModal").modal("show");
 
+                    var role = data.item;
+                    var modal = $("#editModal input");
+                    modal[0].value = (role.id);
+                    modal[1].value = (role.rolecode);
+                    modal[2].value = (role.rolename);
+                    modal[3].value = (role.rolealias);
+                    modal[4].value = (role.remark);
+                    modal[5].value = (role.fixed);
+                } else {
+                    alert(data.errormsg);
+                }
             },
-            error: function (data, err) {
-                alert("编辑时出错：" + err);
+            error: function (errorThrown) {
+                alert("ajax出错：" + errorThrown);
             }
         });
     }
 
     function insert() {
+        if (!checkChoose()) return;
         var modal = $("#createModal input");
         var rolecode = modal[0].value;
         var rolename = modal[1].value;
@@ -523,18 +534,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 fixed: fixed
             },
             success: function (data) {
-                var role = data;
-                $("#rolesdisplay").append("" +
-                    "<tr>" +
-                    "<td>" + role.rolecode + "</td>" +
-                    "<td>" + role.rolename + "</td>" +
-                    "<td>" + role.rolealias + "</td>" +
-                    "<td>" + role.remark + "</td>" +
-                    "<td>" + role.fixed + "</td>" +
-                    "</tr>");
+                if (data.code == "200") {
+                    var role = data.item;
+                    $("#rolesdisplay").append("" +
+                        "<tr id='" + role.id + "' class='tr'>" +
+                        "<td>" + role.rolecode + "</td>" +
+                        "<td>" + role.rolename + "</td>" +
+                        "<td>" + role.rolealias + "</td>" +
+                        "<td>" + role.remark + "</td>" +
+                        "<td>" + role.fixed + "</td>" +
+                        "</tr>");
+                } else {
+                    alert(data.errormsg);
+                }
             },
-            error: function (data, err) {
-                alert("插入时出错：" + err);
+            error: function (errorThrown) {
+                alert("ajax出错：" + errorThrown);
             }
         })
     }
@@ -562,23 +577,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 fixed: fixed
             },
             success: function (data) {
-                var role = data;
-                var modal = $("#" + data.id + " td");
-
-                modal[0].innerText = (role.rolecode);
-                modal[1].innerText = (role.rolename);
-                modal[2].innerText = (role.rolealias);
-                modal[3].innerText = (role.remark);
-                modal[4].innerText = (role.fixed);
+                if (data.code == "200") {
+                    var role = data.item;
+                    var modal = $("#" + role.id + " td");
+                    modal[0].innerText = (role.rolecode);
+                    modal[1].innerText = (role.rolename);
+                    modal[2].innerText = (role.rolealias);
+                    modal[3].innerText = (role.remark);
+                    modal[4].innerText = (role.fixed);
+                } else {
+                    alert(data.errormsg);
+                }
             },
-            error: function (data, err) {
-                alert("保存时出错：" + err);
+            error: function (errorThrown) {
+                alert("ajax出错：" + errorThrown);
             }
         })
     }
 
     function deleteRole() {
-
+        if (!checkChoose()) return;
         $.ajax({
             async: false,
             url: "/oa/user/role/delete.do",
@@ -590,8 +608,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             success: function () {
                 $("#" + singleRole.id).remove();
             },
-            error: function (data, err) {
-                alert("删除时出错：" + err);
+            error: function (errorThrown) {
+                alert("ajax出错：" + errorThrown);
             }
         });
     }

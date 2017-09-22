@@ -1,6 +1,11 @@
 package oa.user.role.entity;
 
 import common.entity.EntityHasRcm;
+import oa.user.permission.entity.PermissionEntity;
+import oa.user.permission.entity.RolePermissionEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoleEntity extends EntityHasRcm {
     private Long id;
@@ -14,6 +19,8 @@ public class RoleEntity extends EntityHasRcm {
     private String remark;
 
     private int fixed;
+
+    private List<RolePermissionEntity> permissions = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -61,5 +68,17 @@ public class RoleEntity extends EntityHasRcm {
 
     public void setFixed(int fixed) {
         this.fixed = fixed;
+    }
+
+    public List<RolePermissionEntity> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<RolePermissionEntity> permissions) {
+        this.permissions = permissions;
+    }
+
+    public void addPermission(RolePermissionEntity permission) {
+        this.permissions.add(permission);
     }
 }

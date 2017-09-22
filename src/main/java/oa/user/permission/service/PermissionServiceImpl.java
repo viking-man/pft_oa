@@ -10,6 +10,7 @@ import oa.user.permission.dao.RolePermissionDao;
 import oa.user.role.entity.RoleEntity;
 import oa.user.permission.entity.RolePermissionEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
@@ -33,6 +34,11 @@ public class PermissionServiceImpl extends BaseServiceImpl<PermissionEntity, Per
 
     @Resource
     private RoleDao roleDao;
+
+    @Override
+    protected PermissionDao getBaseDao() {
+        return dao;
+    }
 
     @Override
     public PermissionBean readRolePermission(Long roleid) throws BasicException {
@@ -60,7 +66,21 @@ public class PermissionServiceImpl extends BaseServiceImpl<PermissionEntity, Per
     }
 
     @Override
-    protected PermissionDao getBaseDao() {
-        return dao;
+    public List<PermissionEntity> queryRolePermission(String rolecode) throws BasicException {
+        RoleEntity roleEntity = roleDao.selectByUserno(rolecode);
+        if (roleEntity == null)
+            throw new BasicException("没有有效角色定义");
+
+        List<RolePermissionEntity> rolePermissions = rolePermissionDao.queryByRoleid(roleEntity.getId());
+        if (CollectionUtils.isEmpty(rolePermissions))
+            throw new BasicException(String.format("该角色(%s)无权限项", roleEntity.getRolename()));
+
+        List<String> permissionsName = new ArrayList<>();
+        for (RolePermissionEntity rolePermission : rolePermissions) {
+            permissionsName.add(rolePermission.getPermission());
+        }
+
+        return dao.batchQuery(permissionsName);
     }
+
 }

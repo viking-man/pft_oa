@@ -4,6 +4,7 @@ import common.dao.BaseDao;
 import common.entity.EntityHasRcm;
 import common.error.BasicException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  * @author : jiangwei
  * @create : 2017/9/18-11:30
  */
+@Transactional
 public abstract class BaseServiceImpl<T extends EntityHasRcm, D extends BaseDao<T>> implements BaseService<T> {
 
     protected abstract D getBaseDao();

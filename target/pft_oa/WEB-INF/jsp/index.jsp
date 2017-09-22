@@ -161,7 +161,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <a href="../../html/oa/user/role/display.html">角色管理</a>
                             </li>
                             <li>
-                                <a href="/oa/user/permission/query.do">权限管理</a>
+                                <a href="../../html/oa/user/permission/display.html">权限管理</a>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
