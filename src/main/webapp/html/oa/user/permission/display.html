@@ -266,7 +266,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
                          data-toggle="modal">
-                        <input type="button" value="查看权限" style="height: 30px;width: 120px;" onclick="readPermissions()"
+                        <input type="button" value="分配权限" style="height: 30px;width: 120px;"
+                               onclick="distributePermissions()"
                                id="user.readrolepermission">
                     </div>
 
@@ -286,6 +287,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </table>
             </div>
         </div>
+
+        <div id="distributePermissions">
+            <table class="table table-hover"
+                   style="color: #03A5E2;display: block;position: fixed;left: 500px;top: 500px;">
+                <thead>
+                <tr>
+                    <td>权限项</td>
+                    <td>URL</td>
+                    <td>权限名称</td>
+                    <td>权限别名</td>
+                    <td>权限描述</td>
+                    <td>
+                        <button id="selectAll" style="display: inline">全选</button>
+                        <button id="cancelSelectAll" style="display: inline">取消全选</button>
+                        <button id="updateSelete" style="display: inline">保存</button>
+                    </td>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
     </div>
 </div>
 
@@ -652,6 +674,104 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         });
     }
+
+    var allPermissions = [];
+    var rolePermissions = [];
+    function distributePermissions() {
+
+        var rolecode = $("#role option:selected").val();
+        if (rolecode == "") {
+            alert("未选取角色");
+            return;
+        }
+
+        $("#distributePermissions .tr").remove();
+
+        //get all permissions
+        $.ajax({
+            async: false,
+            url: "/oa/user/permission/query.do",
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == "200") {
+                    allPermissions = data.items;
+                } else {
+                    alert(data.errormsg);
+                }
+            }
+        })
+
+        //get role permissions
+        $.ajax({
+            async: false,
+            url: "/oa/user/permission/queryRolePermission.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                rolecode: rolecode
+            },
+            success: function (data) {
+                if (data.code == "200") {
+                    rolePermissions = data.items;
+                } else {
+                    alert(data.errormsg);
+                }
+            }
+        })
+
+        //build rolePermissionNames array
+        var rolePermissionNames = [];
+        $.each(rolePermissions, function (index, value) {
+            rolePermissionNames.push(value.permission);
+        })
+
+        //append permissions
+        $.each(allPermissions, function (index, value) {
+            if ($.inArray(value.permission, rolePermissionNames) != -1) {
+                $("#distributePermissions").append("" +
+                    "<tr id='" + value.id + "'class='tr'>" +
+                    "<td>" + value.permission + "</td>" +
+                    "<td>" + value.url + "</td>" +
+                    "<td>" + value.name + "</td>" +
+                    "<td>" + value.alias + "</td>" +
+                    "<td>" + value.remark + "</td>" +
+                    "<td><input type='checkbox' checked></td>" +
+                    "</tr>");
+            } else {
+                $("#distributePermissions").append("" +
+                    "<tr id='" + value.id + "'class='tr'>" +
+                    "<td>" + value.permission + "</td>" +
+                    "<td>" + value.url + "</td>" +
+                    "<td>" + value.name + "</td>" +
+                    "<td>" + value.alias + "</td>" +
+                    "<td>" + value.remark + "</td>" +
+                    "<td><input type='checkbox'></td>" +
+                    "</tr>");
+            }
+
+
+        })
+    }
+
+    $("#selectAll").on("click", this, function () {
+        $("#distributePermissions input:checkbox").each(function () {
+            $(this).prop("checked", true);
+        })
+    })
+
+    $("#cancelSelectAll").on("click", this, function () {
+        $("#distributePermissions input:checkbox").each(function () {
+            $(this).prop("checked", false);
+        })
+    })
+
+    $("#updateSelete").on("click", this, function () {
+        var selectPermissions = [];
+        $("#distributePermissions input:checkbox:checked").each(function () {
+            selectPermissions.push($(this).parent().parent().attr());
+        })
+    })
 
     //为角色定义多选框动态添加options
     $("#role").on("focus", this, function () {

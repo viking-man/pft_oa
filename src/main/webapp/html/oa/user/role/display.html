@@ -397,15 +397,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             "<td class='td'>" + value.fixed + "</td>" +
                             "</tr>");
                     })
-                    $(".td").each(function () {
-                        if ($(this).text() == "1") {
-                            $(this).text('固有');
-                        } else if ($(this).text() == "0") {
-                            $(this).text('非固有');
-                        } else {
-                            $(this).text("未知");
-                        }
-                    })
+
+                    changeFixedText();
                 } else {
                     alert(data.errormsg);
                 }
@@ -416,6 +409,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         })
     });
+
+    function changeFixedText() {
+        $(".td").each(function () {
+            if ($(this).text() == "1") {
+                $(this).text('固有');
+            } else if ($(this).text() == "0") {
+                $(this).text('非固有');
+            } else {
+                $(this).text("未知");
+            }
+        })
+    }
 
     function query() {
         window.location.reload();
@@ -444,7 +449,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 roleid: singleRole.id
             },
             success: function (data) {
-                var role = data.role;
                 var role = data.role;
                 var modal = $("#editModal input");
                 modal[0].value = (role.id);
@@ -501,7 +505,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     modal[2].value = (role.rolename);
                     modal[3].value = (role.rolealias);
                     modal[4].value = (role.remark);
-                    modal[5].value = (role.fixed);
+                    $("#editModal input:radio[name='fixed'][value='" + role.fixed + "']").prop("checked", "checked");
                 } else {
                     alert(data.errormsg);
                 }
@@ -536,13 +540,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             success: function (data) {
                 if (data.code == "200") {
                     var role = data.item;
+
+                    var fixText;
+                    if (role.fixed == 1) {
+                        fixText = "固有";
+                    } else if (role.fixed == 0) {
+                        fixText = "非固有";
+                    } else {
+                        fixText = "未知";
+                    }
+
                     $("#rolesdisplay").append("" +
                         "<tr id='" + role.id + "' class='tr'>" +
                         "<td>" + role.rolecode + "</td>" +
                         "<td>" + role.rolename + "</td>" +
                         "<td>" + role.rolealias + "</td>" +
                         "<td>" + role.remark + "</td>" +
-                        "<td>" + role.fixed + "</td>" +
+                        "<td>" + fixText + "</td>" +
                         "</tr>");
                 } else {
                     alert(data.errormsg);
@@ -579,12 +593,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             success: function (data) {
                 if (data.code == "200") {
                     var role = data.item;
+
+                    var fixText;
+                    if (role.fixed == 1) {
+                        fixText = "固有";
+                    } else if (role.fixed == 0) {
+                        fixText = "非固有";
+                    } else {
+                        fixText = "未知";
+                    }
+
                     var modal = $("#" + role.id + " td");
                     modal[0].innerText = (role.rolecode);
                     modal[1].innerText = (role.rolename);
                     modal[2].innerText = (role.rolealias);
                     modal[3].innerText = (role.remark);
-                    modal[4].innerText = (role.fixed);
+                    modal[4].innerText = (fixText);
                 } else {
                     alert(data.errormsg);
                 }
