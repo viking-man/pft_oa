@@ -18,4 +18,6 @@ public interface PermissionService extends BaseService<PermissionEntity> {
     PermissionBean readRolePermission(Long roleid) throws BasicException;
 
     List<PermissionEntity> queryRolePermission(String rolecode) throws BasicException;
+
+    void distributePermissions(Long[] permissionIds, String rolecode) throws BasicException;
 }

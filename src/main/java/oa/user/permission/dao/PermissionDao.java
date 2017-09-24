@@ -21,4 +21,6 @@ public interface PermissionDao extends BaseDao<PermissionEntity> {
 //    int updateByPrimaryKey(PermissionEntity record);
 
     List<PermissionEntity> batchQuery(List<String> permissions);
+
+    List<PermissionEntity> batchQueryByIds(List<Long> permissionIds);
 }

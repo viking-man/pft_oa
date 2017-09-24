@@ -14,4 +14,8 @@ public interface RolePermissionDao {
     int insertSelective(RolePermissionEntity record);
 
     List<RolePermissionEntity> queryByRoleid(Long roleid);
+
+    int batchInsert(List<RolePermissionEntity> rolePermissions);
+
+    int deleteRolePermissions(Long roleid);
 }

@@ -767,9 +767,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     })
 
     $("#updateSelete").on("click", this, function () {
+        var rolecode = $("#role option:selected").val();
         var selectPermissions = [];
         $("#distributePermissions input:checkbox:checked").each(function () {
-            selectPermissions.push($(this).parent().parent().attr());
+            selectPermissions.push($(this).parent().parent().attr("id"));
+        })
+
+        $.ajax({
+            async: true,
+            url: "/oa/user/permission/distributePermissions.do",
+            type: "post",
+            dataType: "json",
+            data: {
+                permissionIds: selectPermissions,
+                rolecode: rolecode
+            },
+            traditional: true,
+            success: function (data) {
+                if (data.code == "200") {
+                    alert("操作成功");
+                } else {
+                    alert(data.errormsg);
+                }
+            }
+
         })
     })
 
@@ -796,6 +817,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     });
                 } else {
                     alert(data.errormsg);
+                    return;
                 }
             },
             error: function (errorThrown) {

@@ -2,6 +2,7 @@ package oa.user.permission.controller;
 
 import common.controller.BaseController;
 import common.error.BasicException;
+import common.error.ErrorConst;
 import common.service.BaseService;
 import oa.user.permission.entity.PermissionBean;
 import oa.user.permission.entity.PermissionEntity;
@@ -56,5 +57,13 @@ public class PermissionController extends BaseController<PermissionEntity, Permi
             List<PermissionEntity> permissions = service.queryRolePermission(rolecode);
             return new ApiResponseBody<PermissionEntity>(ResponseConst.SUCCESS_CODE, permissions);
         }
+    }
+
+    @RequestMapping("/distributePermissions.do")
+    @ResponseBody
+    public ApiResponseBody<PermissionEntity> distributePermissions(Long[] permissionIds, String rolecode) throws BasicException {
+
+        service.distributePermissions(permissionIds, rolecode);
+        return new ApiResponseBody<>(ResponseConst.SUCCESS_CODE);
     }
 }

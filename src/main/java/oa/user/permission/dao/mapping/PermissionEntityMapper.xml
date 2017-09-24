@@ -41,6 +41,16 @@
         </foreach>
     </select>
 
+    <select id="batchQueryByIds" parameterType="java.util.List" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from bs_permission
+        where id in
+        <foreach collection="list" index="index" item="id" open="(" close=")" separator=",">
+            #{id,jdbcType=BIGINT}
+        </foreach>
+    </select>
+
     <delete id="delete" parameterType="java.lang.Long">
     delete from bs_permission
     where id = #{id,jdbcType=BIGINT}

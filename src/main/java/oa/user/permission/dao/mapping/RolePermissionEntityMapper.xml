@@ -29,29 +29,17 @@
     values (#{roleid,jdbcType=BIGINT}, #{permission,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}
       )
   </insert>
-    <insert id="insertSelective" parameterType="oa.user.permission.entity.RolePermissionEntity">
-        insert into bs_rolepermission
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="roleid != null">
-                roleid,
-            </if>
-            <if test="permission != null">
-                permission,
-            </if>
-            <if test="url != null">
-                url,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="roleid != null">
-                #{roleid,jdbcType=BIGINT},
-            </if>
-            <if test="permission != null">
-                #{permission,jdbcType=VARCHAR},
-            </if>
-            <if test="url != null">
-                #{url,jdbcType=VARCHAR},
-            </if>
-        </trim>
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into bs_rolepermission(roleid, permission, url)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.roleid},#{item.permission},#{item.url}
+            )
+        </foreach>
     </insert>
+    <delete id="deleteRolePermissions" parameterType="java.lang.Long">
+    delete from bs_rolepermission
+    where roleid = #{roleid,jdbcType=BIGINT}
+</delete>
 </mapper>

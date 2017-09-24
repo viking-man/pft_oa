@@ -11,6 +11,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import param.ApiResponseBody;
 import param.ResponseConst;
 
+import java.net.BindException;
+
 
 /**
  * Project : pft_oa
@@ -38,10 +40,26 @@ public class ExceptionHandlerAdvice {
         return new ApiResponseBody(ResponseConst.ERROR_CODE, ex.getMessage());
     }
 
+//    @ExceptionHandler
+//    @ResponseBody
+//    public ApiResponseBody Exception(Exception ex) {
+//        logger.error(ex.getMessage(), ex);
+//        return new ApiResponseBody(ResponseConst.ERROR_CODE, ex.getMessage());
+//    }
+
     @ExceptionHandler(DataAccessException.class)
     @ResponseBody
     public ApiResponseBody DataAccessException(Exception ex) {
         logger.error(ex.getMessage(), ex);
         return new ApiResponseBody(ResponseConst.ERROR_DAO, ex.getMessage());
     }
+
+    @ExceptionHandler(BindException.class)
+    @ResponseBody
+    public ApiResponseBody BindException(Exception ex) {
+        logger.error(ex.getMessage(), ex);
+        return new ApiResponseBody(ResponseConst.ERROR_DAO, ex.getMessage());
+    }
+
+
 }
