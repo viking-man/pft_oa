@@ -2,6 +2,7 @@ package oa.user.permission.dao;
 
 import common.dao.BaseDao;
 import oa.user.permission.entity.PermissionEntity;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -20,6 +20,14 @@
     from bs_userdepartment
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+  <select id="selectByUserid" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bs_userdepartment
+    where userid = #{userid,jdbcType=BIGINT}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from bs_userdepartment
     where id = #{id,jdbcType=BIGINT}

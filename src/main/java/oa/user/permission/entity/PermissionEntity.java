@@ -2,7 +2,7 @@ package oa.user.permission.entity;
 
 import common.entity.EntityHasRcm;
 
-public class PermissionEntity extends EntityHasRcm{
+public class PermissionEntity extends EntityHasRcm {
     private Long id;
 
     private String permission;
@@ -62,4 +62,5 @@ public class PermissionEntity extends EntityHasRcm{
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
+
 }

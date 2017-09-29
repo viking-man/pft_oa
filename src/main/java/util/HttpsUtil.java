@@ -13,7 +13,7 @@ import java.net.URL;
  * @author : jiangwei
  * @create : 2017/9/13-20:07
  */
-public class HttpsUtil {
+public abstract class HttpsUtil {
 
     public static String sendHttpsRequest(String requesrUrl, String method) {
         try {

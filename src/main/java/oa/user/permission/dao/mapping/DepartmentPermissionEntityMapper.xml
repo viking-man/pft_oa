@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="oa.user.permission.dao.DepartmentPermissionDao">
+    <resultMap id="BaseResultMap" type="oa.user.permission.entity.DepartmentPermissionEntity">
+        <result column="departmentid" jdbcType="BIGINT" property="departmentid"/>
+        <result column="permission" jdbcType="VARCHAR" property="permission"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    departmentid, permission, url
+  </sql>
+    <select id="queryByDepartmentid" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from bs_departmentpermission
+        where departmentid = #{departmentid,jdbcType=BIGINT}
+    </select>
+
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from bs_departmentpermission;
+    </select>
+
+
+    <insert id="insert" parameterType="oa.user.permission.entity.DepartmentPermissionEntity">
+    insert into bs_departmentpermission (departmentid, permission, url
+      )
+    values (#{departmentid,jdbcType=BIGINT}, #{permission,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into bs_departmentpermission(departmentid, permission, url)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.departmentid},#{item.permission},#{item.url}
+            )
+        </foreach>
+    </insert>
+    <delete id="deleteDepartmentPermissions" parameterType="java.lang.Long">
+    delete from bs_departmentpermission
+    where departmentid = #{departmentid,jdbcType=BIGINT}
+</delete>
+</mapper>

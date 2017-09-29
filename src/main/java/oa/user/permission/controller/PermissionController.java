@@ -59,11 +59,31 @@ public class PermissionController extends BaseController<PermissionEntity, Permi
         }
     }
 
-    @RequestMapping("/distributePermissions.do")
+    @RequestMapping("/distributeRolePermissions.do")
     @ResponseBody
-    public ApiResponseBody<PermissionEntity> distributePermissions(Long[] permissionIds, String rolecode) throws BasicException {
+    public ApiResponseBody<PermissionEntity> distributeRolePermissions(Long[] permissionIds, String rolecode) throws BasicException {
 
-        service.distributePermissions(permissionIds, rolecode);
+        service.distributeRolePermissions(permissionIds, rolecode);
         return new ApiResponseBody<>(ResponseConst.SUCCESS_CODE);
+    }
+
+    @RequestMapping("/distributeDepartmentPermissions.do")
+    @ResponseBody
+    public ApiResponseBody<PermissionEntity> distributeDepartmentPermissions(Long[] permissionIds, String departmentno) throws BasicException {
+
+        service.distributeDepartmentPermissions(permissionIds, departmentno);
+        return new ApiResponseBody<>(ResponseConst.SUCCESS_CODE);
+    }
+
+    @RequestMapping("/queryDepartmentPermission.do")
+    @ResponseBody
+    public ApiResponseBody<PermissionEntity> queryDepartmentPermission(String departmentno) throws BasicException {
+
+        if (StringUtils.isBlank(departmentno))
+            return query();
+        else {
+            List<PermissionEntity> permissions = service.queryDepartmentPermission(departmentno);
+            return new ApiResponseBody<PermissionEntity>(ResponseConst.SUCCESS_CODE, permissions);
+        }
     }
 }

@@ -1,3 +1,5 @@
 weixin\WXTokenUtilTest.class
+activiti\WorkflowTest.class
 spring\IocUnitTest.class
 spring\TransIocUnitTest.class
+oa\user\user\controller\WeixinControllerTest.class

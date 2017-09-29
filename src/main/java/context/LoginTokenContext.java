@@ -1,7 +1,11 @@
 package context;
 
+import oa.user.permission.entity.RolePermissionEntity;
 import oa.user.user.entity.UserEntity;
 import util.UuidUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project : pft_oa
@@ -33,6 +37,10 @@ public class LoginTokenContext {
     private String department;
 
     private String wxuserid;
+
+    private Long roleid;
+
+    private List<String> rolePermissions = new ArrayList<>();
 
     public String getTokenid() {
         return tokenid;
@@ -80,5 +88,21 @@ public class LoginTokenContext {
 
     public void setWxuserid(String wxuserid) {
         this.wxuserid = wxuserid;
+    }
+
+    public Long getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(Long roleid) {
+        this.roleid = roleid;
+    }
+
+    public List<String> getRolePermissions() {
+        return rolePermissions;
+    }
+
+    public void setRolePermissions(List<String> rolePermissions) {
+        this.rolePermissions = rolePermissions;
     }
 }

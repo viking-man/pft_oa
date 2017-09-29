@@ -1,5 +1,6 @@
 package oa.department.controller;
 
+import common.controller.BaseController;
 import oa.department.entity.DepartmentEntity;
 import oa.department.service.DepartmentService;
 import oa.department.service.DepartmentServiceImpl;
@@ -17,17 +18,16 @@ import java.util.List;
  * @create : 2017/9/17-16:12
  */
 @Controller
-@RequestMapping("/oa/department")
-public class DepartmentController {
+@RequestMapping("/oa/department/department")
+public class DepartmentController extends BaseController<DepartmentEntity, DepartmentService> {
+
 
     @Resource
     private DepartmentService departmentService;
 
-
-    @RequestMapping("/query.do")
-    public String query(Model model) {
-        List<DepartmentEntity> departments = departmentService.queryAll();
-        model.addAttribute("departments", departments);
-        return "/oa/department/query";
+    @Override
+    protected DepartmentService getService() {
+        return departmentService;
     }
+
 }

@@ -3,7 +3,6 @@ package oa.user.user.entity;
 import common.entity.EntityHasRcm;
 
 public class UserEntity extends EntityHasRcm {
-    private Long id;
 
     private String username;
 
@@ -38,14 +37,6 @@ public class UserEntity extends EntityHasRcm {
     private String reserve3;
 
     private String externid;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;

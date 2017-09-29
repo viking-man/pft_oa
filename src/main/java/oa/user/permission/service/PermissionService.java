@@ -19,5 +19,9 @@ public interface PermissionService extends BaseService<PermissionEntity> {
 
     List<PermissionEntity> queryRolePermission(String rolecode) throws BasicException;
 
-    void distributePermissions(Long[] permissionIds, String rolecode) throws BasicException;
+    List<PermissionEntity> queryDepartmentPermission(String departmentno) throws BasicException;
+
+    void distributeRolePermissions(Long[] permissionIds, String rolecode) throws BasicException;
+
+    void distributeDepartmentPermissions(Long[] permissionIds, String departmentno) throws BasicException;
 }

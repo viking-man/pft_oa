@@ -44,7 +44,7 @@ public abstract class BaseController<T extends EntityHasRcm, S extends BaseServi
 
     @RequestMapping("/delete.do")
     @ResponseBody
-    public ApiResponseBody<T> query(Long id) {
+    public ApiResponseBody<T> delete(Long id) {
         getService().delete(id);
         return new ApiResponseBody<T>(ResponseConst.SUCCESS_CODE);
     }

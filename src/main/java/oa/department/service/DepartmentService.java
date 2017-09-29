@@ -1,5 +1,6 @@
 package oa.department.service;
 
+import common.service.BaseService;
 import oa.department.entity.DepartmentEntity;
 
 import java.util.List;
@@ -10,7 +11,6 @@ import java.util.List;
  * @author : jiangwei
  * @create : 2017/9/17-16:24
  */
-public interface DepartmentService {
+public interface DepartmentService extends BaseService<DepartmentEntity> {
 
-    List<DepartmentEntity> queryAll();
 }

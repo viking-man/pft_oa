@@ -1,6 +1,7 @@
 package oa.user.user.service;
 
-import org.springframework.ui.Model;
+import common.error.BasicException;
+import context.LoginTokenContext;
 
 /**
  * Project : pft_oa
@@ -10,6 +11,6 @@ import org.springframework.ui.Model;
  */
 public interface ILoginService {
 
-    boolean login(String userno, String password, Model model);
+    LoginTokenContext login(String userno, String password) throws BasicException;
 
 }

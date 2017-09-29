@@ -15,6 +15,8 @@ public interface RolePermissionDao {
 
     List<RolePermissionEntity> queryByRoleid(Long roleid);
 
+    List<RolePermissionEntity> queryByUserid(Long userid);
+
     int batchInsert(List<RolePermissionEntity> rolePermissions);
 
     int deleteRolePermissions(Long roleid);

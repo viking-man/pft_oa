@@ -13,6 +13,8 @@ public interface UserDepartmentDao {
 
     UserDepartmentEntity selectByPrimaryKey(Long id);
 
+    UserDepartmentEntity selectByUserid(Long userid);
+
     int updateByPrimaryKeySelective(UserDepartmentEntity record);
 
     int updateByPrimaryKey(UserDepartmentEntity record);

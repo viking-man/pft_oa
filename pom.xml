@@ -14,6 +14,7 @@
         <!-- log4j日志文件管理包版本 -->
         <slf4j-version>1.7.21</slf4j-version>
         <log4j.version>1.2.17</log4j.version>
+        <activiti.version>5.22.0</activiti.version>
     </properties>
 
     <dependencies>
@@ -216,6 +217,23 @@
             <version>1.2.35</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-engine</artifactId>
+            <version>${activiti.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring</artifactId>
+            <version>${activiti.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-rest</artifactId>
+            <version>${activiti.version}</version>
+        </dependency>
 
     </dependencies>
 

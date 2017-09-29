@@ -1,19 +1,10 @@
 package oa.department.entity;
 
+import common.entity.EntityHasRcm;
+
 import java.util.Date;
 
-public class DepartmentEntity {
-    private Long id;
-
-    private Long rowstamp;
-
-    private Long createuser;
-
-    private Date createtime;
-
-    private Long modifyuser;
-
-    private Date modifytime;
+public class DepartmentEntity extends EntityHasRcm {
 
     private String departmentno;
 
@@ -24,54 +15,6 @@ public class DepartmentEntity {
     private String remark;
 
     private Byte fixed;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getRowstamp() {
-        return rowstamp;
-    }
-
-    public void setRowstamp(Long rowstamp) {
-        this.rowstamp = rowstamp;
-    }
-
-    public Long getCreateuser() {
-        return createuser;
-    }
-
-    public void setCreateuser(Long createuser) {
-        this.createuser = createuser;
-    }
-
-    public Date getCreatetime() {
-        return createtime;
-    }
-
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
-
-    public Long getModifyuser() {
-        return modifyuser;
-    }
-
-    public void setModifyuser(Long modifyuser) {
-        this.modifyuser = modifyuser;
-    }
-
-    public Date getModifytime() {
-        return modifytime;
-    }
-
-    public void setModifytime(Date modifytime) {
-        this.modifytime = modifytime;
-    }
 
     public String getDepartmentno() {
         return departmentno;

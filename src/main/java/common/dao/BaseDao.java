@@ -1,5 +1,6 @@
 package common.dao;
 
+import common.entity.BaseEntity;
 import common.entity.EntityHasRcm;
 
 import java.util.List;

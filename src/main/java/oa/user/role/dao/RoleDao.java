@@ -17,6 +17,8 @@ public interface RoleDao extends BaseDao<RoleEntity> {
     @Override
     RoleEntity select(Long id);
 
+    RoleEntity selectByUserid(Long userid);
+
     @Override
     Long insert(RoleEntity entity);
 

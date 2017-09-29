@@ -1,11 +1,19 @@
 package oa.user.user.controller;
 
+import common.entity.EntityHasRcm;
+import common.error.BasicException;
+import context.LoginTokenContext;
 import context.LoginTokenContextHolder;
 import oa.user.user.service.ILoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import param.ApiResponseBody;
+import param.GlobleConstant;
+import param.ResponseConst;
 
 import javax.annotation.Resource;
 
@@ -22,15 +30,28 @@ public class LoginController {
     private ILoginService iLoginService;
 
     @RequestMapping(value = "/login.do", method = RequestMethod.POST)
-    public String login(String userno, String password, Model model) {
+    public String login(String userno, String password, Model model) throws BasicException {
 
-        if (iLoginService.login(userno, password, model)) {
+        if (iLoginService.login(userno, password) != null) {
             return "index";
         }
 
         model.addAttribute("error", "用户名或密码验证错误，请联系管理员");
         return "login";
     }
+
+//    @RequestMapping("/login.do")
+//    @ResponseBody
+//    public ApiResponseBody login(String userno, String password) throws BasicException {
+//        LoginTokenContext tokenContext = iLoginService.login(userno, password);
+//        if (tokenContext != null) {
+//            ApiResponseBody<EntityHasRcm> responseBody = new ApiResponseBody<>(ResponseConst.SUCCESS_CODE);
+//            responseBody.setTokenContext(LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT));
+//            return responseBody;
+//        } else {
+//            return new ApiResponseBody(ResponseConst.ERROR_CODE, "登录失败");
+//        }
+//    }
 
     @RequestMapping(value = "/logout.do")
     public String logout() {

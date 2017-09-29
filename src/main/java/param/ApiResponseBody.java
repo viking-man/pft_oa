@@ -1,6 +1,7 @@
 package param;
 
 import common.entity.EntityHasRcm;
+import context.LoginTokenContext;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,6 +23,12 @@ public class ApiResponseBody<T extends EntityHasRcm> {
     private T item;
 
     private List<T> items;
+
+    private LoginTokenContext tokenContext;
+
+    private Object entity;
+
+    private List<Object> entities;
 
     public ApiResponseBody() {
     }
@@ -83,5 +90,29 @@ public class ApiResponseBody<T extends EntityHasRcm> {
 
     public void setItems(List<T> items) {
         this.items = items;
+    }
+
+    public LoginTokenContext getTokenContext() {
+        return tokenContext;
+    }
+
+    public void setTokenContext(LoginTokenContext tokenContext) {
+        this.tokenContext = tokenContext;
+    }
+
+    public Object getEntity() {
+        return entity;
+    }
+
+    public void setEntity(Object entity) {
+        this.entity = entity;
+    }
+
+    public List<Object> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(List<Object> entities) {
+        this.entities = entities;
     }
 }
