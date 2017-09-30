@@ -4,8 +4,10 @@ import common.error.BasicException;
 import common.service.BaseServiceImpl;
 import oa.department.dao.DepartmentDao;
 import oa.department.entity.DepartmentEntity;
+import oa.department.service.DepartmentService;
 import oa.user.role.dao.RoleDao;
 import oa.user.role.entity.RoleEntity;
+import oa.user.role.service.RoleService;
 import oa.user.user.dao.UserDepartmentDao;
 import oa.user.user.dao.UserroleDao;
 import oa.user.user.dao.UsersDao;
@@ -32,16 +34,28 @@ public class UsersServiceImpl extends BaseServiceImpl<UserEntity, UsersDao> impl
     private UsersDao usersDao;
 
     @Resource
+    private RoleService roleService;
+
+    @Resource
     private RoleDao roleDao;
 
     @Resource
     private UserroleDao userroleDao;
 
     @Resource
-    private UserDepartmentDao userDepartmentDao;
+    private UserroleService userroleService;
+
+    @Resource
+    private UserDepartmentService userDepartmentService;
 
     @Resource
     private DepartmentDao departmentDao;
+
+    @Resource
+    private UserDepartmentDao userDepartmentDao;
+
+    @Resource
+    private DepartmentService departmentService;
 
     @Override
     protected UsersDao getBaseDao() {
@@ -50,7 +64,7 @@ public class UsersServiceImpl extends BaseServiceImpl<UserEntity, UsersDao> impl
 
     @Override
     public List<UserBean> queryBeans() {
-        List<UserEntity> users = usersDao.queryAll();
+        List<UserEntity> users = queryAll();
 
         List<UserBean> beans = new ArrayList<>();
         for (UserEntity user : users) {
@@ -67,33 +81,68 @@ public class UsersServiceImpl extends BaseServiceImpl<UserEntity, UsersDao> impl
     }
 
     @Override
-    public UserBean update(UserEntity entity, String rolecode, String departmentno) {
-        usersDao.update(entity);
+    public UserBean update(UserEntity entity, String rolecode, String departmentno) throws BasicException {
+        update(entity);
 
-        RoleEntity roleEntity = roleDao.selectByUserno(rolecode);
+        RoleEntity roleEntity = roleDao.selectByRolecode(rolecode);
+        if (roleEntity == null)
+            throw new BasicException(String.format("不存在此编码(%s)对应的角色定义", rolecode));
         UserroleEntity userroleEntity = userroleDao.selectByUserid(entity.getId());
         if (userroleEntity == null) {
             UserroleEntity userrole = new UserroleEntity();
             userrole.setUserid(entity.getId());
             userrole.setRoleid(roleEntity.getId());
-            userroleDao.insert(userrole);
+            userroleService.insert(userrole);
         } else {
             userroleEntity.setRoleid(roleEntity.getId());
-            userroleDao.update(userroleEntity);
+            userroleService.update(userroleEntity);
         }
 
         DepartmentEntity departmentEntity = departmentDao.selectByDepartmentno(departmentno);
+        if (departmentEntity == null)
+            throw new BasicException(String.format("不存在此编码(%s)对应的部门", departmentno));
         UserDepartmentEntity userDepartmentEntity = userDepartmentDao.selectByUserid(entity.getId());
         if (userDepartmentEntity == null) {
             UserDepartmentEntity userDepartment = new UserDepartmentEntity();
             userDepartment.setUserid(entity.getId());
             userDepartment.setDepartmentid(departmentEntity.getId());
-            userDepartmentDao.insert(userDepartment);
+            userDepartmentService.insert(userDepartment);
         } else {
             userDepartmentEntity.setDepartmentid(departmentEntity.getId());
-            userDepartmentDao.updateByPrimaryKeySelective(userDepartmentEntity);
+            userDepartmentService.update(userDepartmentEntity);
         }
 
-        return null;
+        return getUserBean(entity, roleEntity, departmentEntity);
+    }
+
+    private UserBean getUserBean(UserEntity entity, RoleEntity roleEntity, DepartmentEntity departmentEntity) {
+        UserBean bean = new UserBean();
+        bean.setUser(entity);
+        bean.setRole(roleEntity);
+        bean.setDepartment(departmentEntity);
+        return bean;
+    }
+
+    @Override
+    public UserBean insert(UserEntity entity, String rolecode, String departmentno) throws BasicException {
+        UserEntity userEntity = insert(entity);
+
+        RoleEntity roleEntity = roleDao.selectByRolecode(rolecode);
+        if (roleEntity == null)
+            throw new BasicException(String.format("不存在此编码(%s)对应的角色定义", rolecode));
+        UserroleEntity userroleEntity = new UserroleEntity();
+        userroleEntity.setRoleid(roleEntity.getId());
+        userroleEntity.setUserid(userEntity.getId());
+        userroleService.insert(userroleEntity);
+
+        DepartmentEntity departmentEntity = departmentDao.selectByDepartmentno(departmentno);
+        if (departmentEntity == null)
+            throw new BasicException(String.format("不存在此编码(%s)对应的部门", departmentno));
+        UserDepartmentEntity userDepartmentEntity = new UserDepartmentEntity();
+        userDepartmentEntity.setDepartmentid(departmentEntity.getId());
+        userDepartmentEntity.setUserid(userEntity.getId());
+        userDepartmentService.insert(userDepartmentEntity);
+
+        return getUserBean(entity, roleEntity, departmentEntity);
     }
 }

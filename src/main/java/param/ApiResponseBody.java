@@ -31,6 +31,7 @@ public class ApiResponseBody<T extends EntityHasRcm> {
     private List<Object> entities;
 
     public ApiResponseBody() {
+        this.code = ResponseConst.SUCCESS_CODE;
     }
 
     public ApiResponseBody(String code, T item) {

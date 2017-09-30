@@ -123,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> 登录编码 <span
                             class="label label-success">${loginuser.userno}</span></a></li>
                     <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> 部门 <span
-                            class="label label-danger">${loginuser.department}</span></a></li>
+                            class="label label-danger">${loginuser.departmentno}</span></a></li>
                     <li><a href="#"><i class="fa fa-comments"></i> 微信ID <span
                             class="label label-warning">${loginuser.wxuserid}</span></a>
                     </li>
@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-indent nav_icon"></i>部门管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../html/oa/department/department/display.html">部门列表</a>
+                                <a href="../../html/oa/department/departmentno/display.html">部门列表</a>
                             </li>
                             <li>
                                 <a href="../../html/oa/department/permission/display.html">权限管理</a>
@@ -444,7 +444,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             type: "post",
             dataType: "json",
             data: {
-                roleid: singleRole.id
+                rolecode: singleRole.id
             },
             success: function (data) {
                 var role = data.role;
@@ -515,7 +515,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     }
 
     function insert() {
-        if (!checkChoose()) return;
         var modal = $("#createModal input");
         var rolecode = modal[0].value;
         var rolename = modal[1].value;

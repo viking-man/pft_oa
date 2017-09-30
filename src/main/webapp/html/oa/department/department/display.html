@@ -123,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> 登录编码 <span
                             class="label label-success">${loginuser.userno}</span></a></li>
                     <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> 部门 <span
-                            class="label label-danger">${loginuser.department}</span></a></li>
+                            class="label label-danger">${loginuser.departmentno}</span></a></li>
                     <li><a href="#"><i class="fa fa-comments"></i> 微信ID <span
                             class="label label-warning">${loginuser.wxuserid}</span></a>
                     </li>
@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-indent nav_icon"></i>部门管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../html/oa/department/department/display.html">部门列表</a>
+                                <a href="../../html/oa/department/departmentno/display.html">部门列表</a>
                             </li>
                             <li>
                                 <a href="../../html/oa/department/permission/display.html">权限管理</a>
@@ -239,29 +239,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div>
                     <div style="margin:10px;display:inline;padding: 10px 20px;">
                         <input type="button" value="查询" onclick="query()" style="height: 30px;width: 60px;"
-                               id="department.query">
+                               id="departmentno.query">
                     </div>
 
                     <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
                          data-toggle="modal" data-target="#createModal">
-                        <input type="button" value="新建" style="height: 30px;width: 60px;" id="department.create">
+                        <input type="button" value="新建" style="height: 30px;width: 60px;" id="departmentno.create">
                     </div>
 
                     <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;">
                         <input type="button" value="编辑" onclick="edit()" style="height: 30px;width: 60px;"
-                               id="department.edit">
+                               id="departmentno.edit">
                     </div>
 
                     <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
                          data-toggle="modal">
                         <input type="button" value="删除" onclick="deleteItem()" style="height: 30px;width: 60px;"
-                               id="department.delete">
+                               id="departmentno.delete">
                     </div>
 
                     <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
                          data-toggle="modal">
                         <input type="button" value="查看权限" style="height: 30px;width: 120px;" onclick="readPermissions()"
-                               id="department.readrolepermission">
+                               id="departmentno.readrolepermission">
                     </div>
 
                     <hr style="margin: 5px 0px 10px 0px;width: 2px;color: #2d2d2d">
@@ -378,7 +378,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $(document).ready(function () {
         $.ajax({
             async: true,
-            url: "/oa/department/department/query.do",
+            url: "/oa/department/departmentno/query.do",
             type: "post",
             dataType: "json",
 
@@ -458,7 +458,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         if (!checkChoose()) return;
         $.ajax({
             async: false,
-            url: "/oa/department/department/edit.do",
+            url: "/oa/department/departmentno/edit.do",
             type: "post",
             dataType: "json",
             data: {
@@ -468,14 +468,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 if (data.code == "200") {
                     $("#editModal").modal("show");
 
-                    var department = data.item;
+                    var departmentno = data.item;
                     var modal = $("#editModal input");
-                    modal[0].value = (department.id);
-                    modal[1].value = (department.departmentno);
-                    modal[2].value = (department.departmentname);
-                    modal[3].value = (department.departmentalias);
-                    modal[4].value = (department.remark);
-                    $("#editModal input:radio[name='fixed'][value='" + department.fixed + "']").prop("checked", "checked");
+                    modal[0].value = (departmentno.id);
+                    modal[1].value = (departmentno.departmentno);
+                    modal[2].value = (departmentno.departmentname);
+                    modal[3].value = (departmentno.departmentalias);
+                    modal[4].value = (departmentno.remark);
+                    $("#editModal input:radio[name='fixed'][value='" + departmentno.fixed + "']").prop("checked", "checked");
                 } else {
                     alert(data.errormsg);
                 }
@@ -497,7 +497,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         $.ajax({
             async: false,
-            url: "/oa/department/department/insert.do",
+            url: "/oa/department/departmentno/insert.do",
             type: "post",
             dataType: "json",
             data: {
@@ -509,23 +509,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             },
             success: function (data) {
                 if (data.code == "200") {
-                    var department = data.item;
+                    var departmentno = data.item;
 
                     var fixText;
-                    if (department.fixed == 1) {
+                    if (departmentno.fixed == 1) {
                         fixText = "固有";
-                    } else if (department.fixed == 0) {
+                    } else if (departmentno.fixed == 0) {
                         fixText = "非固有";
                     } else {
                         fixText = "未知";
                     }
 
                     $("#departmentsdisplay").append("" +
-                        "<tr id='" + department.id + "' class='tr'>" +
-                        "<td>" + department.departmentno + "</td>" +
-                        "<td>" + department.departmentname + "</td>" +
-                        "<td>" + department.departmentalias + "</td>" +
-                        "<td>" + department.remark + "</td>" +
+                        "<tr id='" + departmentno.id + "' class='tr'>" +
+                        "<td>" + departmentno.departmentno + "</td>" +
+                        "<td>" + departmentno.departmentname + "</td>" +
+                        "<td>" + departmentno.departmentalias + "</td>" +
+                        "<td>" + departmentno.remark + "</td>" +
                         "<td>" + fixText + "</td>" +
                         "</tr>");
                 } else {
@@ -549,7 +549,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         $.ajax({
             async: false,
-            url: "/oa/department/department/update.do",
+            url: "/oa/department/departmentno/update.do",
             type: "post",
             dataType: "json",
             data: {
@@ -562,22 +562,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             },
             success: function (data) {
                 if (data.code == "200") {
-                    var department = data.item;
+                    var departmentno = data.item;
 
                     var fixText;
-                    if (department.fixed == 1) {
+                    if (departmentno.fixed == 1) {
                         fixText = "固有";
-                    } else if (department.fixed == 0) {
+                    } else if (departmentno.fixed == 0) {
                         fixText = "非固有";
                     } else {
                         fixText = "未知";
                     }
 
-                    var modal = $("#" + department.id + " td");
-                    modal[0].innerText = (department.departmentno);
-                    modal[1].innerText = (department.departmentname);
-                    modal[2].innerText = (department.departmentalias);
-                    modal[3].innerText = (department.remark);
+                    var modal = $("#" + departmentno.id + " td");
+                    modal[0].innerText = (departmentno.departmentno);
+                    modal[1].innerText = (departmentno.departmentname);
+                    modal[2].innerText = (departmentno.departmentalias);
+                    modal[3].innerText = (departmentno.remark);
                     modal[4].innerText = (fixText);
                 } else {
                     alert(data.errormsg);
@@ -593,7 +593,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         if (!checkChoose()) return;
         $.ajax({
             async: false,
-            url: "/oa/department/department/delete.do",
+            url: "/oa/department/departmentno/delete.do",
             type: "post",
             dataType: "json",
             data: {

@@ -49,7 +49,7 @@ public class WeixinController {
             return "/WEB-INF/jsp/oa/user/query.jsp";
         }
 
-        return "/WEB-INF/jsp/oa/user/query.jsp";
+        return "oa/user/user/query";
     }
 
     @RequestMapping("/removeWxBind.do")
@@ -66,7 +66,7 @@ public class WeixinController {
             model.addAttribute("error", "解除绑定失败");
         }
 
-        return "/WEB-INF/jsp/oa/user/query.jsp";
+        return "oa/user/user/query";
     }
 
     private void getAllUsers(Model model) {

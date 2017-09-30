@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <input type="text" class="form-control1" placeholder="地址" name="addr">
     <input type="text" class="form-control1" placeholder="手机号" name="mobileno">
     <input type="text" class="form-control1" placeholder="邮箱" name="email">
-    <input type="text" class="form-control1" placeholder="部门" name="department">
+    <input type="text" class="form-control1" placeholder="部门" name="departmentno">
     <select id="departmentno" name="departmentno" style="display: block;">
         <option value="manage">管理层</option>
         <option value="technology" selected="selected">技术部</option>

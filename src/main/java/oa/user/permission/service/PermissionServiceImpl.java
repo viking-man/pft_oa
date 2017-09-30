@@ -76,7 +76,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<PermissionEntity, Per
 
     @Override
     public List<PermissionEntity> queryRolePermission(String rolecode) throws BasicException {
-        RoleEntity roleEntity = roleDao.selectByUserno(rolecode);
+        RoleEntity roleEntity = roleDao.selectByRolecode(rolecode);
         if (roleEntity == null)
             throw new BasicException("没有有效角色定义");
 
@@ -114,7 +114,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<PermissionEntity, Per
     @Override
     public void distributeRolePermissions(Long[] permissionIds, String rolecode) throws BasicException {
 
-        RoleEntity roleEntity = roleDao.selectByUserno(rolecode);
+        RoleEntity roleEntity = roleDao.selectByRolecode(rolecode);
         if (roleEntity == null)
             throw new BasicException(String.format("不存在此编码(%s)对应的角色", rolecode));
 

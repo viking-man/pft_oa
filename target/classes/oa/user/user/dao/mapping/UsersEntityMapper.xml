@@ -70,11 +70,11 @@
         from bs_user
         where userno = #{userno,jdbcType=VARCHAR}
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <delete id="delete" parameterType="java.lang.Long">
     delete from bs_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-    <insert id="insert" parameterType="oa.user.user.entity.UserEntity">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="oa.user.user.entity.UserEntity">
     insert into bs_user (id, rowstamp, createuser, 
       createtime, modifyuser, modifytime, 
       username, userno, sex, 
@@ -264,7 +264,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="oa.user.user.entity.UserEntity">
+    <update id="update" parameterType="oa.user.user.entity.UserEntity">
         update bs_user
         <set>
             <if test="rowstamp != null">

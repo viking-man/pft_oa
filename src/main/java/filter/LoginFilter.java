@@ -17,28 +17,27 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LoginFilter implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-//        LoginTokenContext tokenContext = LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT);
-//        if (tokenContext != null) {
-//
-//            if (StringUtils.equals(tokenContext.getUserno(), "admin"))
-//                return true;
-//
-//            String requestURI = httpServletRequest.getRequestURI();
-//            if (!StringUtils.equals(requestURI, "/login.do")) {
-//                if (tokenContext.getRolePermissions() == null || CollectionUtils.isEmpty(tokenContext.getRolePermissions()))
-//                    throw new BasicException("权限项为空，请配置权限");
-//                else if (!tokenContext.getRolePermissions().contains(requestURI))
-//                    throw new BasicException("您无此权限项，请配置权限");
-//            }
-//
-//            return true;
-//        } else if (StringUtils.equals(httpServletRequest.getRequestURI(), "/oa/user/login/login.do")) {
-//            return true;
-//        } else {
-//            httpServletRequest.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(httpServletRequest, httpServletResponse);
-//            return false;
-//        }
-        return true;
+        LoginTokenContext tokenContext = LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT);
+        if (tokenContext != null) {
+
+            if (StringUtils.equals(tokenContext.getUserno(), "admin"))
+                return true;
+
+            String requestURI = httpServletRequest.getRequestURI();
+            if (!StringUtils.equals(requestURI, "/login.do") && !StringUtils.equals(requestURI, "/logout.do")) {
+                if (tokenContext.getRolePermissionUrls() == null || CollectionUtils.isEmpty(tokenContext.getRolePermissionUrls()))
+                    throw new BasicException("权限项为空，请配置权限");
+                else if (!tokenContext.getRolePermissionUrls().contains(requestURI))
+                    throw new BasicException("您无此权限项，请配置权限");
+            }
+
+            return true;
+        } else if (StringUtils.equals(httpServletRequest.getRequestURI(), "/oa/user/login/login.do")) {
+            return true;
+        } else {
+            httpServletRequest.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(httpServletRequest, httpServletResponse);
+            return false;
+        }
 
     }
 

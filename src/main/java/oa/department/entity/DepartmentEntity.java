@@ -2,7 +2,6 @@ package oa.department.entity;
 
 import common.entity.EntityHasRcm;
 
-import java.util.Date;
 
 public class DepartmentEntity extends EntityHasRcm {
 

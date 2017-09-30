@@ -123,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> 登录编码 <span
                             class="label label-success">${loginuser.userno}</span></a></li>
                     <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> 部门 <span
-                            class="label label-danger">${loginuser.department}</span></a></li>
+                            class="label label-danger">${loginuser.departmentno}</span></a></li>
                     <li><a href="#"><i class="fa fa-comments"></i> 微信ID <span
                             class="label label-warning">${loginuser.wxuserid}</span></a>
                     </li>
@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-indent nav_icon"></i>部门管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../html/oa/department/department/display.html">部门列表</a>
+                                <a href="../../html/oa/department/departmentno/display.html">部门列表</a>
                             </li>
                             <li>
                                 <a href="../../html/oa/department/permission/display.html">权限管理</a>
@@ -264,6 +264,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                id="user.readrolepermission">
                     </div>
 
+                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
+                         data-toggle="modal">
+                        <input type="button" value="绑定微信" style="height: 30px;width: 120px;" onclick="bindwx()"
+                               id="user.bindwx">
+                    </div>
+
+                    <div style="margin:10px;display:inline;padding: 10px 20px;height: 30px;width: 60px;"
+                         data-toggle="modal">
+                        <input type="button" value="解除绑定" style="height: 30px;width: 120px;" onclick="removebind()"
+                               id="user.removebind">
+                    </div>
+
                     <hr style="margin: 5px 0px 10px 0px;width: 2px;color: #2d2d2d">
 
                 </div>
@@ -314,7 +326,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="input-group col-md-4">
                     <span class="input-group-addon">性别</span>
-                    <input type="text" class="form-control" placeholder="sex" name="sex">
+                    <label><input type="radio" name="sex" value="1">男</label>
+                    <label><input type="radio" name="sex" value="0">女</label>
                 </div>
                 <div class="input-group col-md-4">
                     <span class="input-group-addon">地址</span>
@@ -338,7 +351,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <option value="technology">技术部</option>
                         <option value="operation">运维部</option>
                         <option value="market">市场部</option>
-                        <option value="manager">管理层</option>
+                        <option value="management">管理层</option>
                         <option value="personnel">人事部</option>
                     </select>
                 </div>
@@ -412,7 +425,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="input-group col-md-4">
                     <span class="input-group-addon">所在部门</span>
-                    <select name="editdepartmentno">
+                    <select id="editdepartmentno">
                         <option value="technology">技术部</option>
                         <option value="operation">运维部</option>
                         <option value="market">市场部</option>
@@ -540,7 +553,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             type: "post",
             dataType: "json",
             data: {
-                roleid: singleRole.id
+                rolecode: singleRole.id
             },
             success: function (data) {
                 var role = data.role;
@@ -599,46 +612,68 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     }
 
     function insert() {
-        if (!checkChoose()) return;
         var modal = $("#createModal input");
-        var rolecode = modal[0].value;
-        var rolename = modal[1].value;
-        var rolealias = modal[2].value;
-        var remark = modal[3].value;
-        var fixed = $('#createModal input:radio[name="fixed"]:checked').val();
+        var userno = modal[0].value;
+        var password = modal[1].value;
+        var username = modal[2].value;
+        var sex = $('#createModal input:radio[name="sex"]:checked').val();
+        var addr = modal[5].value;
+        var phoneno = modal[6].value;
+        var mobileno = modal[7].value;
+        var email = modal[8].value;
+        var departmentno = $("#createdepartmentno option:selected").val();
+        var rolecode = $("#createrolecode option:selected").val();
 
         $.ajax({
             async: false,
-            url: "/oa/user/role/insert.do",
+            url: "/oa/user/users/insertBean.do",
             type: "post",
             dataType: "json",
             data: {
-                rolecode: rolecode,
-                rolename: rolename,
-                rolealias: rolealias,
-                remark: remark,
-                fixed: fixed
+                userno: userno,
+                password: password,
+                username: username,
+                sex: sex,
+                addr: addr,
+                phoneno: phoneno,
+                mobileno: mobileno,
+                email: email,
+                departmentno: departmentno,
+                rolecode: rolecode
             },
             success: function (data) {
                 if (data.code == "200") {
-                    var role = data.item;
+                    var bean = data.entity;
+                    var user = bean.user;
 
-                    var fixText;
-                    if (role.fixed == 1) {
-                        fixText = "固有";
-                    } else if (role.fixed == 0) {
-                        fixText = "非固有";
+                    var rolename;
+                    if (bean.role == null) {
+                        rolename = "";
                     } else {
-                        fixText = "未知";
+                        rolename = bean.role.rolename;
                     }
 
+                    var departmentname;
+                    if (bean.department == null) {
+                        departmentname = "";
+                    } else {
+                        departmentname = bean.department.departmentname;
+                    }
+
+
                     $("#rolesdisplay").append("" +
-                        "<tr id='" + role.id + "' class='tr'>" +
-                        "<td>" + role.rolecode + "</td>" +
-                        "<td>" + role.rolename + "</td>" +
-                        "<td>" + role.rolealias + "</td>" +
-                        "<td>" + role.remark + "</td>" +
-                        "<td>" + fixText + "</td>" +
+                        "<tr id='" + user.id + "'class='tr'>" +
+                        "<td>" + user.username + "</td>" +
+                        "<td>" + user.userno + "</td>" +
+                        "<td>" + user.pwd + "</td>" +
+                        "<td>" + user.sex + "</td>" +
+                        "<td>" + user.addr + "</td>" +
+                        "<td>" + user.phoneno + "</td>" +
+                        "<td>" + user.mobileno + "</td>" +
+                        "<td>" + user.email + "</td>" +
+                        "<td>" + user.wxuserid + "</td>" +
+                        "<td>" + departmentname + "</td>" +
+                        "<td>" + rolename + "</td>" +
                         "</tr>");
                 } else {
                     alert(data.errormsg);
@@ -666,13 +701,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         $.ajax({
             async: false,
-            url: "/oa/user/role/update.do",
+            url: "/oa/user/users/updateBean.do",
             type: "post",
             dataType: "json",
             data: {
                 id: id,
                 userno: userno,
-                password: password,
+                pwd: password,
                 username: username,
                 sex: sex,
                 addr: addr,
@@ -684,7 +719,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             },
             success: function (data) {
                 if (data.code == "200") {
-                    var role = data.item;
+                    var bean = data.entity;
+                    var user = bean.user;
+                    var rolename;
+                    if (bean.role == null) {
+                        rolename = "";
+                    } else {
+                        rolename = bean.role.rolename;
+                    }
+
+                    var departmentname;
+                    if (bean.department == null) {
+                        departmentname = "";
+                    } else {
+                        departmentname = bean.department.departmentname;
+                    }
 
 //                    var fixText;
 //                    if (role.fixed == 1) {
@@ -695,12 +744,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 //                        fixText = "未知";
 //                    }
 
-                    var modal = $("#" + role.id + " td");
-                    modal[0].innerText = (role.rolecode);
-                    modal[1].innerText = (role.rolename);
-                    modal[2].innerText = (role.rolealias);
-                    modal[3].innerText = (role.remark);
-                    modal[4].innerText = (fixText);
+                    var modal = $("#" + user.id + " td");
+                    modal[0].innerText = (user.username);
+                    modal[1].innerText = (user.userno);
+                    modal[2].innerText = (user.pwd);
+                    modal[3].innerText = (user.sex);
+                    modal[4].innerText = (user.addr);
+                    modal[5].innerText = (user.phoneno);
+                    modal[6].innerText = (user.mobileno);
+                    modal[7].innerText = (user.email);
+                    modal[8].innerText = (user.wxuserid);
+                    modal[9].innerText = (departmentname);
+                    modal[10].innerText = (rolename);
+
                 } else {
                     alert(data.errormsg);
                 }
@@ -715,19 +771,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         if (!checkChoose()) return;
         $.ajax({
             async: false,
-            url: "/oa/user/role/delete.do",
+            url: "/oa/user/users/delete.do",
             type: "post",
             dataType: "json",
             data: {
-                id: singleRole.id
+                id: singleUser.id
             },
-            success: function () {
-                $("#" + singleRole.id).remove();
+            success: function (data) {
+                if (data.code == "200") {
+                    $("#" + singleUser.id).remove();
+                } else {
+                    alert(data.errormsg);
+                }
+
             },
             error: function (errorThrown) {
                 alert("ajax出错：" + errorThrown);
             }
         });
+    }
+
+    function bindwx() {
+        if (!checkChoose()) return;
+        window.location.href = "/wxBind.do?id=" + singleUser.id;
+    }
+
+    function removebind() {
+        if (!checkChoose()) return;
+        window.location.href = "/removeWxBind.do?id=" + singleUser.id;
     }
 </script>
 </body>

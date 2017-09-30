@@ -122,7 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> 登录编码 <span
                             class="label label-success">${loginuser.userno}</span></a></li>
                     <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> 部门 <span
-                            class="label label-danger">${loginuser.department}</span></a></li>
+                            class="label label-danger">${loginuser.departmentno}</span></a></li>
                     <li><a href="#"><i class="fa fa-comments"></i> 微信ID <span
                             class="label label-warning">${loginuser.wxuserid}</span></a>
                     </li>
@@ -181,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-envelope nav_icon"></i>流程管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="inbox.jsp">流程列表</a>
+                                <a href="../../html/activiti/display.html">流程列表</a>
                             </li>
                             <li>
                                 <a href="compose.jsp">Compose email</a>

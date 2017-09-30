@@ -18,8 +18,6 @@ public interface DepartmentDao extends BaseDao<DepartmentEntity> {
 
     DepartmentEntity selectByDepartmentno(String departmentno);
 
-    int updateByPrimaryKeySelective(DepartmentEntity record);
-
     int updateByPrimaryKey(DepartmentEntity record);
 
     @Override

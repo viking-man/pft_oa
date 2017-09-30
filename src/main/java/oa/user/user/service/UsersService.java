@@ -1,5 +1,6 @@
 package oa.user.user.service;
 
+import common.error.BasicException;
 import common.service.BaseService;
 import oa.user.user.entity.UserBean;
 import oa.user.user.entity.UserEntity;
@@ -16,5 +17,7 @@ public interface UsersService extends BaseService<UserEntity> {
 
     List<UserBean> queryBeans();
 
-    UserBean update(UserEntity entity, String rolecode, String departmentno);
+    UserBean update(UserEntity entity, String rolecode, String departmentno) throws BasicException;
+
+    UserBean insert(UserEntity entity, String rolecode, String departmentno) throws BasicException;
 }

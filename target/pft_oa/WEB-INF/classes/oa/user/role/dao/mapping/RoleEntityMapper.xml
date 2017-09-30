@@ -25,7 +25,7 @@
         where id = #{id,jdbcType=BIGINT}
     </select>
 
-    <select id="selectByUserno" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectByRolecode" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from bs_role

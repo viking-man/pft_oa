@@ -1,9 +1,14 @@
 package activiti.service;
 
 import activiti.entity.DeploymentEntity;
+import activiti.entity.LeaveEntity;
+import activiti.test.Workflow;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.RepositoryService;
+import org.activiti.engine.RuntimeService;
+import org.activiti.engine.repository.ProcessDefinition;
+import org.activiti.engine.runtime.ProcessInstance;
 import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -36,4 +41,12 @@ public class ActivitiService {
 //        repositoryService.getDeploymentResourceNames()
         return null;
     }
+
+    public void leave(LeaveEntity leave) {
+        RuntimeService runtimeService = processEngine.getRuntimeService();
+        RepositoryService repositoryService = processEngine.getRepositoryService();
+        repositoryService.getProcessDefinition("myProcess_1:2:10004");
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("leave");
+    }
+
 }

@@ -131,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> 登录编码 <span
                             class="label label-success">${loginuser.userno}</span></a></li>
                     <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> 部门 <span
-                            class="label label-danger">${loginuser.department}</span></a></li>
+                            class="label label-danger">${loginuser.departmentno}</span></a></li>
                     <li><a href="#"><i class="fa fa-comments"></i> 微信ID <span
                             class="label label-warning">${loginuser.wxuserid}</span></a>
                     </li>
@@ -268,11 +268,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <td>基本操作</td>
                     </tr>
                     </thead>
-                    <c:forEach items="${departments}" var="department" varStatus="i">
+                    <c:forEach items="${departments}" var="departmentno" varStatus="i">
                         <tr id="info">
-                            <td>${department.departmentno}</td>
-                            <td>${department.departmentname}</td>
-                            <td>${department.remark}</td>
+                            <td>${departmentno.departmentno}</td>
+                            <td>${departmentno.departmentname}</td>
+                            <td>${departmentno.remark}</td>
                             <td contenteditable="false">
                                 <a href="/oa/user/user/edit.do?id=${user.id}">修改</a>
                                 <a href="/oa/user/user/delete.do?id=${user.id}">删除</a>

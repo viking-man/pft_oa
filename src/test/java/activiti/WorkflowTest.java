@@ -4,6 +4,7 @@ import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.RepositoryService;
+import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.spring.ProcessEngineFactoryBean;
 import org.junit.Test;
 
@@ -18,12 +19,13 @@ import javax.annotation.Resource;
 public class WorkflowTest {
 
     @Resource
-    private ProcessEngineFactoryBean processEngine;
+    private ProcessEngine processEngine;
 
     @Test
     public void testDeploy() throws Exception {
-        RepositoryService repositoryService = processEngine.getObject().getRepositoryService();
-        repositoryService.createDeployment().addClasspathResource("activiti/leave.bpmn").deploy();
+        RepositoryService repositoryService = processEngine.getRepositoryService();
+        ProcessDefinition processDefinition = repositoryService.getProcessDefinition("myProcess_1:1:7504");
+        System.out.println(processDefinition.getDiagramResourceName());
     }
 
     public static void main(String[] args) {
@@ -54,6 +56,7 @@ public class WorkflowTest {
         ProcessEngine processEngine = configuration.buildProcessEngine();
 
         RepositoryService service = processEngine.getRepositoryService();
-        service.createDeployment().addClasspathResource("activiti/leave.bpmn").deploy();
+        ProcessDefinition processDefinition = service.getProcessDefinition("myProcess_1:1:7504");
+        System.out.println(processDefinition.getName());
     }
 }

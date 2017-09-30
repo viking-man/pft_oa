@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface RoleDao extends BaseDao<RoleEntity> {
 
-    RoleEntity selectByUserno(String rolecode);
+    RoleEntity selectByRolecode(String rolecode);
 
     @Override
     List<RoleEntity> queryAll();

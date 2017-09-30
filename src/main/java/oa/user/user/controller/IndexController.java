@@ -58,7 +58,7 @@ public class IndexController {
         }
 
         if (tokenContext != null)
-            return "/WEB-INF/original/index.jsp";
+            return "/original/index";
         else
             return "login";
     }

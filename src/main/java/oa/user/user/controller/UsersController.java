@@ -7,6 +7,7 @@ import oa.user.user.entity.UserBean;
 import oa.user.user.entity.UserEntity;
 import oa.user.user.service.UsersService;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import param.ApiResponseBody;
 import param.ResponseConst;
@@ -41,7 +42,21 @@ public class UsersController extends BaseController<UserEntity, UsersService> {
         return responseBody;
     }
 
+    @RequestMapping("/updateBean.do")
+    @ResponseBody
     public ApiResponseBody<UserEntity> update(UserEntity entity, String rolecode, String departmentno) throws BasicException {
-        service.update(entity,rolecode,departmentno);
+        UserBean bean = service.update(entity, rolecode, departmentno);
+        ApiResponseBody responseBody = new ApiResponseBody<>();
+        responseBody.setEntity(bean);
+        return responseBody;
+    }
+
+    @RequestMapping("/insertBean.do")
+    @ResponseBody
+    public ApiResponseBody<UserEntity> insert(UserEntity entity, String rolecode, String departmentno) throws BasicException {
+        UserBean bean = service.insert(entity, rolecode, departmentno);
+        ApiResponseBody responseBody = new ApiResponseBody<>();
+        responseBody.setEntity(bean);
+        return responseBody;
     }
 }

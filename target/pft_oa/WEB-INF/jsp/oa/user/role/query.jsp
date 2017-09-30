@@ -131,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> 登录编码 <span
                             class="label label-success">${loginuser.userno}</span></a></li>
                     <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> 部门 <span
-                            class="label label-danger">${loginuser.department}</span></a></li>
+                            class="label label-danger">${loginuser.departmentno}</span></a></li>
                     <li><a href="#"><i class="fa fa-comments"></i> 微信ID <span
                             class="label label-warning">${loginuser.wxuserid}</span></a>
                     </li>
@@ -282,7 +282,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                    onclick="edit(this);return false;" id="/oa/user/user/edit.do">编辑</a>
                                 <a href="#=${role.id}" onclick="deleteRole(this);return false;"
                                    id="/oa/user/user/delete.do">删除</a>
-                                <a href="/oa/user/permission/readRolePermission.do?roleid=${role.id}">查看权限</a>
+                                <a href="/oa/user/permission/readRolePermission.do?rolecode=${role.id}">查看权限</a>
 
                                     <%--<form style="margin:0px;display:inline;padding: 0px 10px" action="/userUpdate.do"--%>
                                     <%--method="post">--%>

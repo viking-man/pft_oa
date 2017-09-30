@@ -15,7 +15,7 @@
         <sequenceFlow id="flow2" sourceRef="writeReportTask" targetRef="verifyReportTask"/>
         <userTask id="verifyReportTask" name="Verify monthly financial report">
             <documentation>
-                Verify monthly financial report composed by the accountancy department. This financial report is going to be sent to all the company shareholders.
+                Verify monthly financial report composed by the accountancy departmentno. This financial report is going to be sent to all the company shareholders.
             </documentation>
             <potentialOwner>
                 <resourceAssignmentExpression>

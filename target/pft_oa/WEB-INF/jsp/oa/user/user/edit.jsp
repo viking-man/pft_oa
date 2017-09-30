@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <%--$.getElementById("check_info").value = "邮箱不能为空";--%>
 <%--$.getElementById("submit").style.disabled = true;--%>
 <%--}--%>
-<%--if (!$.getElementById("department").value) {--%>
+<%--if (!$.getElementById("departmentno").value) {--%>
 <%--$.getElementById("check_info").value = "部门不能为空";--%>
 <%--$.getElementById("submit").style.disabled = true;--%>
 <%--}--%>

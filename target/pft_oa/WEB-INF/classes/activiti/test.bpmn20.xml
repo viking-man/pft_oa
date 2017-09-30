@@ -4,7 +4,7 @@
     <startEvent id="_2" name="Start"/>
     <userTask activiti:exclusive="true" id="_3" name="group leader"/>
     <exclusiveGateway gatewayDirection="Unspecified" id="_4" name="ExclusiveGateway"/>
-    <userTask activiti:exclusive="true" id="_5" name="department leader"/>
+    <userTask activiti:exclusive="true" id="_5" name="departmentno leader"/>
     <userTask activiti:exclusive="true" id="_6" name="manager"/>
     <endEvent id="_7" name="End"/>
     <sequenceFlow id="_8" sourceRef="_2" targetRef="_3"/>

@@ -45,7 +45,7 @@ public class UserServiceImpl implements IUserService {
 
         Long userid = userDao.insertAndReturnId(user);
 
-        RoleEntity roleEntity = roleDao.selectByUserno(rolecode);
+        RoleEntity roleEntity = roleDao.selectByRolecode(rolecode);
         UserroleEntity userroleEntity = new UserroleEntity();
         userroleEntity.actionBeforeInsert();
         userroleEntity.setUserid(userid);

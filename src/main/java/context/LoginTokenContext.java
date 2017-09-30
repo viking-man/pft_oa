@@ -1,6 +1,5 @@
 package context;
 
-import oa.user.permission.entity.RolePermissionEntity;
 import oa.user.user.entity.UserEntity;
 import util.UuidUtil;
 
@@ -34,13 +33,13 @@ public class LoginTokenContext {
 
     private String username;
 
-    private String department;
+    private String departmentno;
 
     private String wxuserid;
 
-    private Long roleid;
+    private String rolecode;
 
-    private List<String> rolePermissions = new ArrayList<>();
+    private List<String> rolePermissionUrls = new ArrayList<>();
 
     public String getTokenid() {
         return tokenid;
@@ -74,12 +73,12 @@ public class LoginTokenContext {
         this.username = username;
     }
 
-    public String getDepartment() {
-        return department;
+    public String getDepartmentno() {
+        return departmentno;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setDepartmentno(String departmentno) {
+        this.departmentno = departmentno;
     }
 
     public String getWxuserid() {
@@ -90,19 +89,19 @@ public class LoginTokenContext {
         this.wxuserid = wxuserid;
     }
 
-    public Long getRoleid() {
-        return roleid;
+    public String getRolecode() {
+        return rolecode;
     }
 
-    public void setRoleid(Long roleid) {
-        this.roleid = roleid;
+    public void setRolecode(String rolecode) {
+        this.rolecode = rolecode;
     }
 
-    public List<String> getRolePermissions() {
-        return rolePermissions;
+    public List<String> getRolePermissionUrls() {
+        return rolePermissionUrls;
     }
 
-    public void setRolePermissions(List<String> rolePermissions) {
-        this.rolePermissions = rolePermissions;
+    public void setRolePermissionUrls(List<String> rolePermissionUrls) {
+        this.rolePermissionUrls = rolePermissionUrls;
     }
 }
