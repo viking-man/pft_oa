@@ -3,6 +3,8 @@ package oa.user.user.service;
 import common.error.BasicException;
 import context.LoginTokenContext;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Project : pft_oa
  *
@@ -11,6 +13,6 @@ import context.LoginTokenContext;
  */
 public interface ILoginService {
 
-    LoginTokenContext login(String userno, String password) throws BasicException;
+    LoginTokenContext login(String userno, String password, HttpServletRequest request) throws BasicException;
 
 }

@@ -20,7 +20,7 @@ public abstract class HttpsUtil {
             URL url = new URL(requesrUrl);
             HttpsURLConnection httpsURLConnection = (HttpsURLConnection) url.openConnection();
 
-            httpsURLConnection.setRequestMethod("GET");
+            httpsURLConnection.setRequestMethod(method);
             httpsURLConnection.setDoOutput(true);
             httpsURLConnection.setDoInput(true);
 

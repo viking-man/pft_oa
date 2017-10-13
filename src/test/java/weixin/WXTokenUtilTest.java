@@ -2,6 +2,7 @@ package weixin;
 
 import org.springframework.util.Assert;
 import param.GlobleConstant;
+import param.WeiXinConstant;
 import weixin.entity.AccessTokenEntity;
 
 /**
@@ -13,7 +14,7 @@ import weixin.entity.AccessTokenEntity;
 public class WXTokenUtilTest {
 
     public static void main(String[] args) {
-        AccessTokenEntity accesstoken = WXTokenUtil.getAccesstoken(GlobleConstant.WEIXIN_CorpID, GlobleConstant.WEIXIN_Secret);
+        AccessTokenEntity accesstoken = WXTokenUtil.getAccesstoken(WeiXinConstant.WEIXIN_CorpID, WeiXinConstant.WEIXIN_Secret);
         System.out.println(accesstoken.getAccess_token());
         Assert.notNull(accesstoken);
 

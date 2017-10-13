@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import param.GlobleConstant;
+import param.WeiXinConstant;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -36,17 +37,17 @@ public class IndexController {
     public String checkLogin(HttpServletRequest request, Model model) {
         String code = request.getParameter("code");
         String state = request.getParameter("state");
-        WeixinContext bindContext = WeixinContextHolder.getToken(GlobleConstant.WEIXIN_BINDUSER_KEY);
+        WeixinContext bindContext = WeixinContextHolder.getToken(WeiXinConstant.WEIXIN_BINDUSER_KEY);
         LoginTokenContext tokenContext = LoginTokenContextHolder.getToken(GlobleConstant.SESSION_LOGIN_CONTEXT);
 
-        if (StringUtils.isNotBlank(code) && StringUtils.isNotBlank(state) && StringUtils.equals(state, GlobleConstant.WEIXIN_State)) {
+        if (StringUtils.isNotBlank(code) && StringUtils.isNotBlank(state) && StringUtils.equals(state, WeiXinConstant.WEIXIN_State)) {
 
             if (bindContext == null) {
                 if (wxService.wxLogin(request, model))
                     return "/WEB-INF/original/index.jsp";
                 else
                     return "login";
-            } else if (tokenContext != null && bindContext.getUserfor() == GlobleConstant.WEIXIN_BIND) {
+            } else if (tokenContext != null && bindContext.getUserfor() == WeiXinConstant.WEIXIN_BIND) {
 
                 if (wxService.wxBind(bindContext, request.getParameter("code"), model)) {
                     model.addAttribute("error", "绑定成功");

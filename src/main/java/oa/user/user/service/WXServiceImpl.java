@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import param.GlobleConstant;
+import param.WeiXinConstant;
 import weixin.entity.AccessTokenEntity;
 import weixin.WXTokenUtil;
 import weixin.entity.UseridEntity;
@@ -154,14 +155,14 @@ public class WXServiceImpl implements WXService {
         if (StringUtils.isNotBlank(user.getWxuserid()))
             throw new BasicException(String.format("ID为[%s]的用户已经绑定号码为[%s]的微信", id, user.getWxuserid()));
 
-        WeixinContextHolder.addToken(GlobleConstant.WEIXIN_BINDUSER_KEY, new WeixinContext(user, GlobleConstant.WEIXIN_BIND));
+        WeixinContextHolder.addToken(WeiXinConstant.WEIXIN_BINDUSER_KEY, new WeixinContext(user, WeiXinConstant.WEIXIN_BIND));
 
 
         response.sendRedirect("https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wx5ba8760d25c0e797&agentid=1000002&redirect_uri=http%3A%2F%2F122.224.220.182:8082&state=usWmsYx");
     }
 
-    private UseridEntity getWxuser(String code) throws BasicException {
-        AccessTokenEntity accesstoken = WXTokenUtil.getAccesstoken(GlobleConstant.WEIXIN_CorpID, GlobleConstant.WEIXIN_Secret);
+    public UseridEntity getWxuser(String code) throws BasicException {
+        AccessTokenEntity accesstoken = WXTokenUtil.getAccesstoken(WeiXinConstant.WEIXIN_CorpID, WeiXinConstant.WEIXIN_Secret);
 
         if (accesstoken == null || accesstoken.getErrcode().intValue() != 0) {
             throw new BasicException("获取access_token时出错");

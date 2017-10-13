@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="../../../../css/bootstrap.css">
+    <script src="../../../../js/jquery.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">内部管理系统</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">个人信息 <span class="glyphicons glyphicons-user"
+                                                        aria-hidden="true"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> 姓名 <span
+                                class="label label-info">张三</span></a></li>
+                        <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> 登录编码 <span
+                                class="label label-info">ZS</span></a></li>
+                        <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> 部门 <span
+                                class="label label-info">技术部</span></a></li>
+                        <li><a href="#"><i class="fa fa-comments"></i> 微信ID <span
+                                class="label label-info">jiangwei</span></a>
+                        </li>
+                        <li class="m_2"><a href="/logout.do"><i class="fa fa-lock"></i> 注销</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default">查询</button>
+        <button type="button" class="btn btn-default">新建</button>
+        <button type="button" class="btn btn-default">编辑</button>
+        <button type="button" class="btn btn-default">删除</button>
+        <button type="button" class="btn btn-default">绑定</button>
+        <button type="button" class="btn btn-default">解除</button>
+    </div>
+
+    <div style="margin: 30px 0px">
+
+    </div>
+
+    <table class="table text-center table-bordered .table-hover">
+        <thead>
+        <tr>
+            <td>姓名</td>
+            <td>工号</td>
+            <td>性别</td>
+            <td>地址</td>
+            <td>手机号</td>
+            <td>所在部门</td>
+            <td>职位</td>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+</body>
+</html>

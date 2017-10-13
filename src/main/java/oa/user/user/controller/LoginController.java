@@ -16,6 +16,7 @@ import param.GlobleConstant;
 import param.ResponseConst;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Project : pft_oa
@@ -30,9 +31,9 @@ public class LoginController {
     private ILoginService iLoginService;
 
     @RequestMapping(value = "/login.do", method = RequestMethod.POST)
-    public String login(String userno, String password, Model model) throws BasicException {
+    public String login(String userno, String password, Model model, HttpServletRequest request) throws BasicException {
 
-        if (iLoginService.login(userno, password) != null) {
+        if (iLoginService.login(userno, password, request) != null) {
             return "index";
         }
 

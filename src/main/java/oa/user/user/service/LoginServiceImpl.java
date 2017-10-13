@@ -22,6 +22,8 @@ import org.springframework.stereotype.Service;
 import param.GlobleConstant;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +48,7 @@ public class LoginServiceImpl implements ILoginService {
     @Resource
     private DepartmentPermissionDao departmentPermissionDao;
 
-    public LoginTokenContext login(String userno, String password) throws BasicException {
+    public LoginTokenContext login(String userno, String password, HttpServletRequest request) throws BasicException {
 
         UserEntity user = userDao.selectByUserno(userno);
         if (user == null) {

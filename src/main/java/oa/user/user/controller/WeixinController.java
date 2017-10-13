@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import param.GlobleConstant;
+import param.WeiXinConstant;
 import weixin.AesException;
 import weixin.WXBizMsgCrypt;
 
@@ -83,7 +84,7 @@ public class WeixinController {
 
         String sEchoStr;
         try {
-            WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(GlobleConstant.WEIXIN_Token, GlobleConstant.WEIXIN_EncodingAESKey, GlobleConstant.WEIXIN_CorpID);
+            WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(WeiXinConstant.WEIXIN_Token, WeiXinConstant.WEIXIN_EncodingAESKey, WeiXinConstant.WEIXIN_CorpID);
             sEchoStr = wxcpt.VerifyURL(msg_signature, timestamp, nonce, echostr);
 
             response.getWriter().println(sEchoStr);
